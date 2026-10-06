@@ -1,0 +1,137 @@
+Net Sharpe ratios
+ factor    BH    RV  GARCH_A  GARCH_B  GJR_A  GJR_B  OVL_A  OVL_B  ZHAO_A  ZHAO_B
+   Mkt 0.517 0.405    0.438    0.454  0.447  0.443  0.443  0.446   0.454   0.393
+   SMB 0.165 0.045    0.040    0.111  0.076  0.088  0.093  0.142   0.092   0.278
+   HML 0.388 0.262    0.371    0.342  0.376  0.386  0.342  0.420   0.366   0.471
+   Mom 0.504 0.647    0.848    0.824  0.849  0.826  0.864  0.835   0.901   0.937
+   RMW 0.414 0.536    0.505    0.502  0.516  0.535  0.501  0.580   0.530   0.653
+   CMA 0.441 0.297    0.387    0.367  0.369  0.373  0.368  0.432   0.371   0.435
+
+Forecast accuracy (monthly QLIKE vs realised variance; DM rows: mean loss difference)
+ factor               model   QLIKE  corr_log    DM_t   DM_p
+   Mkt                  RV  0.4451    0.6597     NaN    NaN
+   Mkt             GARCH_A  0.3190    0.6688     NaN    NaN
+   Mkt             GARCH_B  0.3454    0.6566     NaN    NaN
+   Mkt               GJR_A  0.3127    0.6698     NaN    NaN
+   Mkt               GJR_B  0.3186    0.6635     NaN    NaN
+   Mkt               OVL_A  0.2959    0.6815     NaN    NaN
+   Mkt              ZHAO_A  0.2996    0.6955     NaN    NaN
+   Mkt               OVL_B  0.3197    0.6528     NaN    NaN
+   Mkt              ZHAO_B  0.5704    0.5010     NaN    NaN
+   Mkt  DM ZHAO_A vs GJR_A -0.0131       NaN -2.2384 0.0252
+   Mkt DM ZHAO_B vs ZHAO_A  0.2709       NaN  7.8414 0.0000
+   Mkt   DM OVL_A vs GJR_A -0.0168       NaN -1.3776 0.1683
+   SMB                  RV  0.3619    0.7294     NaN    NaN
+   SMB             GARCH_A  0.2996    0.7085     NaN    NaN
+   SMB             GARCH_B  1.5618    0.2755     NaN    NaN
+   SMB               GJR_A  0.2942    0.7080     NaN    NaN
+   SMB               GJR_B  0.9289    0.1930     NaN    NaN
+   SMB               OVL_A  0.2993    0.7113     NaN    NaN
+   SMB              ZHAO_A  0.3005    0.7223     NaN    NaN
+   SMB               OVL_B  0.3614    0.6346     NaN    NaN
+   SMB              ZHAO_B  0.8758    0.1552     NaN    NaN
+   SMB  DM ZHAO_A vs GJR_A  0.0062       NaN  1.7100 0.0873
+   SMB DM ZHAO_B vs ZHAO_A  0.5754       NaN 10.3248 0.0000
+   SMB   DM OVL_A vs GJR_A  0.0051       NaN  0.7009 0.4833
+   HML                  RV  0.3528    0.7758     NaN    NaN
+   HML             GARCH_A  0.2770    0.7919     NaN    NaN
+   HML             GARCH_B  0.4824    0.5904     NaN    NaN
+   HML               GJR_A  0.2776    0.7913     NaN    NaN
+   HML               GJR_B  0.4073    0.6605     NaN    NaN
+   HML               OVL_A  0.2914    0.7784     NaN    NaN
+   HML              ZHAO_A  0.2859    0.7874     NaN    NaN
+   HML               OVL_B  0.3383    0.7484     NaN    NaN
+   HML              ZHAO_B  0.9952    0.5048     NaN    NaN
+   HML  DM ZHAO_A vs GJR_A  0.0083       NaN  3.0979 0.0019
+   HML DM ZHAO_B vs ZHAO_A  0.7092       NaN 11.7429 0.0000
+   HML   DM OVL_A vs GJR_A  0.0138       NaN  2.3166 0.0205
+   Mom                  RV  0.4393    0.7658     NaN    NaN
+   Mom             GARCH_A  0.3536    0.7782     NaN    NaN
+   Mom             GARCH_B  0.3726    0.7583     NaN    NaN
+   Mom               GJR_A  0.3513    0.7801     NaN    NaN
+   Mom               GJR_B  0.3881    0.7518     NaN    NaN
+   Mom               OVL_A  0.3507    0.7905     NaN    NaN
+   Mom              ZHAO_A  0.3233    0.8099     NaN    NaN
+   Mom               OVL_B  0.3615    0.7774     NaN    NaN
+   Mom              ZHAO_B  0.3555    0.7774     NaN    NaN
+   Mom  DM ZHAO_A vs GJR_A -0.0281       NaN -5.0283 0.0000
+   Mom DM ZHAO_B vs ZHAO_A  0.0322       NaN  1.3964 0.1626
+   Mom   DM OVL_A vs GJR_A -0.0006       NaN -0.0932 0.9257
+   RMW                  RV  0.2287    0.8386     NaN    NaN
+   RMW             GARCH_A  0.1745    0.8639     NaN    NaN
+   RMW             GARCH_B  0.1725    0.8631     NaN    NaN
+   RMW               GJR_A  0.1754    0.8632     NaN    NaN
+   RMW               GJR_B  0.1847    0.8562     NaN    NaN
+   RMW               OVL_A  0.2328    0.8358     NaN    NaN
+   RMW              ZHAO_A  0.1977    0.8552     NaN    NaN
+   RMW               OVL_B  0.2894    0.7706     NaN    NaN
+   RMW              ZHAO_B  0.4886    0.5294     NaN    NaN
+   RMW  DM ZHAO_A vs GJR_A  0.0223       NaN  2.2420 0.0250
+   RMW DM ZHAO_B vs ZHAO_A  0.2909       NaN  5.2894 0.0000
+   RMW   DM OVL_A vs GJR_A  0.0574       NaN  3.1439 0.0017
+   CMA                  RV  0.2560    0.7613     NaN    NaN
+   CMA             GARCH_A  0.1906    0.7851     NaN    NaN
+   CMA             GARCH_B  0.4602    0.4454     NaN    NaN
+   CMA               GJR_A  0.1910    0.7837     NaN    NaN
+   CMA               GJR_B  0.3875    0.6167     NaN    NaN
+   CMA               OVL_A  0.2211    0.7507     NaN    NaN
+   CMA              ZHAO_A  0.1931    0.7821     NaN    NaN
+   CMA               OVL_B  0.2870    0.6600     NaN    NaN
+   CMA              ZHAO_B  0.8586    0.3214     NaN    NaN
+   CMA  DM ZHAO_A vs GJR_A  0.0021       NaN  0.7161 0.4739
+   CMA DM ZHAO_B vs ZHAO_A  0.6655       NaN 10.5856 0.0000
+   CMA   DM OVL_A vs GJR_A  0.0301       NaN  4.0665 0.0000
+
+Seed spread of the Zhao GARCH-LSTM (net Sharpe)
+ factor objective  seed_min  seed_max  seed_sd  ensemble
+   Mkt         A     0.448     0.459    0.004     0.454
+   Mkt         B     0.298     0.423    0.049     0.393
+   SMB         A     0.086     0.102    0.006     0.092
+   SMB         B     0.237     0.300    0.025     0.278
+   HML         A     0.362     0.370    0.003     0.366
+   HML         B     0.420     0.492    0.027     0.471
+   Mom         A     0.896     0.904    0.003     0.901
+   Mom         B     0.876     0.964    0.038     0.937
+   RMW         A     0.520     0.546    0.011     0.530
+   RMW         B     0.626     0.665    0.015     0.653
+   CMA         A     0.357     0.378    0.008     0.371
+   CMA         B     0.410     0.436    0.011     0.435
+
+Family of 36 tests
+        question factor              test  SR_a  SR_b    dSR    se      t  p_raw  p_holm  p_bh  p_romano_wolf
+ Q1 neural part    Mkt    ZHAO_A - GJR_A 0.454 0.447  0.006 0.016  0.389  0.698   1.000 0.843          1.000
+    Q2 decision    Mkt   ZHAO_B - ZHAO_A 0.393 0.454 -0.061 0.060 -1.017  0.309   1.000 0.557          0.993
+    Q2 decision    Mkt     GJR_B - GJR_A 0.443 0.447 -0.004 0.012 -0.332  0.740   1.000 0.843          1.000
+    Q2 decision    Mkt GARCH_B - GARCH_A 0.454 0.438  0.015 0.021  0.727  0.467   1.000 0.647          0.998
+Q3 full package    Mkt    ZHAO_B - GJR_A 0.393 0.447 -0.054 0.057 -0.947  0.344   1.000 0.563          0.996
+Q3 full package    Mkt       ZHAO_B - RV 0.393 0.405 -0.012 0.080 -0.151  0.880   1.000 0.909          1.000
+ Q1 neural part    SMB    ZHAO_A - GJR_A 0.092 0.076  0.016 0.010  1.600  0.110   1.000 0.263          0.859
+    Q2 decision    SMB   ZHAO_B - ZHAO_A 0.278 0.092  0.186 0.062  2.975  0.003   0.097 0.026          0.076
+    Q2 decision    SMB     GJR_B - GJR_A 0.088 0.076  0.011 0.040  0.276  0.783   1.000 0.854          1.000
+    Q2 decision    SMB GARCH_B - GARCH_A 0.111 0.040  0.070 0.051  1.375  0.169   1.000 0.358          0.942
+Q3 full package    SMB    ZHAO_B - GJR_A 0.278 0.076  0.202 0.062  3.273  0.001   0.036 0.013          0.032
+Q3 full package    SMB       ZHAO_B - RV 0.278 0.045  0.233 0.089  2.630  0.009   0.256 0.044          0.175
+ Q1 neural part    HML    ZHAO_A - GJR_A 0.366 0.376 -0.010 0.005 -1.820  0.069   1.000 0.228          0.755
+    Q2 decision    HML   ZHAO_B - ZHAO_A 0.471 0.366  0.105 0.040  2.657  0.008   0.244 0.044          0.163
+    Q2 decision    HML     GJR_B - GJR_A 0.386 0.376  0.010 0.029  0.337  0.736   1.000 0.843          1.000
+    Q2 decision    HML GARCH_B - GARCH_A 0.342 0.371 -0.029 0.030 -0.967  0.333   1.000 0.563          0.996
+Q3 full package    HML    ZHAO_B - GJR_A 0.471 0.376  0.095 0.039  2.470  0.014   0.392 0.061          0.256
+Q3 full package    HML       ZHAO_B - RV 0.471 0.262  0.209 0.049  4.279  0.000   0.001 0.001          0.001
+ Q1 neural part    Mom    ZHAO_A - GJR_A 0.901 0.849  0.052 0.018  2.850  0.004   0.140 0.031          0.103
+    Q2 decision    Mom   ZHAO_B - ZHAO_A 0.937 0.901  0.037 0.042  0.867  0.386   1.000 0.604          0.997
+    Q2 decision    Mom     GJR_B - GJR_A 0.826 0.849 -0.023 0.027 -0.828  0.408   1.000 0.604          0.998
+    Q2 decision    Mom GARCH_B - GARCH_A 0.824 0.848 -0.024 0.017 -1.414  0.157   1.000 0.354          0.932
+Q3 full package    Mom    ZHAO_B - GJR_A 0.937 0.849  0.088 0.053  1.655  0.098   1.000 0.252          0.823
+Q3 full package    Mom       ZHAO_B - RV 0.937 0.647  0.290 0.071  4.056  0.000   0.002 0.001          0.003
+ Q1 neural part    RMW    ZHAO_A - GJR_A 0.530 0.516  0.014 0.017  0.808  0.419   1.000 0.604          0.998
+    Q2 decision    RMW   ZHAO_B - ZHAO_A 0.653 0.530  0.123 0.070  1.748  0.080   1.000 0.228          0.782
+    Q2 decision    RMW     GJR_B - GJR_A 0.535 0.516  0.019 0.028  0.678  0.498   1.000 0.664          0.998
+    Q2 decision    RMW GARCH_B - GARCH_A 0.502 0.505 -0.003 0.020 -0.146  0.884   1.000 0.909          1.000
+Q3 full package    RMW    ZHAO_B - GJR_A 0.653 0.516  0.137 0.066  2.085  0.037   1.000 0.148          0.543
+Q3 full package    RMW       ZHAO_B - RV 0.653 0.536  0.117 0.067  1.737  0.082   1.000 0.228          0.782
+ Q1 neural part    CMA    ZHAO_A - GJR_A 0.371 0.369  0.002 0.007  0.319  0.749   1.000 0.843          1.000
+    Q2 decision    CMA   ZHAO_B - ZHAO_A 0.435 0.371  0.064 0.058  1.102  0.270   1.000 0.512          0.988
+    Q2 decision    CMA     GJR_B - GJR_A 0.373 0.369  0.004 0.038  0.110  0.912   1.000 0.912          1.000
+    Q2 decision    CMA GARCH_B - GARCH_A 0.367 0.387 -0.020 0.041 -0.484  0.628   1.000 0.808          1.000
+Q3 full package    CMA    ZHAO_B - GJR_A 0.435 0.369  0.066 0.059  1.120  0.263   1.000 0.512          0.987
+Q3 full package    CMA       ZHAO_B - RV 0.435 0.297  0.138 0.078  1.769  0.077   1.000 0.228          0.777
