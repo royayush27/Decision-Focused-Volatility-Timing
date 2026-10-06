@@ -1,0 +1,435 @@
+     region                    mix data from cal window  mean w 1998+
+world_ex_us Mkt + Prof + Inv + Mom   1987-01  1990-1997          1.31
+        jpn Mkt + Prof + Inv + Mom   1987-01  1990-1997          1.03
+        gbr Mkt + Prof + Inv + Mom   1987-01  1990-1997          0.95
+        deu Mkt + Prof + Inv + Mom   1990-05  1993-1997          0.72
+        fra Mkt + Prof + Inv + Mom   1990-05  1993-1997          0.95
+        can Mkt + Prof + Inv + Mom   1982-05  1990-1997          0.67
+        aus Mkt + Prof + Inv + Mom   1989-11  1992-1997          0.89
+   emerging Mkt + Prof + Inv + Mom   1993-05  1996-1997          0.63
+
+================ Mkt + Prof + Inv + Mom
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us     0.44      0.32     0.66      0.47    -2.45     -5.48
+jpn            -0.52     -0.33    -0.64     -0.44   -11.02     -7.13
+gbr             1.35      1.13     2.77      2.10    -2.51     -3.66
+deu             1.00      0.98     1.57      1.53    -2.63     -2.23
+fra             0.97      0.97     1.90      1.84    -2.24     -2.58
+can             1.44      1.64     3.01      4.03    -3.97     -3.87
+aus             0.89      0.71     1.56      1.18    -4.50     -7.10
+emerging        0.63      0.31     0.98      0.41    -3.25     -4.58
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.35      1.18     2.65      1.97    -8.66     -9.86  0.16 -0.03  0.34
+jpn             0.41      0.34     0.64      0.52    -9.60    -12.73  0.07 -0.10  0.24
+gbr             1.04      0.98     1.91      1.68    -4.73    -10.93  0.06 -0.11  0.23
+deu             1.26      1.29     2.44      2.48    -5.26     -7.29 -0.03 -0.18  0.12
+fra             0.98      0.76     1.93      1.27    -8.10    -13.53  0.22  0.06  0.36
+can             1.02      0.95     1.95      1.66    -4.03    -13.76  0.07 -0.11  0.27
+aus             1.23      1.23     2.35      2.23    -5.21     -9.00 -0.00 -0.13  0.14
+emerging        1.05      0.84     1.96      1.33    -5.50    -13.29  0.22 -0.01  0.45
+pooled 7 regions: mean dSR +0.086 [-0.027, +0.201], regions better 5/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.53      1.20     3.40      2.00    -8.66     -9.86  0.33  0.10  0.53
+jpn             0.42      0.32     0.69      0.50    -8.32    -12.73  0.10 -0.11  0.32
+gbr             1.16      1.08     2.21      1.91    -4.73    -10.93  0.09 -0.15  0.31
+deu             1.54      1.46     3.44      2.95    -3.19     -7.29  0.07 -0.11  0.26
+fra             1.06      0.75     2.26      1.27    -8.10    -13.53  0.32  0.13  0.48
+can             1.24      1.10     2.48      1.94    -4.03    -13.76  0.13 -0.10  0.40
+aus             1.50      1.46     3.04      2.71    -5.21     -9.00  0.04 -0.14  0.25
+emerging        1.13      0.80     2.12      1.25    -5.50    -13.29  0.33  0.04  0.61
+pooled 7 regions: mean dSR +0.155 [+0.013, +0.293], regions better 7/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.00      1.16     1.63      1.97    -6.07     -4.09 -0.16 -0.39  0.09
+jpn             0.38      0.39     0.56      0.58    -9.60     -8.22 -0.02 -0.17  0.15
+gbr             0.79      0.78     1.32      1.22    -3.68     -6.96  0.01 -0.24  0.22
+deu             0.73      0.94     1.14      1.55    -5.26     -6.63 -0.21 -0.40 -0.02
+fra             0.82      0.84     1.36      1.29    -4.93     -7.27 -0.02 -0.23  0.15
+can             0.52      0.62     0.82      1.01    -3.63     -5.84 -0.09 -0.36  0.19
+aus             0.72      0.80     1.21      1.36    -4.71     -6.14 -0.08 -0.25  0.06
+emerging        0.91      0.94     1.64      1.61    -2.39     -4.39 -0.03 -0.30  0.18
+pooled 7 regions: mean dSR -0.062 [-0.204, +0.054], regions better 1/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.92      1.20     1.49      2.11    -6.07     -2.77 -0.28 -0.50 -0.08
+jpn             0.07      0.10     0.10      0.14    -9.60     -8.22 -0.03 -0.30  0.27
+gbr             0.96      1.01     1.95      2.00    -3.56     -3.18 -0.05 -0.26  0.11
+deu             1.00      1.15     1.95      2.34    -2.49     -2.52 -0.15 -0.34 -0.01
+fra             0.96      1.00     1.76      1.84    -4.85     -5.28 -0.04 -0.20  0.14
+can             0.47      0.53     0.78      0.87    -1.57     -5.84 -0.06 -0.39  0.22
+aus             0.73      0.81     1.28      1.46    -3.94     -3.73 -0.08 -0.23  0.08
+emerging        0.85      0.92     1.67      1.69    -1.81     -3.28 -0.06 -0.34  0.16
+pooled 7 regions: mean dSR -0.070 [-0.188, +0.025], regions better 0/7
+
+================ Prof + Inv + Mom
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us     1.29      0.97     2.92      1.50    -1.53     -3.23
+jpn             0.42      0.27     0.63      0.38    -5.58     -6.69
+gbr             1.23      1.19     3.13      2.28    -1.82     -3.07
+deu             0.52      0.50     0.85      0.75    -3.63     -3.64
+fra             0.83      0.73     1.45      1.21    -4.09     -3.40
+can             1.68      1.69     4.72      4.73    -2.72     -2.76
+aus             0.66      0.76     1.10      1.35    -4.14     -3.94
+emerging        1.48      1.61     6.70      7.24    -0.49     -0.48
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.31      0.88     2.72      1.36    -2.44    -15.54  0.43  0.07  0.80
+jpn             0.22      0.08     0.34      0.11    -4.37    -10.57  0.14 -0.09  0.38
+gbr             0.89      0.68     1.69      1.14    -6.13    -17.42  0.21 -0.12  0.52
+deu             1.06      0.92     1.97      1.72    -6.15    -14.46  0.13 -0.13  0.41
+fra             0.73      0.45     1.25      0.68    -9.44    -20.32  0.28  0.09  0.49
+can             0.58      0.54     0.95      0.85   -14.31    -26.36  0.03 -0.05  0.12
+aus             1.09      0.96     2.19      1.64    -5.78    -15.16  0.13 -0.09  0.37
+emerging        1.01      0.71     1.68      1.02    -8.62    -17.03  0.29  0.00  0.57
+pooled 7 regions: mean dSR +0.175 [+0.036, +0.324], regions better 7/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.33      0.83     2.71      1.27    -2.44    -15.54  0.50  0.05  0.95
+jpn             0.29      0.10     0.45      0.14    -4.37    -10.57  0.19 -0.13  0.50
+gbr             0.89      0.77     1.68      1.35    -6.13    -17.42  0.12 -0.29  0.56
+deu             1.44      1.04     3.26      1.94    -4.49    -14.46  0.40  0.11  0.71
+fra             0.72      0.43     1.23      0.68    -9.44    -20.32  0.29  0.03  0.57
+can             0.77      0.77     1.27      1.24   -14.31    -26.36 -0.00 -0.10  0.09
+aus             1.34      1.26     2.77      2.39    -5.78    -15.16  0.09 -0.24  0.45
+emerging        0.89      0.57     1.43      0.79    -8.62    -17.03  0.32 -0.03  0.62
+pooled 7 regions: mean dSR +0.199 [+0.007, +0.400], regions better 6/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.35      1.22     2.96      2.09    -0.74     -2.60  0.13 -0.15  0.40
+jpn             0.09      0.02     0.14      0.02    -2.99     -6.12  0.08 -0.21  0.35
+gbr             0.90      0.48     1.74      0.68    -2.48    -12.65  0.42 -0.03  0.77
+deu             0.41      0.71     0.60      1.25    -6.15     -5.31 -0.30 -0.57 -0.03
+fra             0.75      0.50     1.31      0.69    -4.25     -9.83  0.25 -0.10  0.50
+can            -0.03     -0.04    -0.05     -0.05    -6.16    -14.97  0.01 -0.01  0.03
+aus             0.65      0.40     1.26      0.58    -5.18    -10.13  0.25 -0.05  0.52
+emerging        1.29      1.21     2.41      2.09    -3.20     -2.21  0.08 -0.07  0.22
+pooled 7 regions: mean dSR +0.113 [-0.020, +0.213], regions better 6/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.25      1.29     2.45      2.46    -0.48     -1.49 -0.04 -0.36  0.28
+jpn            -0.03     -0.19    -0.05     -0.25    -1.97     -5.22  0.16 -0.33  0.55
+gbr             0.88      0.72     1.46      1.14    -0.98     -3.70  0.15 -0.25  0.60
+deu             0.85      1.13     1.40      2.35    -1.93     -2.01 -0.28 -0.58  0.10
+fra             0.96      0.85     1.84      1.36    -2.90     -3.63  0.11 -0.23  0.46
+can            -0.17     -0.16    -0.23     -0.22    -3.14     -7.81 -0.01 -0.03  0.01
+aus             0.85      0.65     1.54      0.99    -3.33     -5.13  0.20 -0.18  0.58
+emerging        0.98      0.97     1.96      1.86    -2.65     -1.92  0.01 -0.19  0.17
+pooled 7 regions: mean dSR +0.050 [-0.106, +0.189], regions better 5/7
+
+================ Mkt + Mom
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us     0.31      0.18     0.45      0.26    -7.83    -12.40
+jpn            -0.46     -0.38    -0.58     -0.49   -31.85    -21.29
+gbr             1.29      1.15     2.42      2.02    -6.65     -7.11
+deu             0.52      0.46     0.80      0.69   -17.20    -16.55
+fra             0.51      0.50     0.83      0.78    -8.05     -8.80
+can             1.20      1.26     2.32      2.55    -8.78    -10.07
+aus             0.73      0.71     1.31      1.25   -12.05    -12.93
+emerging        0.50      0.32     0.92      0.52    -9.22    -15.38
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.04      0.78     1.81      1.17   -26.70    -28.44  0.25  0.04  0.45
+jpn             0.43      0.31     0.69      0.47   -29.52    -30.81  0.12 -0.03  0.27
+gbr             0.80      0.63     1.38      0.93   -19.85    -31.72  0.17 -0.03  0.35
+deu             0.99      0.89     1.73      1.44   -18.88    -22.18  0.10 -0.07  0.26
+fra             0.92      0.67     1.72      1.06   -20.99    -27.69  0.25  0.07  0.41
+can             0.81      0.75     1.33      1.15   -11.04    -38.70  0.06 -0.21  0.35
+aus             0.91      0.82     1.51      1.26   -33.27    -36.93  0.10 -0.01  0.20
+emerging        0.89      0.59     1.50      0.86   -20.46    -35.72  0.29  0.05  0.54
+pooled 7 regions: mean dSR +0.156 [+0.027, +0.286], regions better 7/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.17      0.75     2.21      1.11   -26.70    -28.44  0.42  0.17  0.62
+jpn             0.44      0.29     0.75      0.46   -29.52    -30.81  0.15 -0.04  0.35
+gbr             1.02      0.71     1.91      1.07   -19.85    -31.72  0.31  0.03  0.53
+deu             1.17      0.91     2.23      1.49   -18.88    -22.18  0.26  0.05  0.45
+fra             1.01      0.65     2.07      1.04   -20.99    -27.69  0.37  0.15  0.56
+can             0.90      0.74     1.55      1.12   -11.04    -38.70  0.16 -0.18  0.55
+aus             1.03      0.91     1.70      1.38   -33.27    -36.93  0.12 -0.01  0.25
+emerging        0.96      0.55     1.64      0.77   -20.46    -35.72  0.42  0.08  0.71
+pooled 7 regions: mean dSR +0.255 [+0.079, +0.407], regions better 7/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.78      0.88     1.20      1.38   -17.38     -9.68 -0.10 -0.32  0.17
+jpn             0.41      0.36     0.58      0.51   -22.55    -16.62  0.04 -0.12  0.22
+gbr             0.33      0.45     0.47      0.66   -18.90    -17.70 -0.12 -0.31  0.08
+deu             0.64      0.85     0.96      1.37   -15.85    -11.76 -0.21 -0.40 -0.03
+fra             0.71      0.73     1.14      1.14   -16.01    -17.92 -0.02 -0.25  0.19
+can             0.60      0.78     0.89      1.28    -8.70    -11.11 -0.19 -0.51  0.15
+aus             0.68      0.63     1.12      1.00   -17.65    -15.89  0.05 -0.07  0.24
+emerging        0.73      0.72     1.21      1.12   -12.04    -11.62  0.02 -0.24  0.30
+pooled 7 regions: mean dSR -0.061 [-0.210, +0.082], regions better 3/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.68      0.90     1.05      1.42   -16.89     -9.43 -0.22 -0.44 -0.01
+jpn             0.26      0.27     0.38      0.38   -22.55    -16.62 -0.00 -0.22  0.24
+gbr             0.39      0.52     0.58      0.82   -18.90    -17.70 -0.14 -0.29  0.00
+deu             0.72      0.91     1.12      1.52   -15.07    -11.76 -0.19 -0.39 -0.02
+fra             0.61      0.62     0.95      0.97   -16.01    -17.92 -0.01 -0.31  0.28
+can             0.51      0.90     0.74      1.48    -3.63    -10.36 -0.39 -0.82 -0.02
+aus             0.53      0.58     0.82      0.93   -17.65    -14.30 -0.05 -0.11  0.02
+emerging        0.70      0.81     1.29      1.39    -7.18     -7.72 -0.10 -0.34  0.11
+pooled 7 regions: mean dSR -0.127 [-0.251, -0.022], regions better 0/7
+
+================ Market alone
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us    -0.20     -0.16    -0.26     -0.22   -23.37    -30.25
+jpn            -0.58     -0.42    -0.76     -0.60   -66.44    -58.24
+gbr             0.58      0.46     0.99      0.75   -16.17    -20.15
+deu             0.20      0.19     0.28      0.26   -20.91    -26.80
+fra             0.11      0.16     0.16      0.23   -22.88    -23.36
+can             0.33      0.27     0.50      0.40   -18.66    -20.86
+aus             0.26      0.17     0.38      0.26   -22.54    -24.45
+emerging       -0.11     -0.39    -0.15     -0.50   -48.46    -51.98
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.40      0.40     0.57      0.56   -59.69    -58.55 -0.00 -0.24  0.23
+jpn             0.32      0.34     0.47      0.53   -56.01    -47.23 -0.03 -0.15  0.10
+gbr             0.30      0.31     0.43      0.44   -64.66    -64.26 -0.01 -0.28  0.26
+deu             0.35      0.35     0.52      0.50   -55.27    -57.63  0.01 -0.24  0.23
+fra             0.39      0.40     0.57      0.58   -45.67    -58.79 -0.01 -0.24  0.22
+can             0.44      0.50     0.63      0.72   -27.15    -57.26 -0.06 -0.30  0.19
+aus             0.36      0.41     0.50      0.58   -62.74    -67.62 -0.05 -0.23  0.14
+emerging        0.40      0.34     0.58      0.48   -63.61    -58.50  0.06 -0.20  0.32
+pooled 7 regions: mean dSR -0.014 [-0.192, +0.176], regions better 2/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.50      0.40     0.72      0.55   -59.69    -58.55  0.10 -0.22  0.39
+jpn             0.31      0.30     0.48      0.47   -56.01    -47.23  0.01 -0.15  0.15
+gbr             0.38      0.32     0.55      0.46   -64.66    -64.26  0.06 -0.31  0.44
+deu             0.45      0.33     0.68      0.46   -55.27    -57.63  0.12 -0.19  0.40
+fra             0.55      0.42     0.83      0.61   -45.67    -58.79  0.12 -0.19  0.43
+can             0.43      0.41     0.63      0.58   -27.15    -57.26  0.02 -0.28  0.35
+aus             0.43      0.41     0.60      0.58   -62.74    -67.62  0.01 -0.23  0.27
+emerging        0.50      0.37     0.72      0.52   -63.61    -58.50  0.13 -0.21  0.46
+pooled 7 regions: mean dSR +0.068 [-0.179, +0.324], regions better 7/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.22      0.41     0.29      0.59   -39.64    -27.13 -0.19 -0.45  0.09
+jpn             0.33      0.45     0.47      0.66   -41.57    -28.19 -0.12 -0.29  0.05
+gbr             0.15      0.30     0.20      0.42   -41.68    -37.84 -0.15 -0.44  0.14
+deu             0.19      0.39     0.26      0.58   -45.81    -42.74 -0.20 -0.54  0.18
+fra             0.13      0.36     0.17      0.53   -42.38    -33.54 -0.24 -0.49  0.03
+can             0.46      0.68     0.65      1.02   -15.97    -31.20 -0.22 -0.54  0.07
+aus             0.22      0.41     0.31      0.58   -48.68    -36.73 -0.18 -0.41  0.03
+emerging        0.20      0.29     0.28      0.41   -36.98    -30.18 -0.09 -0.34  0.15
+pooled 7 regions: mean dSR -0.171 [-0.396, +0.045], regions better 0/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.23      0.34     0.32      0.50   -34.06    -25.34 -0.11 -0.34  0.15
+jpn             0.24      0.26     0.35      0.37   -35.91    -28.19 -0.02 -0.22  0.16
+gbr             0.30      0.35     0.44      0.52   -34.37    -37.84 -0.05 -0.38  0.27
+deu             0.20      0.18     0.28      0.26   -33.46    -42.74  0.02 -0.44  0.45
+fra             0.12      0.24     0.16      0.33   -26.71    -31.69 -0.12 -0.43  0.21
+can             0.80      0.84     1.31      1.33    -8.48    -21.05 -0.04 -0.36  0.23
+aus             0.05      0.25     0.07      0.35   -48.68    -25.83 -0.20 -0.41 -0.02
+emerging        0.25      0.35     0.36      0.52   -25.33    -20.22 -0.10 -0.33  0.15
+pooled 7 regions: mean dSR -0.072 [-0.297, +0.141], regions better 1/7
+
+================ Mkt + Prof + Inv (no Mom)
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us    -0.05     -0.04    -0.07     -0.06    -6.13     -7.83
+jpn            -0.63     -0.38    -0.79     -0.53   -17.52    -16.43
+gbr             0.57      0.44     0.99      0.74    -4.41     -7.27
+deu             0.23      0.48     0.29      0.65    -6.24     -4.86
+fra             0.66      0.73     1.14      1.37    -3.95     -3.99
+can             0.77      0.90     1.42      1.67    -3.55     -3.49
+aus             0.24      0.31     0.36      0.49    -6.65     -8.42
+emerging       -0.44     -0.57    -0.54     -0.67    -5.99     -6.17
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.72      0.75     1.11      1.17   -11.02    -16.39 -0.03 -0.26  0.21
+jpn             0.24      0.36     0.34      0.56   -20.28    -14.69 -0.12 -0.29  0.04
+gbr             0.65      0.64     1.03      1.01   -16.08    -20.05  0.01 -0.22  0.26
+deu             0.71      0.80     1.10      1.34    -9.94    -15.99 -0.09 -0.29  0.14
+fra             0.54      0.52     0.81      0.78   -12.61    -21.30  0.02 -0.19  0.21
+can             0.71      0.77     1.17      1.27    -9.48    -13.91 -0.06 -0.22  0.12
+aus             0.68      0.73     1.06      1.18   -10.70    -17.01 -0.05 -0.21  0.12
+emerging        0.59      0.59     0.91      0.91    -7.96    -16.56 -0.00 -0.21  0.21
+pooled 7 regions: mean dSR -0.043 [-0.181, +0.110], regions better 2/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.95      0.82     1.57      1.28   -11.02    -16.39  0.13 -0.16  0.41
+jpn             0.21      0.31     0.31      0.50   -20.28    -14.69 -0.10 -0.31  0.11
+gbr             0.75      0.68     1.22      1.08   -16.08    -20.05  0.07 -0.23  0.41
+deu             0.99      0.99     1.68      1.74    -7.36    -15.99  0.00 -0.29  0.32
+fra             0.72      0.55     1.16      0.84   -11.30    -21.30  0.17 -0.10  0.44
+can             0.99      0.93     1.81      1.63    -6.59    -13.91  0.07 -0.14  0.31
+aus             0.87      0.85     1.42      1.39    -9.57    -17.01  0.02 -0.21  0.28
+emerging        0.70      0.64     1.10      0.98    -7.96    -16.56  0.06 -0.22  0.35
+pooled 7 regions: mean dSR +0.042 [-0.142, +0.243], regions better 6/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.33      0.61     0.45      0.95   -10.90     -8.31 -0.29 -0.59  0.02
+jpn             0.28      0.47     0.39      0.71   -13.87     -9.52 -0.19 -0.37 -0.01
+gbr             0.44      0.57     0.67      0.89    -8.13    -10.61 -0.13 -0.41  0.14
+deu             0.20      0.44     0.27      0.67    -9.94    -12.24 -0.24 -0.52  0.08
+fra             0.20      0.46     0.27      0.66   -12.61    -12.69 -0.26 -0.46 -0.06
+can             0.12      0.44     0.16      0.65    -9.48    -12.09 -0.33 -0.58 -0.09
+aus             0.34      0.50     0.49      0.79   -10.70    -10.77 -0.16 -0.31 -0.03
+emerging        0.37      0.49     0.55      0.76    -5.77     -7.15 -0.13 -0.34  0.08
+pooled 7 regions: mean dSR -0.205 [-0.372, -0.034], regions better 0/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     0.34      0.55     0.50      0.91    -8.97     -6.24 -0.21 -0.44  0.05
+jpn            -0.03      0.08    -0.04      0.11   -13.18     -9.52 -0.11 -0.27  0.07
+gbr             0.65      0.73     1.12      1.34    -5.27     -8.21 -0.08 -0.37  0.23
+deu             0.32      0.33     0.48      0.51    -4.73    -10.71 -0.01 -0.36  0.39
+fra             0.42      0.61     0.57      0.92    -7.41     -7.36 -0.19 -0.41  0.12
+can             0.12      0.36     0.16      0.55    -5.78     -8.21 -0.24 -0.49  0.01
+aus             0.25      0.43     0.37      0.72    -4.91     -4.65 -0.19 -0.29 -0.06
+emerging        0.36      0.43     0.55      0.71    -5.21     -6.11 -0.07 -0.29  0.15
+pooled 7 regions: mean dSR -0.127 [-0.285, +0.042], regions better 0/7
+
+================ Mom alone
+
+--- in-sample cal (each region's own calibration window, in-sample for c)
+              Sharpe            Sortino            MaxDD_%          
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged
+region                                                              
+world_ex_us     0.87      0.73     1.49      1.10    -6.43    -13.27
+jpn             0.06      0.18     0.08      0.27   -35.86    -27.30
+gbr             1.58      1.42     2.99      2.50   -10.28    -11.23
+deu             0.94      0.64     1.99      1.04   -12.58    -14.78
+fra             0.70      0.57     1.13      0.87   -11.97    -13.22
+can             1.76      1.72     4.19      3.84    -8.43    -10.20
+aus             1.21      1.12     2.81      2.34    -8.86     -9.34
+emerging        1.09      0.77     2.29      1.51    -6.33     -8.37
+
+--- 1998-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.19      0.60     2.40      0.86    -7.19    -37.62  0.59  0.22  0.97
+jpn             0.36      0.04     0.58      0.06    -7.58    -40.88  0.31 -0.02  0.63
+gbr             0.79      0.43     1.60      0.60   -11.12    -51.23  0.36  0.04  0.67
+deu             0.98      0.64     2.01      0.98   -11.49    -49.00  0.34  0.04  0.62
+fra             0.85      0.34     1.60      0.48   -13.50    -44.20  0.51  0.25  0.75
+can             0.75      0.45     1.25      0.65   -11.37    -49.18  0.30  0.04  0.56
+aus             1.10      0.84     2.13      1.35   -14.86    -40.74  0.26  0.03  0.49
+emerging        1.00      0.59     1.76      0.84   -20.42    -37.26  0.41  0.12  0.68
+pooled 7 regions: mean dSR +0.356 [+0.152, +0.561], regions better 7/7
+
+--- 1998-2015
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.25      0.53     2.56      0.75    -7.19    -37.62  0.72  0.24  1.17
+jpn             0.41      0.07     0.68      0.10    -7.58    -39.58  0.34 -0.09  0.74
+gbr             0.89      0.53     1.83      0.77   -11.12    -51.23  0.36 -0.08  0.77
+deu             1.21      0.67     2.82      1.03    -8.22    -49.00  0.54  0.16  0.89
+fra             0.86      0.31     1.62      0.45   -13.50    -44.20  0.54  0.22  0.85
+can             0.91      0.57     1.50      0.83   -11.37    -49.18  0.33  0.03  0.68
+aus             1.30      1.02     2.60      1.75   -14.86    -40.74  0.28 -0.07  0.64
+emerging        0.91      0.41     1.56      0.55   -20.42    -37.26  0.50  0.11  0.82
+pooled 7 regions: mean dSR +0.414 [+0.147, +0.690], regions better 7/7
+
+--- 2016-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.12      0.87     2.08      1.32    -4.05     -9.74  0.25 -0.18  0.66
+jpn             0.24     -0.03     0.35     -0.04    -6.19    -25.78  0.26 -0.08  0.63
+gbr             0.59      0.19     1.08      0.24    -7.03    -37.53  0.40 -0.07  0.70
+deu             0.45      0.59     0.69      0.89   -11.49    -19.39 -0.14 -0.49  0.20
+fra             0.86      0.41     1.58      0.53    -6.71    -36.67  0.45  0.02  0.77
+can             0.37      0.21     0.60      0.30    -7.24    -36.01  0.16 -0.15  0.42
+aus             0.66      0.48     1.17      0.69    -9.09    -17.87  0.18 -0.06  0.39
+emerging        1.22      1.03     2.33      1.85    -8.80     -6.84  0.18 -0.07  0.41
+pooled 7 regions: mean dSR +0.215 [-0.030, +0.413], regions better 6/7
+
+--- 2021-2025
+              Sharpe            Sortino            MaxDD_%            gain            
+version     MM-GARCH Unmanaged MM-GARCH Unmanaged MM-GARCH Unmanaged   dSR    lo    hi
+region                                                                                
+world_ex_us     1.27      1.04     2.25      1.59    -1.66     -7.17  0.23 -0.24  0.61
+jpn             0.42      0.07     0.73      0.09    -3.12    -14.03  0.36 -0.11  0.75
+gbr             0.44      0.27     0.82      0.42    -4.40    -16.93  0.16 -0.33  0.58
+deu             0.83      1.03     1.30      1.70    -6.27    -16.29 -0.20 -0.66  0.36
+fra             0.82      0.57     1.32      0.83    -6.10    -17.38  0.25 -0.04  0.60
+can             0.33      0.32     0.52      0.50    -4.24    -16.84  0.01 -0.37  0.34
+aus             0.93      0.77     1.85      1.30    -8.12    -13.08  0.15 -0.08  0.33
+emerging        1.07      0.92     2.15      1.71    -7.42     -5.86  0.15 -0.10  0.39
+pooled 7 regions: mean dSR +0.126 [-0.068, +0.293], regions better 6/7

@@ -1,0 +1,3 @@
+model,months,QLIKE,MSE,mean_error_forecast_minus_RV,mean_forecast_to_mean_RV
+Lagged RV,120,0.252412508,2.47E-05,1.75E-06,1.000423662
+"GARCH(1,1)",120,0.213777543,1.91E-05,-0.000216236,0.947715541

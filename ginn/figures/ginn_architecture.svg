@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="900" viewBox="0 0 1480 900" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#37474f"/>
+    </marker>
+    <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c62828"/>
+    </marker>
+  </defs>
+  <rect width="1480" height="900" fill="#ffffff"/>
+
+  <!-- title -->
+  <text x="740" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#212121">GINN: GARCH-informed neural network (residual correction of GARCH)</text>
+  <text x="740" y="68" text-anchor="middle" font-size="16" fill="#455a64">h_GINN(t) = h_GARCH(t) × exp(g_t),   g_t = Linear( LSTM( last 22 days ) ).   At initialisation g_t = 0, so the GINN starts exactly at GARCH.</text>
+
+  <!-- 1. data -->
+  <rect x="30" y="300" width="210" height="200" rx="12" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="135" y="330" text-anchor="middle" font-size="17" font-weight="bold" fill="#1b5e20">1. Daily returns</text>
+  <text x="135" y="358" text-anchor="middle" font-size="14" fill="#1b5e20">r_1 … r_T  (Mkt-RF, %)</text>
+  <text x="135" y="385" text-anchor="middle" font-size="13" fill="#33691e">train: first 2,000 days</text>
+  <text x="135" y="405" text-anchor="middle" font-size="13" fill="#33691e">validation: last 500 days</text>
+  <line x1="55" y1="425" x2="215" y2="425" stroke="#a5d6a7"/>
+  <text x="135" y="448" text-anchor="middle" font-size="13" fill="#33691e">all statistics (GARCH fit,</text>
+  <text x="135" y="466" text-anchor="middle" font-size="13" fill="#33691e">mean / std) from train only</text>
+
+  <!-- 2. GARCH frozen -->
+  <rect x="300" y="110" width="290" height="170" rx="12" fill="#f5f5f5" stroke="#616161" stroke-width="2"/>
+  <text x="445" y="140" text-anchor="middle" font-size="17" font-weight="bold" fill="#424242">2. GARCH(1,1), frozen</text>
+  <text x="445" y="168" text-anchor="middle" font-size="15" fill="#212121">h(t) = ω + α·r²(t−1) + β·h(t−1)</text>
+  <text x="445" y="194" text-anchor="middle" font-size="13" fill="#616161">ω, α, β from your step-1 QMLE fit</text>
+  <text x="445" y="213" text-anchor="middle" font-size="13" fill="#616161">(train days only), then held fixed</text>
+  <text x="445" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#757575">no gradient: torch.no_grad()</text>
+  <text x="445" y="262" text-anchor="middle" font-size="13" fill="#616161">output: h_GARCH(t) for every day</text>
+
+  <!-- 3. features -->
+  <rect x="300" y="330" width="290" height="250" rx="12" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+  <text x="445" y="360" text-anchor="middle" font-size="17" font-weight="bold" fill="#1b5e20">3. Feature windows</text>
+  <text x="445" y="388" text-anchor="middle" font-size="14" fill="#1b5e20">for target day t, use days t−22 … t−1</text>
+  <text x="445" y="414" text-anchor="middle" font-size="14" fill="#1b5e20">3 features per day:</text>
+  <text x="445" y="436" text-anchor="middle" font-size="14" fill="#1b5e20">r,   r²,   log h_GARCH</text>
+  <text x="445" y="462" text-anchor="middle" font-size="13" fill="#33691e">standardised with train mean / std</text>
+  <rect x="345" y="480" width="200" height="40" rx="6" fill="#ffffff" stroke="#2e7d32"/>
+  <text x="445" y="506" text-anchor="middle" font-size="15" font-weight="bold" fill="#1b5e20">X: (N, 22, 3)</text>
+  <text x="445" y="545" text-anchor="middle" font-size="12" fill="#33691e">batch_first=True: (windows, days, features)</text>
+  <text x="445" y="564" text-anchor="middle" font-size="12" fill="#33691e">check: window ends on day t−1, never t</text>
+
+  <!-- arrows data -> garch / features -->
+  <path d="M240,360 C270,360 270,200 300,200" fill="none" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="240" y1="440" x2="300" y2="440" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+  <!-- garch -> features (log h as feature) -->
+  <line x1="445" y1="280" x2="445" y2="330" stroke="#37474f" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#ar)"/>
+  <text x="455" y="310" font-size="12" fill="#455a64">log h_GARCH as a feature</text>
+
+  <!-- 4. LSTM -->
+  <rect x="650" y="300" width="380" height="300" rx="12" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="840" y="330" text-anchor="middle" font-size="17" font-weight="bold" fill="#0d47a1">4. LSTM (trainable)</text>
+  <text x="840" y="352" text-anchor="middle" font-size="13" fill="#1565c0">nn.LSTM(input_size=3, hidden_size=16, batch_first=True)</text>
+  <!-- unrolled cells -->
+  <g font-size="12" fill="#0d47a1" text-anchor="middle">
+    <rect x="670" y="390" width="70" height="60" rx="8" fill="#ffffff" stroke="#1565c0"/>
+    <text x="705" y="415">cell</text><text x="705" y="433">day t−22</text>
+    <rect x="770" y="390" width="70" height="60" rx="8" fill="#ffffff" stroke="#1565c0"/>
+    <text x="805" y="415">cell</text><text x="805" y="433">day t−21</text>
+    <text x="875" y="425" font-size="20">…</text>
+    <rect x="910" y="390" width="100" height="60" rx="8" fill="#bbdefb" stroke="#1565c0" stroke-width="2"/>
+    <text x="960" y="415">cell</text><text x="960" y="433">day t−1</text>
+  </g>
+  <line x1="740" y1="420" x2="770" y2="420" stroke="#1565c0" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="840" y1="420" x2="860" y2="420" stroke="#1565c0" stroke-width="2"/>
+  <line x1="890" y1="420" x2="910" y2="420" stroke="#1565c0" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="840" y="474" text-anchor="middle" font-size="12" fill="#1565c0">the same cell (same weights) is applied day by day;</text>
+  <text x="840" y="491" text-anchor="middle" font-size="12" fill="#1565c0">it carries a 16-number memory forward (hidden + cell state)</text>
+  <rect x="690" y="505" width="300" height="34" rx="6" fill="#ffffff" stroke="#1565c0"/>
+  <text x="840" y="527" text-anchor="middle" font-size="13" fill="#0d47a1">out: (N, 22, 16)  →  out[:, −1, :]: (N, 16)</text>
+  <text x="840" y="565" text-anchor="middle" font-size="12" fill="#1565c0">memory after the last day (t−1) summarises the window</text>
+  <text x="840" y="585" text-anchor="middle" font-size="12" fill="#1565c0">1,344 parameters</text>
+  <!-- input arrow -->
+  <line x1="590" y1="500" x2="650" y2="500" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- 5. Linear head -->
+  <rect x="1080" y="380" width="170" height="140" rx="12" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+  <text x="1165" y="410" text-anchor="middle" font-size="17" font-weight="bold" fill="#0d47a1">5. Linear head</text>
+  <text x="1165" y="436" text-anchor="middle" font-size="14" fill="#0d47a1">16 → 1</text>
+  <text x="1165" y="458" text-anchor="middle" font-size="12" fill="#1565c0">weights and bias start at 0</text>
+  <text x="1165" y="482" text-anchor="middle" font-size="14" font-weight="bold" fill="#0d47a1">g_t : (N,)</text>
+  <text x="1165" y="504" text-anchor="middle" font-size="12" fill="#1565c0">17 parameters</text>
+  <line x1="1030" y1="450" x2="1080" y2="450" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+
+  <!-- 6. combine -->
+  <rect x="1060" y="130" width="390" height="130" rx="12" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+  <text x="1255" y="160" text-anchor="middle" font-size="17" font-weight="bold" fill="#4a148c">6. Combine</text>
+  <text x="1255" y="192" text-anchor="middle" font-size="18" fill="#4a148c">h_GINN(t) = h_GARCH(t) × exp(g_t)</text>
+  <text x="1255" y="218" text-anchor="middle" font-size="13" fill="#6a1b9a">exp keeps variance positive;  g = 0.1 ≈ 10% above GARCH</text>
+  <text x="1255" y="240" text-anchor="middle" font-size="13" fill="#6a1b9a">g = 0 everywhere at start → exactly GARCH</text>
+  <!-- garch to combine -->
+  <line x1="590" y1="195" x2="1060" y2="195" stroke="#616161" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="825" y="185" text-anchor="middle" font-size="13" fill="#616161">h_GARCH(t)</text>
+  <!-- g to combine -->
+  <line x1="1165" y1="380" x2="1165" y2="260" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="1175" y="330" font-size="13" fill="#0d47a1">g_t</text>
+
+  <!-- 7. loss -->
+  <rect x="1290" y="330" width="170" height="250" rx="12" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+  <text x="1375" y="360" text-anchor="middle" font-size="17" font-weight="bold" fill="#bf360c">7. Loss</text>
+  <text x="1375" y="388" text-anchor="middle" font-size="13" font-weight="bold" fill="#bf360c">statistical (QMLE):</text>
+  <text x="1375" y="410" text-anchor="middle" font-size="13" fill="#bf360c">½·mean( log h_GINN</text>
+  <text x="1375" y="428" text-anchor="middle" font-size="13" fill="#bf360c">+ r(t)² / h_GINN )</text>
+  <line x1="1305" y1="446" x2="1445" y2="446" stroke="#ffcc80"/>
+  <text x="1375" y="468" text-anchor="middle" font-size="13" font-weight="bold" fill="#bf360c">decision (later):</text>
+  <text x="1375" y="490" text-anchor="middle" font-size="12" fill="#bf360c">realised portfolio variance</text>
+  <text x="1375" y="508" text-anchor="middle" font-size="12" fill="#bf360c">of min-variance weights</text>
+  <text x="1375" y="538" text-anchor="middle" font-size="12" fill="#bf360c">target r(t): day t itself,</text>
+  <text x="1375" y="556" text-anchor="middle" font-size="12" fill="#bf360c">never seen by the input</text>
+  <path d="M1400,260 L1400,330" fill="none" stroke="#37474f" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="1408" y="300" font-size="12" fill="#4a148c">h_GINN(t)</text>
+
+  <!-- backprop -->
+  <path d="M1375,580 L1375,640 L840,640 L840,600" fill="none" stroke="#c62828" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arR)"/>
+  <path d="M1165,640 L1165,520" fill="none" stroke="#c62828" stroke-width="2.5" stroke-dasharray="8,5" marker-end="url(#arR)"/>
+  <text x="1110" y="665" text-anchor="middle" font-size="14" font-weight="bold" fill="#c62828">loss.backward() → gradients for LSTM + Linear only;  opt.step() updates them (Adam, lr = 1e-3)</text>
+  <text x="1110" y="685" text-anchor="middle" font-size="13" fill="#c62828">GARCH branch is frozen: no gradient flows into ω, α, β</text>
+
+  <!-- training loop strip -->
+  <rect x="30" y="720" width="1420" height="80" rx="12" fill="#fafafa" stroke="#90a4ae"/>
+  <text x="50" y="748" font-size="15" font-weight="bold" fill="#263238">Training loop (same 4 lines as your GARCH fit):</text>
+  <text x="50" y="774" font-size="14" fill="#263238" font-family="Consolas, Menlo, monospace">opt.zero_grad()  →  h = model(X_train, hgarch_train)  →  loss = 0.5*mean(log h + r²/h)  →  loss.backward()  →  opt.step()</text>
+  <text x="50" y="794" font-size="13" fill="#455a64">every 10 epochs: validation loss under torch.no_grad(); keep the epoch with the lowest validation loss (early stopping)</text>
+
+  <!-- legend -->
+  <g font-size="13" fill="#263238">
+    <rect x="30" y="825" width="22" height="16" fill="#e8f5e9" stroke="#2e7d32"/><text x="60" y="838">data / inputs</text>
+    <rect x="180" y="825" width="22" height="16" fill="#f5f5f5" stroke="#616161"/><text x="210" y="838">frozen (no training)</text>
+    <rect x="370" y="825" width="22" height="16" fill="#e3f2fd" stroke="#1565c0"/><text x="400" y="838">trainable (1,361 parameters in total)</text>
+    <rect x="650" y="825" width="22" height="16" fill="#f3e5f5" stroke="#6a1b9a"/><text x="680" y="838">output variance</text>
+    <rect x="810" y="825" width="22" height="16" fill="#fff3e0" stroke="#e65100"/><text x="840" y="838">objective</text>
+    <line x1="950" y1="833" x2="985" y2="833" stroke="#c62828" stroke-width="2.5" stroke-dasharray="8,5"/><text x="995" y="838">backward pass</text>
+  </g>
+  <text x="30" y="872" font-size="12" fill="#607d8b">Shapes use N = number of target days (windows). Parameter counts: LSTM 4·16·(3+16) + 2·4·16 = 1,344; Linear 16 + 1 = 17. One-day-ahead variance; the 21-day monthly forecast is built from it in a later step.</text>
+</svg>

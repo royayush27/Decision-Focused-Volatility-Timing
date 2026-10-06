@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "columns": [
+    {
+      "kind": "derived",
+      "id": "year",
+      "source": "year"
+    },
+    {
+      "kind": "derived",
+      "id": "authors",
+      "source": "authors"
+    },
+    {
+      "kind": "derived",
+      "id": "venue",
+      "source": "venue"
+    },
+    {
+      "kind": "custom",
+      "id": "method",
+      "label": "Method",
+      "description": "Research design and data collection method",
+      "origin": "seed"
+    },
+    {
+      "kind": "custom",
+      "id": "findings",
+      "label": "Key Findings",
+      "description": "Main result in one sentence",
+      "origin": "seed"
+    }
+  ],
+  "rows": []
+}

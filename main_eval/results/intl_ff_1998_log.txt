@@ -1,0 +1,408 @@
+/tmp/claude-0/-home-claude/21a3796a-06b6-5326-b452-bfe32377a75f/scratchpad/mirror/fe_project/main_eval/garch_tools.py:56: RuntimeWarning: divide by zero encountered in scalar divide
+  o, a, b = unpack(x); phi = a + b; vbar = o / (1 - phi)
+
+================ Mkt + RMW + CMA + Mom
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.15      1.26             1.02         0.93  -10.94     -7.77           -12.82
+Europe                   1.17      1.32             0.97         1.17  -11.03     -5.35           -15.02
+Japan                    0.35      0.44             0.44         0.40  -15.15     -7.69           -13.46
+Asia_Pacific_ex_Japan    1.06      1.15             1.32         1.36  -16.83     -9.57           -11.16
+North_America            0.98      1.12             0.81         0.88  -15.97     -2.96           -12.26
+Developed                1.15      1.28             0.90         1.01  -12.79     -6.55           -12.51
+US                       0.85      1.09             0.79         0.93  -16.11     -3.68           -11.17
+  dSR Whole mix            pooled 3: +0.108 [-0.023, +0.244] (3/3) | Developed_ex +0.11 [-0.08,+0.30]  US +0.24 [-0.02,+0.48]
+  dSR Legs, mkt unmanaged  pooled 3: +0.048 [-0.225, +0.339] (2/3) | Developed_ex -0.13 [-0.49,+0.23]  US -0.06 [-0.48,+0.38]
+  dSR Legs, all managed    pooled 3: +0.118 [-0.119, +0.335] (3/3) | Developed_ex -0.23 [-0.58,+0.12]  US +0.08 [-0.30,+0.44]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.16      1.37             1.05         1.05  -10.94     -7.77           -12.82
+Europe                   1.22      1.46             1.03         1.36  -11.03     -5.35           -15.02
+Japan                    0.34      0.46             0.42         0.41  -15.15     -7.69           -13.46
+Asia_Pacific_ex_Japan    1.06      1.17             1.50         1.60  -16.83     -9.57           -11.16
+North_America            0.97      1.24             0.78         0.95  -15.97     -2.96           -12.26
+Developed                1.18      1.39             0.90         1.09  -12.79     -6.55           -12.51
+US                       0.85      1.17             0.74         0.98  -16.11     -3.68           -11.17
+  dSR Whole mix            pooled 3: +0.157 [-0.012, +0.330] (3/3) | Developed_ex +0.21 [-0.04,+0.45]  US +0.32 [-0.02,+0.62]
+  dSR Legs, mkt unmanaged  pooled 3: +0.110 [-0.264, +0.519] (2/3) | Developed_ex -0.11 [-0.60,+0.42]  US -0.11 [-0.67,+0.49]
+  dSR Legs, all managed    pooled 3: +0.251 [-0.056, +0.532] (3/3) | Developed_ex -0.11 [-0.61,+0.38]  US +0.13 [-0.36,+0.59]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.16      1.07             0.96         0.70   -4.35     -3.72            -6.00
+Europe                   1.11      1.04             0.87         0.82   -4.63     -2.39            -7.81
+Japan                    0.37      0.39             0.48         0.38   -7.44     -7.19            -7.89
+Asia_Pacific_ex_Japan    1.09      1.13             0.95         0.90   -7.98     -4.03            -6.79
+North_America            1.03      0.91             0.89         0.76   -4.34     -2.41            -5.54
+Developed                1.09      1.04             0.90         0.86   -4.26     -2.66            -5.77
+US                       0.86      0.95             0.90         0.85   -5.40     -1.71            -5.15
+  dSR Whole mix            pooled 3: -0.004 [-0.137, +0.113] (2/3) | Developed_ex -0.09 [-0.24,+0.05]  US +0.09 [-0.29,+0.46]
+  dSR Legs, mkt unmanaged  pooled 3: -0.090 [-0.283, +0.108] (1/3) | Developed_ex -0.21 [-0.49,+0.10]  US +0.04 [-0.50,+0.60]
+  dSR Legs, all managed    pooled 3: -0.159 [-0.434, +0.081] (1/3) | Developed_ex -0.46 [-0.79,-0.13]  US -0.01 [-0.64,+0.62]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.32      1.18             0.79         0.73   -2.44     -2.63            -6.00
+Europe                   1.21      1.12             0.69         0.76   -3.47     -2.23            -7.81
+Japan                    0.26      0.23             0.13         0.20   -7.44     -7.19            -7.89
+Asia_Pacific_ex_Japan    1.16      1.03             0.87         0.78   -2.59     -2.08            -3.34
+North_America            1.10      0.87             0.84         1.06   -3.51     -0.42            -4.84
+Developed                1.14      0.97             0.75         0.90   -2.80     -0.76            -5.77
+US                       0.91      0.82             0.78         1.06   -5.40     -0.97            -5.07
+  dSR Whole mix            pooled 3: -0.082 [-0.185, -0.003] (0/3) | Developed_ex -0.14 [-0.34,+0.03]  US -0.09 [-0.61,+0.31]
+  dSR Legs, mkt unmanaged  pooled 3: -0.316 [-0.529, -0.047] (0/3) | Developed_ex -0.53 [-0.80,-0.14]  US -0.13 [-1.01,+0.76]
+  dSR Legs, all managed    pooled 3: -0.298 [-0.569, -0.009] (0/3) | Developed_ex -0.59 [-0.90,-0.24]  US +0.15 [-0.59,+0.81]
+
+================ RMW + CMA + Mom
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.82      1.38             1.29         1.29  -19.02     -2.93            -3.12
+Europe                   0.80      1.39             1.53         1.53  -19.75     -2.11            -2.00
+Japan                    0.16      0.39             0.38         0.38  -17.52     -4.93            -4.42
+Asia_Pacific_ex_Japan    0.74      1.46             1.24         1.24  -27.72     -4.65           -12.06
+North_America            0.55      0.81             0.61         0.61  -20.87     -2.68            -4.87
+Developed                0.68      1.23             1.07         1.07  -19.38     -1.43            -1.88
+US                       0.40      0.65             0.61         0.61  -24.28     -2.56            -3.16
+  dSR Whole mix            pooled 3: +0.510 [+0.202, +0.777] (3/3) | Developed_ex +0.56 [+0.16,+0.97]  US +0.25 [-0.07,+0.59]
+  dSR Legs, mkt unmanaged  pooled 3: +0.479 [+0.183, +0.724] (3/3) | Developed_ex +0.47 [+0.10,+0.85]  US +0.21 [-0.11,+0.52]
+  dSR Legs, all managed    pooled 3: +0.479 [+0.192, +0.731] (3/3) | Developed_ex +0.47 [+0.09,+0.85]  US +0.21 [-0.10,+0.51]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.87      1.61             1.49         1.49  -19.02     -2.51            -3.12
+Europe                   0.88      1.66             1.80         1.80  -19.75     -1.48            -2.00
+Japan                    0.24      0.49             0.50         0.50  -17.52     -4.93            -3.65
+Asia_Pacific_ex_Japan    0.65      1.51             1.36         1.36  -27.72     -4.65           -12.06
+North_America            0.62      1.06             0.78         0.78  -20.87     -2.68            -4.46
+Developed                0.79      1.56             1.36         1.36  -19.38     -1.43            -1.88
+US                       0.49      0.83             0.84         0.84  -24.28     -2.56            -3.16
+  dSR Whole mix            pooled 3: +0.631 [+0.248, +0.981] (3/3) | Developed_ex +0.75 [+0.20,+1.30]  US +0.33 [-0.11,+0.77]
+  dSR Legs, mkt unmanaged  pooled 3: +0.630 [+0.263, +0.934] (3/3) | Developed_ex +0.62 [+0.12,+1.13]  US +0.34 [-0.08,+0.74]
+  dSR Legs, all managed    pooled 3: +0.630 [+0.272, +0.938] (3/3) | Developed_ex +0.62 [+0.13,+1.12]  US +0.34 [-0.08,+0.75]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.76      0.94             0.88         0.88   -5.75     -2.93            -1.92
+Europe                   0.64      0.82             0.97         0.97   -8.17     -2.11            -2.00
+Japan                   -0.04      0.16             0.10         0.10  -10.72     -2.72            -4.42
+Asia_Pacific_ex_Japan    1.39      1.37             1.00         1.00   -2.51     -2.43            -3.75
+North_America            0.37      0.23             0.15         0.15   -6.56     -2.53            -4.87
+Developed                0.44      0.54             0.45         0.45   -7.37     -1.17            -1.75
+US                       0.18      0.24             0.06         0.06   -8.70     -2.02            -3.00
+  dSR Whole mix            pooled 3: +0.116 [-0.094, +0.287] (2/3) | Developed_ex +0.18 [-0.15,+0.47]  US +0.06 [-0.39,+0.50]
+  dSR Legs, mkt unmanaged  pooled 3: +0.026 [-0.266, +0.265] (2/3) | Developed_ex +0.12 [-0.32,+0.48]  US -0.12 [-0.53,+0.29]
+  dSR Legs, all managed    pooled 3: +0.026 [-0.262, +0.272] (2/3) | Developed_ex +0.12 [-0.31,+0.50]  US -0.12 [-0.53,+0.28]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.19      1.00             0.86         0.86   -2.08     -1.51            -0.84
+Europe                   0.94      0.69             0.78         0.78   -2.26     -0.93            -0.96
+Japan                    0.02      0.03            -0.32        -0.32   -4.36     -2.72            -2.84
+Asia_Pacific_ex_Japan    1.47      1.42             1.03         1.03   -1.23     -1.07            -2.50
+North_America            0.60      0.04             0.39         0.39   -5.40     -0.45            -0.77
+Developed                0.62      0.32             0.40         0.40   -4.02     -0.50            -0.48
+US                       0.45      0.28             0.29         0.29   -8.70     -0.56            -0.73
+  dSR Whole mix            pooled 3: -0.094 [-0.312, +0.095] (1/3) | Developed_ex -0.19 [-0.54,+0.12]  US -0.17 [-0.84,+0.51]
+  dSR Legs, mkt unmanaged  pooled 3: -0.314 [-0.606, -0.026] (0/3) | Developed_ex -0.33 [-0.85,+0.11]  US -0.16 [-0.50,+0.20]
+  dSR Legs, all managed    pooled 3: -0.314 [-0.612, -0.034] (0/3) | Developed_ex -0.33 [-0.85,+0.12]  US -0.16 [-0.51,+0.20]
+
+================ Mkt + Mom
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.80      0.97             0.78         0.71  -28.55    -21.96           -30.26
+Europe                   0.90      1.14             0.86         1.02  -28.52    -15.96           -30.99
+Japan                    0.26      0.33             0.39         0.36  -39.10    -24.76           -32.49
+Asia_Pacific_ex_Japan    0.76      0.95             0.87         0.91  -32.53    -23.51           -33.58
+North_America            0.63      0.92             0.73         0.90  -32.93    -10.05           -27.88
+Developed                0.72      0.92             0.72         0.77  -29.06    -16.55           -29.22
+US                       0.61      0.83             0.71         0.83  -33.73    -13.81           -26.16
+  dSR Whole mix            pooled 3: +0.164 [+0.018, +0.316] (3/3) | Developed_ex +0.17 [-0.02,+0.36]  US +0.22 [-0.01,+0.43]
+  dSR Legs, mkt unmanaged  pooled 3: +0.067 [-0.125, +0.274] (2/3) | Developed_ex -0.02 [-0.27,+0.25]  US +0.10 [-0.20,+0.44]
+  dSR Legs, all managed    pooled 3: +0.124 [-0.083, +0.335] (3/3) | Developed_ex -0.10 [-0.39,+0.18]  US +0.22 [-0.12,+0.55]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.75      1.03             0.75         0.76  -28.55    -21.96           -30.26
+Europe                   0.85      1.23             0.87         1.13  -28.52    -15.96           -30.99
+Japan                    0.24      0.32             0.35         0.34  -39.10    -24.76           -32.49
+Asia_Pacific_ex_Japan    0.77      1.05             0.97         1.07  -32.53    -23.51           -33.58
+North_America            0.54      0.96             0.63         0.93  -32.93    -10.05           -27.88
+Developed                0.65      0.96             0.65         0.75  -29.06    -16.55           -29.22
+US                       0.53      0.84             0.62         0.81  -33.73    -13.81           -26.16
+  dSR Whole mix            pooled 3: +0.246 [+0.067, +0.424] (3/3) | Developed_ex +0.28 [+0.04,+0.52]  US +0.32 [+0.02,+0.57]
+  dSR Legs, mkt unmanaged  pooled 3: +0.109 [-0.146, +0.400] (3/3) | Developed_ex -0.00 [-0.34,+0.36]  US +0.09 [-0.32,+0.54]
+  dSR Legs, all managed    pooled 3: +0.227 [-0.051, +0.488] (3/3) | Developed_ex +0.00 [-0.38,+0.36]  US +0.28 [-0.12,+0.67]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.95      0.85             0.86         0.62  -10.35    -10.35           -13.63
+Europe                   1.04      0.95             0.86         0.81  -11.43     -7.85           -15.90
+Japan                    0.34      0.36             0.51         0.39  -18.41    -18.55           -14.21
+Asia_Pacific_ex_Japan    0.76      0.76             0.68         0.61  -15.14    -15.14           -13.89
+North_America            0.87      0.83             0.91         0.84   -8.59     -4.64           -11.12
+Developed                0.90      0.83             0.86         0.80   -9.55     -6.12           -12.56
+US                       0.82      0.82             0.91         0.85   -7.87     -4.20           -11.87
+  dSR Whole mix            pooled 3: -0.021 [-0.169, +0.121] (2/3) | Developed_ex -0.10 [-0.29,+0.08]  US -0.00 [-0.31,+0.28]
+  dSR Legs, mkt unmanaged  pooled 3: -0.027 [-0.181, +0.138] (1/3) | Developed_ex -0.10 [-0.31,+0.13]  US +0.09 [-0.27,+0.54]
+  dSR Legs, all managed    pooled 3: -0.108 [-0.359, +0.118] (1/3) | Developed_ex -0.33 [-0.67,+0.01]  US +0.03 [-0.48,+0.68]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.93      0.81             0.68         0.62  -10.35    -10.35           -13.63
+Europe                   0.97      0.92             0.68         0.75  -11.43     -7.85           -15.90
+Japan                    0.19      0.21             0.31         0.34  -18.41    -18.55           -14.21
+Asia_Pacific_ex_Japan    0.76      0.65             0.54         0.44   -9.97    -15.14           -13.20
+North_America            0.69      0.59             0.75         0.91   -7.39     -2.52           -11.12
+Developed                0.76      0.61             0.68         0.76   -9.55     -5.22           -12.56
+US                       0.73      0.63             0.74         0.94   -7.08     -2.78           -11.87
+  dSR Whole mix            pooled 3: -0.044 [-0.163, +0.052] (1/3) | Developed_ex -0.13 [-0.34,+0.06]  US -0.10 [-0.36,+0.14]
+  dSR Legs, mkt unmanaged  pooled 3: -0.125 [-0.292, +0.102] (1/3) | Developed_ex -0.26 [-0.45,+0.00]  US +0.01 [-0.43,+0.68]
+  dSR Legs, all managed    pooled 3: -0.128 [-0.350, +0.113] (1/3) | Developed_ex -0.31 [-0.64,-0.01]  US +0.20 [-0.23,+0.76]
+
+================ Mkt + RMW + CMA (no Mom)
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.77      0.74             0.59         0.54  -13.23    -13.25           -18.62
+Europe                   0.70      0.72             0.45         0.52  -15.50     -9.75           -21.93
+Japan                    0.39      0.35             0.34         0.31  -18.80    -17.40           -19.45
+Asia_Pacific_ex_Japan    0.84      0.85             0.84         0.85  -14.55    -11.75           -15.34
+North_America            0.89      0.90             0.58         0.48  -12.65     -2.79           -16.84
+Developed                0.96      1.00             0.62         0.67  -12.09     -7.29           -17.76
+US                       0.84      0.82             0.58         0.64  -11.68     -3.34           -16.46
+  dSR Whole mix            pooled 3: -0.006 [-0.086, +0.072] (2/3) | Developed_ex -0.03 [-0.20,+0.15]  US -0.02 [-0.23,+0.20]
+  dSR Legs, mkt unmanaged  pooled 3: -0.102 [-0.201, -0.003] (0/3) | Developed_ex -0.18 [-0.32,-0.03]  US -0.26 [-0.58,+0.07]
+  dSR Legs, all managed    pooled 3: -0.083 [-0.234, +0.063] (1/3) | Developed_ex -0.23 [-0.45,-0.01]  US -0.19 [-0.51,+0.12]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.81      0.84             0.59         0.61  -13.23    -13.25           -18.62
+Europe                   0.78      0.89             0.43         0.62  -15.50     -9.75           -21.93
+Japan                    0.34      0.29             0.29         0.28  -18.80    -17.40           -19.45
+Asia_Pacific_ex_Japan    0.92      0.92             0.96         1.06  -14.55    -11.75           -15.34
+North_America            0.87      0.98             0.47         0.45  -12.65     -2.78           -16.84
+Developed                1.01      1.11             0.56         0.67  -12.09     -7.29           -17.76
+US                       0.83      0.93             0.45         0.58  -11.68     -3.34           -16.46
+  dSR Whole mix            pooled 3: +0.018 [-0.082, +0.115] (1/3) | Developed_ex +0.03 [-0.19,+0.25]  US +0.10 [-0.18,+0.41]
+  dSR Legs, mkt unmanaged  pooled 3: -0.119 [-0.259, +0.029] (1/3) | Developed_ex -0.22 [-0.41,-0.01]  US -0.37 [-0.85,+0.07]
+  dSR Legs, all managed    pooled 3: -0.026 [-0.243, +0.178] (1/3) | Developed_ex -0.20 [-0.52,+0.12]  US -0.24 [-0.71,+0.21]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.68      0.57             0.59         0.42   -8.92     -9.57            -9.77
+Europe                   0.54      0.43             0.48         0.37   -9.92     -6.66           -10.72
+Japan                    0.52      0.44             0.45         0.36   -9.67    -11.47           -11.22
+Asia_Pacific_ex_Japan    0.69      0.70             0.59         0.49   -9.38     -6.29            -9.35
+North_America            0.92      0.77             0.76         0.54   -9.50     -2.12            -9.92
+Developed                0.89      0.81             0.73         0.67   -8.63     -5.16            -9.01
+US                       0.85      0.65             0.80         0.74   -9.15     -2.94            -8.88
+  dSR Whole mix            pooled 3: -0.059 [-0.179, +0.053] (1/3) | Developed_ex -0.11 [-0.35,+0.12]  US -0.20 [-0.52,+0.07]
+  dSR Legs, mkt unmanaged  pooled 3: -0.076 [-0.176, +0.006] (0/3) | Developed_ex -0.10 [-0.24,+0.02]  US -0.06 [-0.42,+0.27]
+  dSR Legs, all managed    pooled 3: -0.181 [-0.389, +0.020] (0/3) | Developed_ex -0.26 [-0.53,-0.00]  US -0.12 [-0.58,+0.36]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.73      0.66             0.53         0.51   -6.12     -6.28            -8.46
+Europe                   0.64      0.54             0.45         0.44   -8.22     -5.15           -10.72
+Japan                    0.36      0.37             0.11         0.19   -9.67    -11.47           -11.22
+Asia_Pacific_ex_Japan    0.54      0.53             0.45         0.30   -4.75     -3.29            -6.22
+North_America            1.11      0.95             0.78         0.94   -5.88     -0.94            -7.38
+Developed                1.01      0.91             0.69         0.81   -5.34     -2.50            -8.15
+US                       0.90      0.68             0.71         0.93   -8.07     -1.59            -7.44
+  dSR Whole mix            pooled 3: -0.035 [-0.162, +0.084] (1/3) | Developed_ex -0.07 [-0.32,+0.15]  US -0.22 [-0.60,+0.14]
+  dSR Legs, mkt unmanaged  pooled 3: -0.180 [-0.306, -0.076] (0/3) | Developed_ex -0.20 [-0.42,-0.00]  US -0.19 [-0.87,+0.45]
+  dSR Legs, all managed    pooled 3: -0.203 [-0.436, +0.024] (0/3) | Developed_ex -0.23 [-0.55,+0.09]  US +0.03 [-0.58,+0.61]
+
+================ Market alone
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.36      0.33             0.36         0.33  -55.94    -55.64           -55.94
+Europe                   0.35      0.38             0.35         0.38  -58.97    -32.63           -58.97
+Japan                    0.28      0.26             0.28         0.26  -58.10    -57.35           -58.10
+Asia_Pacific_ex_Japan    0.38      0.29             0.38         0.29  -60.05    -34.66           -60.05
+North_America            0.51      0.51             0.51         0.51  -51.07    -13.15           -51.07
+Developed                0.46      0.45             0.46         0.45  -53.62    -41.04           -53.62
+US                       0.52      0.57             0.52         0.57  -50.31    -18.45           -50.31
+  dSR Whole mix            pooled 3: -0.025 [-0.182, +0.130] (1/3) | Developed_ex -0.04 [-0.24,+0.17]  US +0.06 [-0.22,+0.35]
+  dSR Legs, mkt unmanaged  pooled 3: +0.000 [+0.000, +0.000] (0/3) | Developed_ex +0.00 [+0.00,+0.00]  US +0.00 [+0.00,+0.00]
+  dSR Legs, all managed    pooled 3: -0.025 [-0.179, +0.132] (1/3) | Developed_ex -0.04 [-0.23,+0.15]  US +0.06 [-0.21,+0.34]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.30      0.31             0.30         0.31  -55.94    -55.64           -55.94
+Europe                   0.29      0.39             0.29         0.39  -58.97    -32.63           -58.97
+Japan                    0.20      0.19             0.20         0.19  -58.10    -57.35           -58.10
+Asia_Pacific_ex_Japan    0.39      0.34             0.39         0.34  -60.05    -34.66           -60.05
+North_America            0.35      0.39             0.35         0.39  -51.07     -8.05           -51.07
+Developed                0.33      0.35             0.33         0.35  -53.62    -41.04           -53.62
+US                       0.35      0.43             0.35         0.43  -50.31    -18.45           -50.31
+  dSR Whole mix            pooled 3: +0.011 [-0.183, +0.210] (1/3) | Developed_ex +0.01 [-0.25,+0.25]  US +0.08 [-0.23,+0.38]
+  dSR Legs, mkt unmanaged  pooled 3: +0.000 [+0.000, +0.000] (0/3) | Developed_ex +0.00 [+0.00,+0.00]  US +0.00 [+0.00,+0.00]
+  dSR Legs, all managed    pooled 3: +0.011 [-0.189, +0.202] (1/3) | Developed_ex +0.01 [-0.23,+0.25]  US +0.08 [-0.22,+0.39]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.50      0.35             0.50         0.35  -27.84    -33.73           -27.84
+Europe                   0.48      0.37             0.48         0.37  -31.13    -20.79           -31.13
+Japan                    0.47      0.36             0.47         0.36  -28.93    -36.09           -28.93
+Asia_Pacific_ex_Japan    0.35      0.21             0.35         0.21  -29.29    -27.57           -29.29
+North_America            0.80      0.69             0.80         0.69  -24.13    -13.15           -24.13
+Developed                0.70      0.63             0.70         0.63  -25.46    -18.12           -25.46
+US                       0.82      0.78             0.82         0.78  -24.83    -17.36           -24.83
+  dSR Whole mix            pooled 3: -0.119 [-0.317, +0.073] (0/3) | Developed_ex -0.15 [-0.41,+0.11]  US -0.04 [-0.49,+0.48]
+  dSR Legs, mkt unmanaged  pooled 3: +0.000 [+0.000, +0.000] (0/3) | Developed_ex +0.00 [+0.00,+0.00]  US +0.00 [+0.00,+0.00]
+  dSR Legs, all managed    pooled 3: -0.119 [-0.312, +0.068] (0/3) | Developed_ex -0.15 [-0.41,+0.14]  US -0.04 [-0.49,+0.47]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.43      0.41             0.43         0.41  -27.84    -27.16           -27.84
+Europe                   0.44      0.43             0.44         0.43  -31.13    -18.92           -31.13
+Japan                    0.29      0.32             0.29         0.32  -28.93    -35.45           -28.93
+Asia_Pacific_ex_Japan    0.23      0.06             0.23         0.06  -24.53    -27.57           -24.53
+North_America            0.69      0.83             0.69         0.83  -24.13     -4.91           -24.13
+Developed                0.62      0.68             0.62         0.68  -25.46    -12.89           -25.46
+US                       0.68      0.84             0.68         0.84  -24.83     -8.72           -24.83
+  dSR Whole mix            pooled 3: -0.046 [-0.244, +0.152] (1/3) | Developed_ex -0.02 [-0.33,+0.28]  US +0.16 [-0.27,+0.55]
+  dSR Legs, mkt unmanaged  pooled 3: +0.000 [+0.000, +0.000] (0/3) | Developed_ex +0.00 [+0.00,+0.00]  US +0.00 [+0.00,+0.00]
+  dSR Legs, all managed    pooled 3: -0.046 [-0.250, +0.138] (1/3) | Developed_ex -0.02 [-0.32,+0.27]  US +0.16 [-0.29,+0.54]
+
+================ Mom alone
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.63      1.18             1.18         1.18  -40.84     -8.30            -8.30
+Europe                   0.69      1.41             1.41         1.41  -45.55     -8.24            -8.24
+Japan                    0.06      0.39             0.39         0.39  -39.23    -10.07           -10.07
+Asia_Pacific_ex_Japan    0.60      1.13             1.13         1.13  -47.09    -19.57           -19.57
+North_America            0.30      0.75             0.75         0.75  -49.64     -7.62            -7.62
+Developed                0.42      0.95             0.95         0.95  -43.57     -4.76            -4.76
+US                       0.21      0.58             0.58         0.58  -57.74     -8.29            -8.29
+  dSR Whole mix            pooled 3: +0.523 [+0.222, +0.790] (3/3) | Developed_ex +0.54 [+0.15,+0.93]  US +0.37 [+0.07,+0.69]
+  dSR Legs, mkt unmanaged  pooled 3: +0.523 [+0.228, +0.784] (3/3) | Developed_ex +0.54 [+0.16,+0.92]  US +0.37 [+0.06,+0.66]
+  dSR Legs, all managed    pooled 3: +0.523 [+0.218, +0.784] (3/3) | Developed_ex +0.54 [+0.16,+0.91]  US +0.37 [+0.06,+0.67]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.64      1.30             1.30         1.30  -40.84     -8.30            -8.30
+Europe                   0.71      1.57             1.57         1.57  -45.55     -8.24            -8.24
+Japan                    0.12      0.48             0.48         0.48  -39.23    -10.07           -10.07
+Asia_Pacific_ex_Japan    0.53      1.29             1.29         1.29  -47.09    -19.57           -19.57
+North_America            0.35      0.92             0.92         0.92  -49.64     -6.21            -6.21
+Developed                0.47      1.12             1.12         1.12  -43.57     -4.76            -4.76
+US                       0.28      0.75             0.75         0.75  -57.74     -8.29            -8.29
+  dSR Whole mix            pooled 3: +0.663 [+0.279, +1.016] (3/3) | Developed_ex +0.65 [+0.13,+1.14]  US +0.46 [+0.04,+0.85]
+  dSR Legs, mkt unmanaged  pooled 3: +0.663 [+0.275, +0.996] (3/3) | Developed_ex +0.65 [+0.14,+1.15]  US +0.46 [+0.05,+0.85]
+  dSR Legs, all managed    pooled 3: +0.663 [+0.292, +0.991] (3/3) | Developed_ex +0.65 [+0.15,+1.15]  US +0.46 [+0.06,+0.84]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.65      0.93             0.93         0.93  -17.21     -4.80            -4.80
+Europe                   0.70      1.09             1.09         1.09  -19.85     -3.64            -3.64
+Japan                   -0.11      0.16             0.16         0.16  -28.04     -6.49            -6.49
+Asia_Pacific_ex_Japan    0.91      0.80             0.80         0.80   -9.37    -11.09           -11.09
+North_America            0.17      0.33             0.33         0.33  -19.33     -7.62            -7.62
+Developed                0.30      0.58             0.58         0.58  -20.08     -3.78            -3.78
+US                       0.03      0.17             0.17         0.17  -25.36     -6.66            -6.66
+  dSR Whole mix            pooled 3: +0.185 [-0.080, +0.426] (2/3) | Developed_ex +0.29 [-0.12,+0.66]  US +0.15 [-0.26,+0.51]
+  dSR Legs, mkt unmanaged  pooled 3: +0.185 [-0.085, +0.430] (2/3) | Developed_ex +0.29 [-0.12,+0.67]  US +0.15 [-0.25,+0.54]
+  dSR Legs, all managed    pooled 3: +0.185 [-0.085, +0.435] (2/3) | Developed_ex +0.29 [-0.13,+0.66]  US +0.15 [-0.25,+0.54]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          0.93      0.90             0.90         0.90   -7.42     -2.98            -2.98
+Europe                   0.85      0.99             0.99         0.99   -7.78     -2.92            -2.92
+Japan                   -0.12      0.09             0.09         0.09  -15.76     -4.68            -4.68
+Asia_Pacific_ex_Japan    1.00      0.79             0.79         0.79   -6.93     -8.56            -8.56
+North_America            0.14      0.36             0.36         0.36  -14.24     -2.31            -2.31
+Developed                0.29      0.39             0.39         0.39  -11.04     -1.59            -1.59
+US                       0.18      0.38             0.38         0.38  -20.42     -2.64            -2.64
+  dSR Whole mix            pooled 3: +0.043 [-0.186, +0.269] (2/3) | Developed_ex -0.03 [-0.42,+0.32]  US +0.20 [-0.19,+0.50]
+  dSR Legs, mkt unmanaged  pooled 3: +0.043 [-0.190, +0.271] (2/3) | Developed_ex -0.03 [-0.43,+0.32]  US +0.20 [-0.18,+0.51]
+  dSR Legs, all managed    pooled 3: +0.043 [-0.188, +0.273] (2/3) | Developed_ex -0.03 [-0.42,+0.34]  US +0.20 [-0.18,+0.51]
+
+================ All six
+
+--- 1998-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.38      1.43             1.12         1.03   -7.17     -3.14            -8.59
+Europe                   1.26      1.37             1.02         1.17   -8.37     -4.38           -10.35
+Japan                    0.68      0.72             0.57         0.54   -8.90     -4.79            -5.65
+Asia_Pacific_ex_Japan    1.31      1.63             1.26         1.29  -10.13     -5.98            -8.00
+North_America            0.76      0.72             0.62         0.51  -11.41     -2.26            -9.14
+Developed                1.08      1.17             0.85         0.89   -8.53     -2.79            -8.69
+US                       0.71      0.75             0.69         0.70  -12.21     -2.52            -7.69
+  dSR Whole mix            pooled 3: +0.158 [+0.020, +0.288] (3/3) | Developed_ex +0.05 [-0.14,+0.25]  US +0.04 [-0.22,+0.29]
+  dSR Legs, mkt unmanaged  pooled 3: -0.130 [-0.393, +0.124] (0/3) | Developed_ex -0.26 [-0.63,+0.12]  US -0.02 [-0.39,+0.35]
+  dSR Legs, all managed    pooled 3: -0.081 [-0.320, +0.132] (0/3) | Developed_ex -0.35 [-0.72,+0.02]  US -0.01 [-0.33,+0.33]
+
+--- 1998-2015  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.44      1.55             1.31         1.30   -7.17     -3.14            -8.59
+Europe                   1.34      1.50             1.21         1.48   -8.37     -4.38           -10.35
+Japan                    0.71      0.81             0.69         0.68   -8.90     -3.58            -5.65
+Asia_Pacific_ex_Japan    1.34      1.77             1.50         1.60  -10.13     -5.98            -8.00
+North_America            0.87      0.98             0.73         0.75  -11.41     -2.26            -9.14
+Developed                1.24      1.46             1.02         1.16   -8.53     -2.79            -8.69
+US                       0.83      0.97             0.76         0.87  -12.21     -2.52            -7.69
+  dSR Whole mix            pooled 3: +0.234 [+0.054, +0.411] (3/3) | Developed_ex +0.12 [-0.14,+0.38]  US +0.14 [-0.21,+0.50]
+  dSR Legs, mkt unmanaged  pooled 3: +0.003 [-0.349, +0.344] (1/3) | Developed_ex -0.12 [-0.62,+0.40]  US -0.07 [-0.55,+0.42]
+  dSR Legs, all managed    pooled 3: +0.125 [-0.169, +0.397] (2/3) | Developed_ex -0.14 [-0.63,+0.36]  US +0.04 [-0.42,+0.49]
+
+--- 2016-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          1.27      1.17             0.72         0.55   -5.03     -3.01            -5.15
+Europe                   1.11      1.09             0.64         0.57   -6.13     -2.87            -6.37
+Japan                    0.64      0.53             0.33         0.29   -6.17     -4.79            -5.18
+Asia_Pacific_ex_Japan    1.30      1.37             0.77         0.68   -5.60     -3.66            -5.88
+North_America            0.54      0.18             0.41         0.00   -7.69     -1.61            -7.41
+Developed                0.75      0.57             0.51         0.38   -6.26     -2.61            -5.48
+US                       0.50      0.30             0.56         0.39   -8.05     -2.25            -6.21
+  dSR Whole mix            pooled 3: -0.018 [-0.240, +0.156] (1/3) | Developed_ex -0.10 [-0.36,+0.11]  US -0.20 [-0.62,+0.16]
+  dSR Legs, mkt unmanaged  pooled 3: -0.433 [-0.808, -0.142] (0/3) | Developed_ex -0.55 [-1.07,-0.17]  US +0.07 [-0.47,+0.55]
+  dSR Legs, all managed    pooled 3: -0.502 [-0.912, -0.187] (0/3) | Developed_ex -0.72 [-1.24,-0.31]  US -0.11 [-0.68,+0.42]
+
+--- 2021-2025  (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole  DD legs mkt unm
+region                                                                                                  
+Developed_ex_US          2.03      1.76             0.67         0.62   -1.59     -0.79            -4.34
+Europe                   1.63      1.41             0.45         0.42   -1.84     -0.81            -6.37
+Japan                    1.19      0.99             0.06         0.14   -2.29     -1.52            -5.18
+Asia_Pacific_ex_Japan    2.07      2.07             1.22         1.07   -1.97     -1.10            -2.43
+North_America            0.85      0.53             0.56         0.31   -4.14     -0.27            -2.82
+Developed                1.12      0.87             0.41         0.33   -2.34     -0.50            -3.88
+US                       0.75      0.59             0.58         0.58   -6.00     -0.71            -3.07
+  dSR Whole mix            pooled 3: -0.138 [-0.369, +0.054] (0/3) | Developed_ex -0.27 [-0.65,-0.01]  US -0.16 [-0.74,+0.25]
+  dSR Legs, mkt unmanaged  pooled 3: -1.054 [-1.474, -0.683] (0/3) | Developed_ex -1.36 [-2.10,-0.71]  US -0.17 [-1.17,+0.71]
+  dSR Legs, all managed    pooled 3: -1.084 [-1.491, -0.725] (0/3) | Developed_ex -1.41 [-2.11,-0.82]  US -0.17 [-0.97,+0.46]

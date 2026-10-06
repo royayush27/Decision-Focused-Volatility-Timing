@@ -1,0 +1,25 @@
+{
+  "config": {
+    "series": "Mkt-RF",
+    "first_forecast_month": "2000-01",
+    "last_forecast_month": "2024-12",
+    "horizon": 21,
+    "min_observations": 1260
+  },
+  "purpose": "development, not final holdout",
+  "mean_model": "zero",
+  "distribution": "Gaussian QMLE",
+  "window": "expanding; monthly re-estimation",
+  "return_unit": "decimal",
+  "forecast_unit": "decimal squared, sum over fixed horizon",
+  "versions": {
+    "python": "3.14.5",
+    "arch": "7.2.0",
+    "numpy": "2.4.4",
+    "pandas": "2.3.3"
+  },
+  "inputs": {
+    "ff_daily_garchdata_long.parquet": "0397952da0622921f6a26f44c5a5ca01ebf2e6b2958f69097aa8fd736ccf2566",
+    "ff_monthly_baselinedata.parquet": "857cab2137869256f300457f38e271ff4a6b3a9fd8b4f69530f4c973f63fca03"
+  }
+}
