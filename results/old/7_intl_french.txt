@@ -1,0 +1,463 @@
+7. International check #2: Ken French regional factors, plus leg-wise timing
+spec 'old': cost 5 bp per unit of exposure change, cap 2.0, c rule frozen, bootstrap 12-month blocks x 5000
+
+Cederburg combination window (international): 2003-01 to 2025-12
+
+================ Mkt + RMW + CMA + Mom
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.15      1.26             1.02         0.93  -10.94     -7.77
+Europe                   1.17      1.32             0.97         1.17  -11.03     -5.35
+Japan                    0.35      0.44             0.44         0.40  -15.15     -7.69
+Asia_Pacific_ex_Japan    1.06      1.15             1.32         1.36  -16.83     -9.57
+North_America            0.98      1.12             0.81         0.88  -15.97     -2.96
+Developed                1.15      1.28             0.90         1.01  -12.79     -6.55
+US                       0.85      1.09             0.79         0.93  -16.11     -3.68 
+
+  gain Whole mix                    pooled 3: +0.11 [-0.01, +0.24] (3/3) | Developed_ex +0.11 [-0.06, +0.30]  US +0.24 [-0.00, +0.48]
+  gain Legs, mkt unmanaged          pooled 3: +0.05 [-0.20, +0.30] (2/3) | Developed_ex -0.13 [-0.44, +0.19]  US -0.06 [-0.46, +0.37]
+  gain Legs, all managed            pooled 3: +0.12 [-0.10, +0.33] (3/3) | Developed_ex -0.23 [-0.56, +0.12]  US +0.08 [-0.29, +0.47]
+  gain Cederburg (2003-2025)        pooled 3: -0.05 [-0.21, +0.12] (1/3) | Developed_ex -0.01 [-0.21, +0.24]  US +0.18 [+0.01, +0.35]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.16      1.37             1.05         1.05  -10.94     -7.77
+Europe                   1.22      1.46             1.03         1.36  -11.03     -5.35
+Japan                    0.34      0.46             0.42         0.41  -15.15     -7.69
+Asia_Pacific_ex_Japan    1.06      1.17             1.50         1.60  -16.83     -9.57
+North_America            0.97      1.24             0.78         0.95  -15.97     -2.96
+Developed                1.18      1.39             0.90         1.09  -12.79     -6.55
+US                       0.85      1.17             0.74         0.98  -16.11     -3.68 
+
+  gain Whole mix                    pooled 3: +0.16 [+0.00, +0.32] (3/3) | Developed_ex +0.21 [-0.02, +0.43]  US +0.32 [-0.01, +0.62]
+  gain Legs, mkt unmanaged          pooled 3: +0.11 [-0.23, +0.44] (2/3) | Developed_ex -0.11 [-0.53, +0.31]  US -0.11 [-0.62, +0.45]
+  gain Legs, all managed            pooled 3: +0.25 [-0.02, +0.51] (3/3) | Developed_ex -0.11 [-0.56, +0.35]  US +0.13 [-0.30, +0.62]
+  gain Cederburg (2003-2015)        pooled 3: -0.05 [-0.32, +0.22] (2/3) | Developed_ex +0.09 [-0.23, +0.45]  US +0.22 [+0.00, +0.43]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.16      1.07             0.96         0.70   -4.35     -3.72
+Europe                   1.11      1.04             0.87         0.82   -4.63     -2.39
+Japan                    0.37      0.39             0.48         0.38   -7.44     -7.19
+Asia_Pacific_ex_Japan    1.09      1.13             0.95         0.90   -7.98     -4.03
+North_America            1.03      0.91             0.89         0.76   -4.34     -2.41
+Developed                1.09      1.04             0.90         0.86   -4.26     -2.66
+US                       0.86      0.95             0.90         0.85   -5.40     -1.71 
+
+  gain Whole mix                    pooled 3: -0.00 [-0.11, +0.11] (2/3) | Developed_ex -0.09 [-0.23, +0.04]  US +0.09 [-0.26, +0.44]
+  gain Legs, mkt unmanaged          pooled 3: -0.09 [-0.29, +0.13] (1/3) | Developed_ex -0.21 [-0.51, +0.13]  US +0.04 [-0.57, +0.63]
+  gain Legs, all managed            pooled 3: -0.16 [-0.38, +0.09] (1/3) | Developed_ex -0.46 [-0.74, -0.09]  US -0.01 [-0.65, +0.67]
+  gain Cederburg (2016-2025)        pooled 3: -0.05 [-0.21, +0.10] (0/3) | Developed_ex -0.13 [-0.30, +0.03]  US +0.09 [-0.18, +0.35]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.32      1.18             0.79         0.73   -2.44     -2.63
+Europe                   1.21      1.12             0.69         0.76   -3.47     -2.23
+Japan                    0.26      0.23             0.13         0.20   -7.44     -7.19
+Asia_Pacific_ex_Japan    1.16      1.03             0.87         0.78   -2.59     -2.08
+North_America            1.10      0.87             0.84         1.06   -3.51     -0.42
+Developed                1.14      0.97             0.75         0.90   -2.80     -0.76
+US                       0.91      0.82             0.78         1.06   -5.40     -0.97 
+
+  gain Whole mix                    pooled 3: -0.08 [-0.15, -0.02] (0/3) | Developed_ex -0.14 [-0.27, -0.02]  US -0.09 [-0.57, +0.30]
+  gain Legs, mkt unmanaged          pooled 3: -0.32 [-0.50, -0.06] (0/3) | Developed_ex -0.53 [-0.82, -0.15]  US -0.13 [-1.10, +0.75]
+  gain Legs, all managed            pooled 3: -0.30 [-0.52, -0.07] (0/3) | Developed_ex -0.59 [-0.87, -0.26]  US +0.15 [-0.53, +0.77]
+  gain Cederburg (2021-2025)        pooled 3: -0.11 [-0.18, -0.05] (0/3) | Developed_ex -0.16 [-0.31, -0.04]  US -0.07 [-0.42, +0.20]
+
+================ RMW + CMA + Mom
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.82      1.38             1.29         1.29  -19.02     -2.93
+Europe                   0.80      1.39             1.53         1.53  -19.75     -2.11
+Japan                    0.16      0.39             0.38         0.38  -17.52     -4.93
+Asia_Pacific_ex_Japan    0.74      1.46             1.24         1.24  -27.72     -4.65
+North_America            0.55      0.81             0.61         0.61  -20.87     -2.68
+Developed                0.68      1.23             1.07         1.07  -19.38     -1.43
+US                       0.40      0.65             0.61         0.61  -24.28     -2.56 
+
+  gain Whole mix                    pooled 3: +0.51 [+0.23, +0.81] (3/3) | Developed_ex +0.56 [+0.21, +0.99]  US +0.25 [-0.04, +0.57]
+  gain Legs, mkt unmanaged          pooled 3: +0.48 [+0.22, +0.72] (3/3) | Developed_ex +0.47 [+0.12, +0.87]  US +0.21 [-0.07, +0.51]
+  gain Legs, all managed            pooled 3: +0.48 [+0.22, +0.72] (3/3) | Developed_ex +0.47 [+0.12, +0.87]  US +0.21 [-0.07, +0.51]
+  gain Cederburg (2003-2025)        pooled 3: +0.44 [+0.13, +0.77] (3/3) | Developed_ex +0.62 [+0.18, +1.09]  US +0.15 [-0.17, +0.49]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.87      1.61             1.49         1.49  -19.02     -2.51
+Europe                   0.88      1.66             1.80         1.80  -19.75     -1.48
+Japan                    0.24      0.49             0.50         0.50  -17.52     -4.93
+Asia_Pacific_ex_Japan    0.65      1.51             1.36         1.36  -27.72     -4.65
+North_America            0.62      1.06             0.78         0.78  -20.87     -2.68
+Developed                0.79      1.56             1.36         1.36  -19.38     -1.43
+US                       0.49      0.83             0.84         0.84  -24.28     -2.56 
+
+  gain Whole mix                    pooled 3: +0.63 [+0.29, +0.99] (3/3) | Developed_ex +0.75 [+0.27, +1.29]  US +0.33 [-0.05, +0.74]
+  gain Legs, mkt unmanaged          pooled 3: +0.63 [+0.32, +0.91] (3/3) | Developed_ex +0.62 [+0.16, +1.14]  US +0.34 [-0.02, +0.74]
+  gain Legs, all managed            pooled 3: +0.63 [+0.32, +0.91] (3/3) | Developed_ex +0.62 [+0.16, +1.14]  US +0.34 [-0.02, +0.74]
+  gain Cederburg (2003-2015)        pooled 3: +0.63 [+0.18, +1.04] (2/3) | Developed_ex +0.91 [+0.23, +1.57]  US +0.20 [-0.20, +0.63]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.76      0.94             0.88         0.88   -5.75     -2.93
+Europe                   0.64      0.82             0.97         0.97   -8.17     -2.11
+Japan                   -0.04      0.16             0.10         0.10  -10.72     -2.72
+Asia_Pacific_ex_Japan    1.39      1.37             1.00         1.00   -2.51     -2.43
+North_America            0.37      0.23             0.15         0.15   -6.56     -2.53
+Developed                0.44      0.54             0.45         0.45   -7.37     -1.17
+US                       0.18      0.24             0.06         0.06   -8.70     -2.02 
+
+  gain Whole mix                    pooled 3: +0.12 [-0.08, +0.32] (2/3) | Developed_ex +0.18 [-0.11, +0.49]  US +0.06 [-0.42, +0.47]
+  gain Legs, mkt unmanaged          pooled 3: +0.03 [-0.24, +0.29] (2/3) | Developed_ex +0.12 [-0.29, +0.49]  US -0.12 [-0.52, +0.26]
+  gain Legs, all managed            pooled 3: +0.03 [-0.24, +0.29] (2/3) | Developed_ex +0.12 [-0.29, +0.49]  US -0.12 [-0.52, +0.26]
+  gain Cederburg (2016-2025)        pooled 3: +0.10 [-0.12, +0.34] (2/3) | Developed_ex +0.18 [-0.13, +0.52]  US +0.03 [-0.48, +0.46]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.19      1.00             0.86         0.86   -2.08     -1.51
+Europe                   0.94      0.69             0.78         0.78   -2.26     -0.93
+Japan                    0.02      0.03            -0.32        -0.32   -4.36     -2.72
+Asia_Pacific_ex_Japan    1.47      1.42             1.03         1.03   -1.23     -1.07
+North_America            0.60      0.04             0.39         0.39   -5.40     -0.45
+Developed                0.62      0.32             0.40         0.40   -4.02     -0.50
+US                       0.45      0.28             0.29         0.29   -8.70     -0.56 
+
+  gain Whole mix                    pooled 3: -0.09 [-0.29, +0.08] (1/3) | Developed_ex -0.19 [-0.41, +0.04]  US -0.17 [-0.81, +0.54]
+  gain Legs, mkt unmanaged          pooled 3: -0.31 [-0.55, -0.06] (0/3) | Developed_ex -0.33 [-0.78, +0.05]  US -0.16 [-0.46, +0.19]
+  gain Legs, all managed            pooled 3: -0.31 [-0.55, -0.06] (0/3) | Developed_ex -0.33 [-0.78, +0.05]  US -0.16 [-0.46, +0.19]
+  gain Cederburg (2021-2025)        pooled 3: -0.11 [-0.33, +0.11] (1/3) | Developed_ex -0.22 [-0.46, +0.03]  US -0.27 [-0.92, +0.42]
+
+================ Mkt + Mom
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.80      0.97             0.78         0.71  -28.55    -21.96
+Europe                   0.90      1.14             0.86         1.02  -28.52    -15.96
+Japan                    0.26      0.33             0.39         0.36  -39.10    -24.76
+Asia_Pacific_ex_Japan    0.76      0.95             0.87         0.91  -32.53    -23.51
+North_America            0.63      0.92             0.73         0.90  -32.93    -10.05
+Developed                0.72      0.92             0.72         0.77  -29.06    -16.55
+US                       0.61      0.83             0.71         0.83  -33.73    -13.81 
+
+  gain Whole mix                    pooled 3: +0.16 [+0.03, +0.31] (3/3) | Developed_ex +0.17 [-0.01, +0.36]  US +0.22 [+0.02, +0.44]
+  gain Legs, mkt unmanaged          pooled 3: +0.07 [-0.11, +0.25] (2/3) | Developed_ex -0.02 [-0.25, +0.22]  US +0.10 [-0.18, +0.42]
+  gain Legs, all managed            pooled 3: +0.12 [-0.08, +0.32] (3/3) | Developed_ex -0.10 [-0.37, +0.18]  US +0.22 [-0.13, +0.58]
+  gain Cederburg (2003-2025)        pooled 3: -0.04 [-0.27, +0.22] (2/3) | Developed_ex +0.05 [-0.20, +0.32]  US +0.19 [-0.02, +0.41]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.75      1.03             0.75         0.76  -28.55    -21.96
+Europe                   0.85      1.23             0.87         1.13  -28.52    -15.96
+Japan                    0.24      0.32             0.35         0.34  -39.10    -24.76
+Asia_Pacific_ex_Japan    0.77      1.05             0.97         1.07  -32.53    -23.51
+North_America            0.54      0.96             0.63         0.93  -32.93    -10.05
+Developed                0.65      0.96             0.65         0.75  -29.06    -16.55
+US                       0.53      0.84             0.62         0.81  -33.73    -13.81 
+
+  gain Whole mix                    pooled 3: +0.25 [+0.08, +0.43] (3/3) | Developed_ex +0.28 [+0.07, +0.52]  US +0.32 [+0.05, +0.59]
+  gain Legs, mkt unmanaged          pooled 3: +0.11 [-0.13, +0.35] (3/3) | Developed_ex -0.00 [-0.31, +0.33]  US +0.09 [-0.28, +0.51]
+  gain Legs, all managed            pooled 3: +0.23 [-0.02, +0.47] (3/3) | Developed_ex +0.00 [-0.36, +0.36]  US +0.28 [-0.07, +0.72]
+  gain Cederburg (2003-2015)        pooled 3: +0.00 [-0.38, +0.39] (2/3) | Developed_ex +0.22 [-0.12, +0.59]  US +0.27 [-0.00, +0.55]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.95      0.85             0.86         0.62  -10.35    -10.35
+Europe                   1.04      0.95             0.86         0.81  -11.43     -7.85
+Japan                    0.34      0.36             0.51         0.39  -18.41    -18.55
+Asia_Pacific_ex_Japan    0.76      0.76             0.68         0.61  -15.14    -15.14
+North_America            0.87      0.83             0.91         0.84   -8.59     -4.64
+Developed                0.90      0.83             0.86         0.80   -9.55     -6.12
+US                       0.82      0.82             0.91         0.85   -7.87     -4.20 
+
+  gain Whole mix                    pooled 3: -0.02 [-0.15, +0.11] (2/3) | Developed_ex -0.10 [-0.28, +0.07]  US -0.00 [-0.24, +0.24]
+  gain Legs, mkt unmanaged          pooled 3: -0.03 [-0.17, +0.14] (1/3) | Developed_ex -0.10 [-0.27, +0.10]  US +0.09 [-0.26, +0.52]
+  gain Legs, all managed            pooled 3: -0.11 [-0.31, +0.11] (1/3) | Developed_ex -0.33 [-0.60, -0.02]  US +0.03 [-0.52, +0.66]
+  gain Cederburg (2016-2025)        pooled 3: -0.10 [-0.32, +0.09] (0/3) | Developed_ex -0.18 [-0.47, +0.08]  US -0.02 [-0.27, +0.23]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.93      0.81             0.68         0.62  -10.35    -10.35
+Europe                   0.97      0.92             0.68         0.75  -11.43     -7.85
+Japan                    0.19      0.21             0.31         0.34  -18.41    -18.55
+Asia_Pacific_ex_Japan    0.76      0.65             0.54         0.44   -9.97    -15.14
+North_America            0.69      0.59             0.75         0.91   -7.39     -2.52
+Developed                0.76      0.61             0.68         0.76   -9.55     -5.22
+US                       0.73      0.63             0.74         0.94   -7.08     -2.78 
+
+  gain Whole mix                    pooled 3: -0.04 [-0.15, +0.03] (1/3) | Developed_ex -0.13 [-0.28, +0.01]  US -0.10 [-0.28, +0.11]
+  gain Legs, mkt unmanaged          pooled 3: -0.13 [-0.27, +0.11] (1/3) | Developed_ex -0.26 [-0.42, -0.01]  US +0.01 [-0.46, +0.59]
+  gain Legs, all managed            pooled 3: -0.13 [-0.28, +0.06] (1/3) | Developed_ex -0.31 [-0.60, -0.04]  US +0.20 [-0.18, +0.70]
+  gain Cederburg (2021-2025)        pooled 3: -0.10 [-0.27, -0.00] (0/3) | Developed_ex -0.19 [-0.40, -0.01]  US -0.11 [-0.28, +0.09]
+
+================ Mkt + RMW + CMA (no Mom)
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.77      0.74             0.59         0.54  -13.23    -13.25
+Europe                   0.70      0.72             0.45         0.52  -15.50     -9.75
+Japan                    0.39      0.35             0.34         0.31  -18.80    -17.40
+Asia_Pacific_ex_Japan    0.84      0.85             0.84         0.85  -14.55    -11.75
+North_America            0.89      0.90             0.58         0.48  -12.65     -2.79
+Developed                0.96      1.00             0.62         0.67  -12.09     -7.29
+US                       0.84      0.82             0.58         0.64  -11.68     -3.34 
+
+  gain Whole mix                    pooled 3: -0.01 [-0.08, +0.07] (2/3) | Developed_ex -0.03 [-0.19, +0.13]  US -0.02 [-0.21, +0.19]
+  gain Legs, mkt unmanaged          pooled 3: -0.10 [-0.21, -0.00] (0/3) | Developed_ex -0.18 [-0.32, -0.04]  US -0.26 [-0.63, +0.07]
+  gain Legs, all managed            pooled 3: -0.08 [-0.23, +0.06] (1/3) | Developed_ex -0.23 [-0.47, -0.01]  US -0.19 [-0.54, +0.14]
+  gain Cederburg (2003-2025)        pooled 3: -0.26 [-0.49, -0.06] (0/3) | Developed_ex -0.04 [-0.14, +0.06]  US +0.01 [-0.07, +0.10]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.81      0.84             0.59         0.61  -13.23    -13.25
+Europe                   0.78      0.89             0.43         0.62  -15.50     -9.75
+Japan                    0.34      0.29             0.29         0.28  -18.80    -17.40
+Asia_Pacific_ex_Japan    0.92      0.92             0.96         1.06  -14.55    -11.75
+North_America            0.87      0.98             0.47         0.45  -12.65     -2.78
+Developed                1.01      1.11             0.56         0.67  -12.09     -7.29
+US                       0.83      0.93             0.45         0.58  -11.68     -3.34 
+
+  gain Whole mix                    pooled 3: +0.02 [-0.07, +0.10] (1/3) | Developed_ex +0.03 [-0.17, +0.24]  US +0.10 [-0.16, +0.39]
+  gain Legs, mkt unmanaged          pooled 3: -0.12 [-0.26, +0.02] (1/3) | Developed_ex -0.22 [-0.41, -0.04]  US -0.37 [-0.88, +0.09]
+  gain Legs, all managed            pooled 3: -0.03 [-0.22, +0.16] (1/3) | Developed_ex -0.20 [-0.55, +0.12]  US -0.24 [-0.72, +0.20]
+  gain Cederburg (2003-2015)        pooled 3: -0.30 [-0.66, +0.03] (1/3) | Developed_ex -0.02 [-0.17, +0.11]  US +0.06 [-0.06, +0.19]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.68      0.57             0.59         0.42   -8.92     -9.57
+Europe                   0.54      0.43             0.48         0.37   -9.92     -6.66
+Japan                    0.52      0.44             0.45         0.36   -9.67    -11.47
+Asia_Pacific_ex_Japan    0.69      0.70             0.59         0.49   -9.38     -6.29
+North_America            0.92      0.77             0.76         0.54   -9.50     -2.12
+Developed                0.89      0.81             0.73         0.67   -8.63     -5.16
+US                       0.85      0.65             0.80         0.74   -9.15     -2.94 
+
+  gain Whole mix                    pooled 3: -0.06 [-0.17, +0.05] (1/3) | Developed_ex -0.11 [-0.34, +0.13]  US -0.20 [-0.49, +0.07]
+  gain Legs, mkt unmanaged          pooled 3: -0.08 [-0.17, +0.01] (0/3) | Developed_ex -0.10 [-0.25, +0.03]  US -0.06 [-0.46, +0.27]
+  gain Legs, all managed            pooled 3: -0.18 [-0.36, +0.00] (0/3) | Developed_ex -0.26 [-0.51, +0.00]  US -0.12 [-0.61, +0.39]
+  gain Cederburg (2016-2025)        pooled 3: -0.15 [-0.38, +0.05] (0/3) | Developed_ex -0.06 [-0.19, +0.08]  US -0.05 [-0.16, +0.06]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.73      0.66             0.53         0.51   -6.12     -6.28
+Europe                   0.64      0.54             0.45         0.44   -8.22     -5.15
+Japan                    0.36      0.37             0.11         0.19   -9.67    -11.47
+Asia_Pacific_ex_Japan    0.54      0.53             0.45         0.30   -4.75     -3.29
+North_America            1.11      0.95             0.78         0.94   -5.88     -0.94
+Developed                1.01      0.91             0.69         0.81   -5.34     -2.50
+US                       0.90      0.68             0.71         0.93   -8.07     -1.59 
+
+  gain Whole mix                    pooled 3: -0.03 [-0.14, +0.05] (1/3) | Developed_ex -0.07 [-0.30, +0.13]  US -0.22 [-0.58, +0.17]
+  gain Legs, mkt unmanaged          pooled 3: -0.18 [-0.28, -0.09] (0/3) | Developed_ex -0.20 [-0.42, +0.00]  US -0.19 [-0.89, +0.51]
+  gain Legs, all managed            pooled 3: -0.20 [-0.40, -0.03] (0/3) | Developed_ex -0.23 [-0.51, +0.08]  US +0.03 [-0.48, +0.56]
+  gain Cederburg (2021-2025)        pooled 3: -0.14 [-0.39, +0.09] (0/3) | Developed_ex -0.03 [-0.08, +0.03]  US -0.06 [-0.20, +0.07]
+
+================ Market alone
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.36      0.33             0.36         0.33  -55.94    -55.64
+Europe                   0.35      0.38             0.35         0.38  -58.97    -32.63
+Japan                    0.28      0.26             0.28         0.26  -58.10    -57.35
+Asia_Pacific_ex_Japan    0.38      0.29             0.38         0.29  -60.05    -34.66
+North_America            0.51      0.51             0.51         0.51  -51.07    -13.15
+Developed                0.46      0.45             0.46         0.45  -53.62    -41.04
+US                       0.52      0.57             0.52         0.57  -50.31    -18.45 
+
+  gain Whole mix                    pooled 3: -0.03 [-0.16, +0.12] (1/3) | Developed_ex -0.04 [-0.22, +0.15]  US +0.06 [-0.22, +0.34]
+  gain Legs, mkt unmanaged          pooled 3: +0.00 [+0.00, +0.00] (0/3) | Developed_ex +0.00 [+0.00, +0.00]  US +0.00 [+0.00, +0.00]
+  gain Legs, all managed            pooled 3: -0.03 [-0.16, +0.12] (1/3) | Developed_ex -0.04 [-0.22, +0.15]  US +0.06 [-0.22, +0.34]
+  gain Cederburg (2003-2025)        pooled 3: -0.27 [-0.52, -0.02] (0/3) | Developed_ex -0.43 [-0.79, -0.14]  US -0.00 [-0.13, +0.13]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.30      0.31             0.30         0.31  -55.94    -55.64
+Europe                   0.29      0.39             0.29         0.39  -58.97    -32.63
+Japan                    0.20      0.19             0.20         0.19  -58.10    -57.35
+Asia_Pacific_ex_Japan    0.39      0.34             0.39         0.34  -60.05    -34.66
+North_America            0.35      0.39             0.35         0.39  -51.07     -8.05
+Developed                0.33      0.35             0.33         0.35  -53.62    -41.04
+US                       0.35      0.43             0.35         0.43  -50.31    -18.45 
+
+  gain Whole mix                    pooled 3: +0.01 [-0.16, +0.18] (1/3) | Developed_ex +0.01 [-0.22, +0.25]  US +0.08 [-0.18, +0.35]
+  gain Legs, mkt unmanaged          pooled 3: +0.00 [+0.00, +0.00] (0/3) | Developed_ex +0.00 [+0.00, +0.00]  US +0.00 [+0.00, +0.00]
+  gain Legs, all managed            pooled 3: +0.01 [-0.16, +0.18] (1/3) | Developed_ex +0.01 [-0.22, +0.25]  US +0.08 [-0.18, +0.35]
+  gain Cederburg (2003-2015)        pooled 3: -0.31 [-0.68, +0.07] (1/3) | Developed_ex -0.65 [-1.29, -0.19]  US -0.03 [-0.16, +0.11]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.50      0.35             0.50         0.35  -27.84    -33.73
+Europe                   0.48      0.37             0.48         0.37  -31.13    -20.79
+Japan                    0.47      0.36             0.47         0.36  -28.93    -36.09
+Asia_Pacific_ex_Japan    0.35      0.21             0.35         0.21  -29.29    -27.57
+North_America            0.80      0.69             0.80         0.69  -24.13    -13.15
+Developed                0.70      0.63             0.70         0.63  -25.46    -18.12
+US                       0.82      0.78             0.82         0.78  -24.83    -17.36 
+
+  gain Whole mix                    pooled 3: -0.12 [-0.29, +0.06] (0/3) | Developed_ex -0.15 [-0.40, +0.13]  US -0.04 [-0.53, +0.48]
+  gain Legs, mkt unmanaged          pooled 3: +0.00 [+0.00, +0.00] (0/3) | Developed_ex +0.00 [+0.00, +0.00]  US +0.00 [+0.00, +0.00]
+  gain Legs, all managed            pooled 3: -0.12 [-0.29, +0.06] (0/3) | Developed_ex -0.15 [-0.40, +0.13]  US -0.04 [-0.53, +0.48]
+  gain Cederburg (2016-2025)        pooled 3: -0.14 [-0.42, +0.09] (0/3) | Developed_ex -0.07 [-0.17, +0.03]  US +0.00 [-0.22, +0.24]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.43      0.41             0.43         0.41  -27.84    -27.16
+Europe                   0.44      0.43             0.44         0.43  -31.13    -18.92
+Japan                    0.29      0.32             0.29         0.32  -28.93    -35.45
+Asia_Pacific_ex_Japan    0.23      0.06             0.23         0.06  -24.53    -27.57
+North_America            0.69      0.83             0.69         0.83  -24.13     -4.91
+Developed                0.62      0.68             0.62         0.68  -25.46    -12.89
+US                       0.68      0.84             0.68         0.84  -24.83     -8.72 
+
+  gain Whole mix                    pooled 3: -0.05 [-0.20, +0.10] (1/3) | Developed_ex -0.02 [-0.29, +0.23]  US +0.16 [-0.22, +0.51]
+  gain Legs, mkt unmanaged          pooled 3: +0.00 [+0.00, +0.00] (0/3) | Developed_ex +0.00 [+0.00, +0.00]  US +0.00 [+0.00, +0.00]
+  gain Legs, all managed            pooled 3: -0.05 [-0.20, +0.10] (1/3) | Developed_ex -0.02 [-0.29, +0.23]  US +0.16 [-0.22, +0.51]
+  gain Cederburg (2021-2025)        pooled 3: -0.15 [-0.52, +0.22] (1/3) | Developed_ex -0.04 [-0.16, +0.12]  US +0.05 [-0.05, +0.14]
+
+================ Mom alone
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.63      1.18             1.18         1.18  -40.84     -8.30
+Europe                   0.69      1.41             1.41         1.41  -45.55     -8.24
+Japan                    0.06      0.39             0.39         0.39  -39.23    -10.07
+Asia_Pacific_ex_Japan    0.60      1.13             1.13         1.13  -47.09    -19.57
+North_America            0.30      0.75             0.75         0.75  -49.64     -7.62
+Developed                0.42      0.95             0.95         0.95  -43.57     -4.76
+US                       0.21      0.58             0.58         0.58  -57.74     -8.29 
+
+  gain Whole mix                    pooled 3: +0.52 [+0.26, +0.79] (3/3) | Developed_ex +0.54 [+0.19, +0.93]  US +0.37 [+0.10, +0.68]
+  gain Legs, mkt unmanaged          pooled 3: +0.52 [+0.26, +0.79] (3/3) | Developed_ex +0.54 [+0.19, +0.93]  US +0.37 [+0.10, +0.68]
+  gain Legs, all managed            pooled 3: +0.52 [+0.26, +0.79] (3/3) | Developed_ex +0.54 [+0.19, +0.93]  US +0.37 [+0.10, +0.68]
+  gain Cederburg (2003-2025)        pooled 3: +0.33 [+0.01, +0.67] (2/3) | Developed_ex +0.59 [+0.10, +1.11]  US +0.34 [-0.03, +0.78]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.64      1.30             1.30         1.30  -40.84     -8.30
+Europe                   0.71      1.57             1.57         1.57  -45.55     -8.24
+Japan                    0.12      0.48             0.48         0.48  -39.23    -10.07
+Asia_Pacific_ex_Japan    0.53      1.29             1.29         1.29  -47.09    -19.57
+North_America            0.35      0.92             0.92         0.92  -49.64     -6.21
+Developed                0.47      1.12             1.12         1.12  -43.57     -4.76
+US                       0.28      0.75             0.75         0.75  -57.74     -8.29 
+
+  gain Whole mix                    pooled 3: +0.66 [+0.33, +0.99] (3/3) | Developed_ex +0.65 [+0.16, +1.15]  US +0.46 [+0.12, +0.86]
+  gain Legs, mkt unmanaged          pooled 3: +0.66 [+0.33, +0.99] (3/3) | Developed_ex +0.65 [+0.16, +1.15]  US +0.46 [+0.12, +0.86]
+  gain Legs, all managed            pooled 3: +0.66 [+0.33, +0.99] (3/3) | Developed_ex +0.65 [+0.16, +1.15]  US +0.46 [+0.12, +0.86]
+  gain Cederburg (2003-2015)        pooled 3: +0.46 [-0.06, +0.96] (2/3) | Developed_ex +0.79 [+0.02, +1.57]  US +0.41 [-0.05, +0.99]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.65      0.93             0.93         0.93  -17.21     -4.80
+Europe                   0.70      1.09             1.09         1.09  -19.85     -3.64
+Japan                   -0.11      0.16             0.16         0.16  -28.04     -6.49
+Asia_Pacific_ex_Japan    0.91      0.80             0.80         0.80   -9.37    -11.09
+North_America            0.17      0.33             0.33         0.33  -19.33     -7.62
+Developed                0.30      0.58             0.58         0.58  -20.08     -3.78
+US                       0.03      0.17             0.17         0.17  -25.36     -6.66 
+
+  gain Whole mix                    pooled 3: +0.19 [-0.03, +0.43] (2/3) | Developed_ex +0.29 [-0.06, +0.65]  US +0.15 [-0.23, +0.50]
+  gain Legs, mkt unmanaged          pooled 3: +0.19 [-0.03, +0.43] (2/3) | Developed_ex +0.29 [-0.06, +0.65]  US +0.15 [-0.23, +0.50]
+  gain Legs, all managed            pooled 3: +0.19 [-0.03, +0.43] (2/3) | Developed_ex +0.29 [-0.06, +0.65]  US +0.15 [-0.23, +0.50]
+  gain Cederburg (2016-2025)        pooled 3: +0.15 [-0.12, +0.44] (2/3) | Developed_ex +0.29 [-0.12, +0.74]  US +0.19 [-0.42, +0.82]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          0.93      0.90             0.90         0.90   -7.42     -2.98
+Europe                   0.85      0.99             0.99         0.99   -7.78     -2.92
+Japan                   -0.12      0.09             0.09         0.09  -15.76     -4.68
+Asia_Pacific_ex_Japan    1.00      0.79             0.79         0.79   -6.93     -8.56
+North_America            0.14      0.36             0.36         0.36  -14.24     -2.31
+Developed                0.29      0.39             0.39         0.39  -11.04     -1.59
+US                       0.18      0.38             0.38         0.38  -20.42     -2.64 
+
+  gain Whole mix                    pooled 3: +0.04 [-0.17, +0.26] (2/3) | Developed_ex -0.03 [-0.37, +0.30]  US +0.20 [-0.11, +0.47]
+  gain Legs, mkt unmanaged          pooled 3: +0.04 [-0.17, +0.26] (2/3) | Developed_ex -0.03 [-0.37, +0.30]  US +0.20 [-0.11, +0.47]
+  gain Legs, all managed            pooled 3: +0.04 [-0.17, +0.26] (2/3) | Developed_ex -0.03 [-0.37, +0.30]  US +0.20 [-0.11, +0.47]
+  gain Cederburg (2021-2025)        pooled 3: -0.00 [-0.29, +0.30] (2/3) | Developed_ex -0.08 [-0.51, +0.36]  US +0.22 [-0.67, +0.86]
+
+================ All six
+--- 1998-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.38      1.43             1.12         1.03   -7.17     -3.14
+Europe                   1.26      1.37             1.02         1.17   -8.37     -4.38
+Japan                    0.68      0.72             0.57         0.54   -8.90     -4.79
+Asia_Pacific_ex_Japan    1.31      1.63             1.26         1.29  -10.13     -5.98
+North_America            0.76      0.72             0.62         0.51  -11.41     -2.26
+Developed                1.08      1.17             0.85         0.89   -8.53     -2.79
+US                       0.71      0.75             0.69         0.70  -12.21     -2.52 
+
+  gain Whole mix                    pooled 3: +0.16 [+0.03, +0.29] (3/3) | Developed_ex +0.05 [-0.12, +0.23]  US +0.04 [-0.24, +0.32]
+  gain Legs, mkt unmanaged          pooled 3: -0.13 [-0.38, +0.12] (0/3) | Developed_ex -0.26 [-0.61, +0.08]  US -0.02 [-0.40, +0.35]
+  gain Legs, all managed            pooled 3: -0.08 [-0.33, +0.16] (0/3) | Developed_ex -0.35 [-0.71, +0.02]  US -0.01 [-0.35, +0.35]
+  gain Cederburg (2003-2025)        pooled 3: +0.07 [-0.07, +0.20] (2/3) | Developed_ex +0.05 [-0.11, +0.22]  US +0.01 [-0.18, +0.21]
+
+--- 1998-2015 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.44      1.55             1.31         1.30   -7.17     -3.14
+Europe                   1.34      1.50             1.21         1.48   -8.37     -4.38
+Japan                    0.71      0.81             0.69         0.68   -8.90     -3.58
+Asia_Pacific_ex_Japan    1.34      1.77             1.50         1.60  -10.13     -5.98
+North_America            0.87      0.98             0.73         0.75  -11.41     -2.26
+Developed                1.24      1.46             1.02         1.16   -8.53     -2.79
+US                       0.83      0.97             0.76         0.87  -12.21     -2.52 
+
+  gain Whole mix                    pooled 3: +0.23 [+0.07, +0.39] (3/3) | Developed_ex +0.12 [-0.12, +0.37]  US +0.14 [-0.22, +0.53]
+  gain Legs, mkt unmanaged          pooled 3: +0.00 [-0.32, +0.30] (1/3) | Developed_ex -0.12 [-0.56, +0.29]  US -0.07 [-0.57, +0.42]
+  gain Legs, all managed            pooled 3: +0.12 [-0.17, +0.39] (2/3) | Developed_ex -0.14 [-0.64, +0.35]  US +0.04 [-0.41, +0.52]
+  gain Cederburg (2003-2015)        pooled 3: +0.14 [-0.04, +0.32] (2/3) | Developed_ex +0.15 [-0.07, +0.39]  US +0.10 [-0.16, +0.38]
+
+--- 2016-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          1.27      1.17             0.72         0.55   -5.03     -3.01
+Europe                   1.11      1.09             0.64         0.57   -6.13     -2.87
+Japan                    0.64      0.53             0.33         0.29   -6.17     -4.79
+Asia_Pacific_ex_Japan    1.30      1.37             0.77         0.68   -5.60     -3.66
+North_America            0.54      0.18             0.41         0.00   -7.69     -1.61
+Developed                0.75      0.57             0.51         0.38   -6.26     -2.61
+US                       0.50      0.30             0.56         0.39   -8.05     -2.25 
+
+  gain Whole mix                    pooled 3: -0.02 [-0.22, +0.16] (1/3) | Developed_ex -0.10 [-0.35, +0.12]  US -0.20 [-0.61, +0.17]
+  gain Legs, mkt unmanaged          pooled 3: -0.43 [-0.86, -0.06] (0/3) | Developed_ex -0.55 [-1.14, -0.09]  US +0.07 [-0.51, +0.50]
+  gain Legs, all managed            pooled 3: -0.50 [-0.92, -0.10] (0/3) | Developed_ex -0.72 [-1.25, -0.23]  US -0.11 [-0.69, +0.44]
+  gain Cederburg (2016-2025)        pooled 3: -0.02 [-0.21, +0.14] (0/3) | Developed_ex -0.08 [-0.28, +0.11]  US -0.15 [-0.44, +0.11]
+
+--- 2021-2025 (net Sharpe; max drawdown %)
+                       SR unm  SR whole  SR legs mkt unm  SR legs all  DD unm  DD whole
+Developed_ex_US          2.03      1.76             0.67         0.62   -1.59     -0.79
+Europe                   1.63      1.41             0.45         0.42   -1.84     -0.81
+Japan                    1.19      0.99             0.06         0.14   -2.29     -1.52
+Asia_Pacific_ex_Japan    2.07      2.07             1.22         1.07   -1.97     -1.10
+North_America            0.85      0.53             0.56         0.31   -4.14     -0.27
+Developed                1.12      0.87             0.41         0.33   -2.34     -0.50
+US                       0.75      0.59             0.58         0.58   -6.00     -0.71 
+
+  gain Whole mix                    pooled 3: -0.14 [-0.35, +0.04] (0/3) | Developed_ex -0.27 [-0.60, -0.04]  US -0.16 [-0.71, +0.28]
+  gain Legs, mkt unmanaged          pooled 3: -1.05 [-1.32, -0.78] (0/3) | Developed_ex -1.36 [-1.84, -0.90]  US -0.17 [-1.18, +0.56]
+  gain Legs, all managed            pooled 3: -1.08 [-1.36, -0.81] (0/3) | Developed_ex -1.41 [-1.83, -0.96]  US -0.17 [-0.76, +0.32]
+  gain Cederburg (2021-2025)        pooled 3: -0.12 [-0.34, +0.06] (0/3) | Developed_ex -0.20 [-0.45, -0.02]  US -0.13 [-0.49, +0.15]
+
+SUMMARY: pooled 3 regions, mean Sharpe gain vs unmanaged [95% CI] (regions that gain)
+                                                                 1998-2025                   1998-2015                   2016-2025                   2021-2025
+Mkt + RMW + CMA + Mom | Whole mix               +0.11 [-0.01, +0.24] (3/3)  +0.16 [+0.00, +0.32] (3/3)  -0.00 [-0.11, +0.11] (2/3)  -0.08 [-0.15, -0.02] (0/3)
+Mkt + RMW + CMA + Mom | Legs, mkt unmanaged     +0.05 [-0.20, +0.30] (2/3)  +0.11 [-0.23, +0.44] (2/3)  -0.09 [-0.29, +0.13] (1/3)  -0.32 [-0.50, -0.06] (0/3)
+Mkt + RMW + CMA + Mom | Legs, all managed       +0.12 [-0.10, +0.33] (3/3)  +0.25 [-0.02, +0.51] (3/3)  -0.16 [-0.38, +0.09] (1/3)  -0.30 [-0.52, -0.07] (0/3)
+Mkt + RMW + CMA + Mom | Cederburg               -0.05 [-0.21, +0.12] (1/3)  -0.05 [-0.32, +0.22] (2/3)  -0.05 [-0.21, +0.10] (0/3)  -0.11 [-0.18, -0.05] (0/3)
+RMW + CMA + Mom | Whole mix                     +0.51 [+0.23, +0.81] (3/3)  +0.63 [+0.29, +0.99] (3/3)  +0.12 [-0.08, +0.32] (2/3)  -0.09 [-0.29, +0.08] (1/3)
+RMW + CMA + Mom | Legs, mkt unmanaged           +0.48 [+0.22, +0.72] (3/3)  +0.63 [+0.32, +0.91] (3/3)  +0.03 [-0.24, +0.29] (2/3)  -0.31 [-0.55, -0.06] (0/3)
+RMW + CMA + Mom | Legs, all managed             +0.48 [+0.22, +0.72] (3/3)  +0.63 [+0.32, +0.91] (3/3)  +0.03 [-0.24, +0.29] (2/3)  -0.31 [-0.55, -0.06] (0/3)
+RMW + CMA + Mom | Cederburg                     +0.44 [+0.13, +0.77] (3/3)  +0.63 [+0.18, +1.04] (2/3)  +0.10 [-0.12, +0.34] (2/3)  -0.11 [-0.33, +0.11] (1/3)
+Mkt + Mom | Whole mix                           +0.16 [+0.03, +0.31] (3/3)  +0.25 [+0.08, +0.43] (3/3)  -0.02 [-0.15, +0.11] (2/3)  -0.04 [-0.15, +0.03] (1/3)
+Mkt + Mom | Legs, mkt unmanaged                 +0.07 [-0.11, +0.25] (2/3)  +0.11 [-0.13, +0.35] (3/3)  -0.03 [-0.17, +0.14] (1/3)  -0.13 [-0.27, +0.11] (1/3)
+Mkt + Mom | Legs, all managed                   +0.12 [-0.08, +0.32] (3/3)  +0.23 [-0.02, +0.47] (3/3)  -0.11 [-0.31, +0.11] (1/3)  -0.13 [-0.28, +0.06] (1/3)
+Mkt + Mom | Cederburg                           -0.04 [-0.27, +0.22] (2/3)  +0.00 [-0.38, +0.39] (2/3)  -0.10 [-0.32, +0.09] (0/3)  -0.10 [-0.27, -0.00] (0/3)
+Mkt + RMW + CMA (no Mom) | Whole mix            -0.01 [-0.08, +0.07] (2/3)  +0.02 [-0.07, +0.10] (1/3)  -0.06 [-0.17, +0.05] (1/3)  -0.03 [-0.14, +0.05] (1/3)
+Mkt + RMW + CMA (no Mom) | Legs, mkt unmanaged  -0.10 [-0.21, -0.00] (0/3)  -0.12 [-0.26, +0.02] (1/3)  -0.08 [-0.17, +0.01] (0/3)  -0.18 [-0.28, -0.09] (0/3)
+Mkt + RMW + CMA (no Mom) | Legs, all managed    -0.08 [-0.23, +0.06] (1/3)  -0.03 [-0.22, +0.16] (1/3)  -0.18 [-0.36, +0.00] (0/3)  -0.20 [-0.40, -0.03] (0/3)
+Mkt + RMW + CMA (no Mom) | Cederburg            -0.26 [-0.49, -0.06] (0/3)  -0.30 [-0.66, +0.03] (1/3)  -0.15 [-0.38, +0.05] (0/3)  -0.14 [-0.39, +0.09] (0/3)
+Market alone | Whole mix                        -0.03 [-0.16, +0.12] (1/3)  +0.01 [-0.16, +0.18] (1/3)  -0.12 [-0.29, +0.06] (0/3)  -0.05 [-0.20, +0.10] (1/3)
+Market alone | Legs, mkt unmanaged              +0.00 [+0.00, +0.00] (0/3)  +0.00 [+0.00, +0.00] (0/3)  +0.00 [+0.00, +0.00] (0/3)  +0.00 [+0.00, +0.00] (0/3)
+Market alone | Legs, all managed                -0.03 [-0.16, +0.12] (1/3)  +0.01 [-0.16, +0.18] (1/3)  -0.12 [-0.29, +0.06] (0/3)  -0.05 [-0.20, +0.10] (1/3)
+Market alone | Cederburg                        -0.27 [-0.52, -0.02] (0/3)  -0.31 [-0.68, +0.07] (1/3)  -0.14 [-0.42, +0.09] (0/3)  -0.15 [-0.52, +0.22] (1/3)
+Mom alone | Whole mix                           +0.52 [+0.26, +0.79] (3/3)  +0.66 [+0.33, +0.99] (3/3)  +0.19 [-0.03, +0.43] (2/3)  +0.04 [-0.17, +0.26] (2/3)
+Mom alone | Legs, mkt unmanaged                 +0.52 [+0.26, +0.79] (3/3)  +0.66 [+0.33, +0.99] (3/3)  +0.19 [-0.03, +0.43] (2/3)  +0.04 [-0.17, +0.26] (2/3)
+Mom alone | Legs, all managed                   +0.52 [+0.26, +0.79] (3/3)  +0.66 [+0.33, +0.99] (3/3)  +0.19 [-0.03, +0.43] (2/3)  +0.04 [-0.17, +0.26] (2/3)
+Mom alone | Cederburg                           +0.33 [+0.01, +0.67] (2/3)  +0.46 [-0.06, +0.96] (2/3)  +0.15 [-0.12, +0.44] (2/3)  -0.00 [-0.29, +0.30] (2/3)
+All six | Whole mix                             +0.16 [+0.03, +0.29] (3/3)  +0.23 [+0.07, +0.39] (3/3)  -0.02 [-0.22, +0.16] (1/3)  -0.14 [-0.35, +0.04] (0/3)
+All six | Legs, mkt unmanaged                   -0.13 [-0.38, +0.12] (0/3)  +0.00 [-0.32, +0.30] (1/3)  -0.43 [-0.86, -0.06] (0/3)  -1.05 [-1.32, -0.78] (0/3)
+All six | Legs, all managed                     -0.08 [-0.33, +0.16] (0/3)  +0.12 [-0.17, +0.39] (2/3)  -0.50 [-0.92, -0.10] (0/3)  -1.08 [-1.36, -0.81] (0/3)
+All six | Cederburg                             +0.07 [-0.07, +0.20] (2/3)  +0.14 [-0.04, +0.32] (2/3)  -0.02 [-0.21, +0.14] (0/3)  -0.12 [-0.34, +0.06] (0/3) 
+

@@ -1,0 +1,183 @@
+2. US, each of the 16 series on its own
+spec 'uncapped': cost 10 bp per unit of exposure change, cap none, c rule rematch, bootstrap 12-month blocks x 5000
+
+======== 1998-2025
+Mean net Sharpe across series
+                               all 16  6 factors  10 industries
+rule                                                           
+Unmanaged                        0.30       0.25           0.33
+MM on RV                         0.26       0.18           0.30
+MM on GARCH                      0.29       0.24           0.32
+Xu switches (GARCH)              0.36       0.38           0.34
+Conditional quintiles (GARCH)    0.30       0.24           0.33
+Recovery state (RV)              0.28       0.22           0.32 
+
+Mean Sharpe gain vs unmanaged [95% CI], series that gain
+                                                   all 16                  6 factors               10 industries
+MM on RV                       -0.05 [-0.20, +0.12]  4/16  -0.07 [-0.23, +0.09]  1/6  -0.03 [-0.25, +0.19]  3/10
+MM on GARCH                    -0.01 [-0.14, +0.12]  7/16  -0.02 [-0.15, +0.12]  2/6  -0.01 [-0.17, +0.16]  5/10
+Xu switches (GARCH)            +0.05 [-0.11, +0.23]  8/16  +0.13 [-0.02, +0.28]  4/6  +0.01 [-0.21, +0.25]  4/10
+Conditional quintiles (GARCH)  -0.00 [-0.12, +0.12]  7/16  -0.02 [-0.14, +0.11]  2/6  +0.00 [-0.14, +0.16]  5/10
+Recovery state (RV)            -0.02 [-0.12, +0.08]  6/16  -0.04 [-0.13, +0.06]  1/6  -0.01 [-0.15, +0.12]  5/10
+Cederburg (MM on GARCH)        -0.11 [-0.24, +0.01]  2/16  +0.02 [-0.08, +0.12]  2/6  -0.18 [-0.40, +0.01]  0/10 
+
+Net Sharpe by series
+rule    Unmanaged  MM on RV  MM on GARCH  Xu switches (GARCH)  Conditional quintiles (GARCH)  Recovery state (RV)
+series                                                                                                           
+CMA          0.24     -0.09         0.04                 0.31                          -0.00                 0.07
+Durbl        0.31      0.09         0.15                 0.40                           0.16                 0.32
+Enrgy        0.27      0.19         0.18                 0.27                           0.21                 0.17
+HML          0.08     -0.00         0.07                 0.47                          -0.01                 0.04
+HiTec        0.43      0.58         0.61                 0.58                           0.65                 0.53
+Hlth         0.40      0.27         0.31                 0.28                           0.30                 0.31
+Manuf        0.38      0.29         0.32                 0.26                           0.35                 0.42
+Mkt-RF       0.52      0.48         0.57                 0.64                           0.60                 0.50
+Mom          0.21      0.55         0.54                 0.48                           0.60                 0.46
+NoDur        0.32      0.11         0.20                 0.14                           0.19                 0.21
+Other        0.26      0.25         0.31                 0.18                           0.37                 0.33
+RMW          0.37      0.20         0.20                 0.36                           0.24                 0.17
+SMB          0.11     -0.04        -0.01                 0.02                          -0.00                 0.06
+Shops        0.47      0.46         0.48                 0.53                           0.51                 0.46
+Telcm        0.12      0.31         0.23                 0.42                           0.22                 0.21
+Utils        0.37      0.46         0.42                 0.34                           0.38                 0.26 
+
+======== 1998-2015
+Mean net Sharpe across series
+                               all 16  6 factors  10 industries
+rule                                                           
+Unmanaged                        0.28       0.31           0.26
+MM on RV                         0.32       0.27           0.35
+MM on GARCH                      0.34       0.32           0.35
+Xu switches (GARCH)              0.46       0.50           0.44
+Conditional quintiles (GARCH)    0.34       0.33           0.35
+Recovery state (RV)              0.29       0.26           0.30 
+
+Mean Sharpe gain vs unmanaged [95% CI], series that gain
+                                                    all 16                  6 factors               10 industries
+MM on RV                        +0.04 [-0.13, +0.22]  9/16  -0.04 [-0.24, +0.17]  2/6  +0.09 [-0.15, +0.32]  7/10
+MM on GARCH                    +0.06 [-0.08, +0.22]  11/16  +0.02 [-0.16, +0.20]  3/6  +0.08 [-0.11, +0.29]  8/10
+Xu switches (GARCH)            +0.18 [-0.02, +0.40]  14/16  +0.19 [+0.00, +0.37]  5/6  +0.17 [-0.10, +0.49]  9/10
+Conditional quintiles (GARCH)  +0.06 [-0.07, +0.22]  10/16  +0.02 [-0.15, +0.19]  3/6  +0.09 [-0.08, +0.28]  7/10
+Recovery state (RV)             +0.01 [-0.11, +0.12]  8/16  -0.05 [-0.16, +0.06]  2/6  +0.04 [-0.12, +0.19]  6/10
+Cederburg (MM on GARCH)         -0.18 [-0.38, -0.00]  1/16  +0.01 [-0.13, +0.14]  1/6  -0.29 [-0.61, -0.01]  0/10 
+
+Net Sharpe by series
+rule    Unmanaged  MM on RV  MM on GARCH  Xu switches (GARCH)  Conditional quintiles (GARCH)  Recovery state (RV)
+series                                                                                                           
+CMA          0.44      0.04         0.23                 0.47                           0.14                 0.27
+Durbl        0.13     -0.08         0.01                 0.39                           0.05                 0.11
+Enrgy        0.28      0.33         0.33                 0.39                           0.41                 0.17
+HML          0.16      0.07         0.20                 0.61                           0.15                 0.07
+HiTec        0.23      0.35         0.39                 0.39                           0.44                 0.29
+Hlth         0.37      0.37         0.35                 0.45                           0.35                 0.41
+Manuf        0.32      0.34         0.33                 0.40                           0.36                 0.39
+Mkt-RF       0.35      0.46         0.43                 0.61                           0.44                 0.38
+Mom          0.28      0.71         0.71                 0.71                           0.73                 0.54
+NoDur        0.40      0.38         0.43                 0.28                           0.33                 0.47
+Other        0.11      0.25         0.20                 0.30                           0.24                 0.34
+RMW          0.34      0.14         0.17                 0.39                           0.21                 0.08
+SMB          0.28      0.19         0.21                 0.20                           0.30                 0.20
+Shops        0.39      0.45         0.45                 0.53                           0.47                 0.31
+Telcm        0.11      0.51         0.37                 0.66                           0.37                 0.33
+Utils        0.29      0.64         0.59                 0.58                           0.53                 0.21 
+
+======== 2016-2025
+Mean net Sharpe across series
+                               all 16  6 factors  10 industries
+rule                                                           
+Unmanaged                        0.35       0.16           0.46
+MM on RV                         0.14      -0.02           0.23
+MM on GARCH                      0.20       0.05           0.28
+Xu switches (GARCH)              0.18       0.15           0.20
+Conditional quintiles (GARCH)    0.21       0.06           0.30
+Recovery state (RV)              0.27       0.15           0.34 
+
+Mean Sharpe gain vs unmanaged [95% CI], series that gain
+                                                   all 16                  6 factors               10 industries
+MM on RV                       -0.21 [-0.46, +0.03]  1/16  -0.18 [-0.36, -0.00]  1/6  -0.23 [-0.55, +0.09]  0/10
+MM on GARCH                    -0.15 [-0.34, +0.03]  2/16  -0.11 [-0.27, +0.05]  1/6  -0.18 [-0.41, +0.05]  1/10
+Xu switches (GARCH)            -0.17 [-0.37, +0.02]  2/16  -0.02 [-0.20, +0.17]  2/6  -0.26 [-0.52, +0.01]  0/10
+Conditional quintiles (GARCH)  -0.14 [-0.30, +0.02]  4/16  -0.10 [-0.25, +0.05]  2/6  -0.16 [-0.37, +0.04]  2/10
+Recovery state (RV)            -0.08 [-0.26, +0.09]  6/16  -0.01 [-0.18, +0.16]  3/6  -0.12 [-0.34, +0.10]  3/10
+Cederburg (MM on GARCH)        -0.02 [-0.15, +0.08]  5/16  +0.03 [-0.09, +0.15]  2/6  -0.05 [-0.25, +0.10]  3/10 
+
+Net Sharpe by series
+rule    Unmanaged  MM on RV  MM on GARCH  Xu switches (GARCH)  Conditional quintiles (GARCH)  Recovery state (RV)
+series                                                                                                           
+CMA         -0.08     -0.38        -0.32                 0.04                          -0.26                -0.30
+Durbl        0.54      0.41         0.41                 0.45                           0.36                 0.58
+Enrgy        0.27     -0.05        -0.05                 0.16                          -0.12                 0.18
+HML         -0.04     -0.33        -0.22                 0.26                          -0.32                -0.02
+HiTec        0.94      0.91         0.99                 0.87                           0.99                 0.96
+Hlth         0.44      0.13         0.26                 0.06                           0.22                 0.16
+Manuf        0.48      0.24         0.31                 0.07                           0.34                 0.47
+Mkt-RF       0.82      0.56         0.77                 0.71                           0.83                 0.68
+Mom          0.03      0.13         0.15                -0.02                           0.35                 0.28
+NoDur        0.17     -0.29        -0.19                -0.13                          -0.05                -0.27
+Other        0.53      0.27         0.45                 0.07                           0.55                 0.31
+RMW          0.47      0.35         0.31                 0.32                           0.31                 0.43
+SMB         -0.21     -0.45        -0.39                -0.42                          -0.52                -0.16
+Shops        0.61      0.51         0.52                 0.53                           0.57                 0.66
+Telcm        0.14     -0.00        -0.00                -0.05                          -0.02                -0.05
+Utils        0.50      0.18         0.16                -0.01                           0.19                 0.39 
+
+======== 2021-2025
+Mean net Sharpe across series
+                               all 16  6 factors  10 industries
+rule                                                           
+Unmanaged                        0.28       0.29           0.27
+MM on RV                         0.13       0.16           0.11
+MM on GARCH                      0.14       0.17           0.11
+Xu switches (GARCH)              0.18       0.41           0.04
+Conditional quintiles (GARCH)    0.17       0.15           0.19
+Recovery state (RV)              0.16       0.28           0.09 
+
+Mean Sharpe gain vs unmanaged [95% CI], series that gain
+                                                   all 16                  6 factors               10 industries
+MM on RV                       -0.15 [-0.32, -0.01]  6/16  -0.13 [-0.28, +0.01]  3/6  -0.17 [-0.38, +0.02]  3/10
+MM on GARCH                    -0.14 [-0.27, -0.03]  5/16  -0.11 [-0.25, +0.03]  2/6  -0.16 [-0.31, -0.03]  3/10
+Xu switches (GARCH)            -0.10 [-0.27, +0.05]  6/16  +0.13 [-0.07, +0.33]  3/6  -0.23 [-0.45, -0.04]  3/10
+Conditional quintiles (GARCH)  -0.11 [-0.23, -0.00]  6/16  -0.14 [-0.35, +0.06]  2/6  -0.09 [-0.21, +0.03]  4/10
+Recovery state (RV)            -0.12 [-0.23, -0.01]  6/16  -0.01 [-0.21, +0.18]  3/6  -0.18 [-0.29, -0.09]  3/10
+Cederburg (MM on GARCH)        +0.05 [-0.04, +0.16]  9/16  +0.04 [-0.07, +0.16]  3/6  +0.06 [-0.05, +0.20]  6/10 
+
+Net Sharpe by series
+rule    Unmanaged  MM on RV  MM on GARCH  Xu switches (GARCH)  Conditional quintiles (GARCH)  Recovery state (RV)
+series                                                                                                           
+CMA          0.12     -0.36        -0.28                 0.12                          -0.26                -0.16
+Durbl        0.32      0.49         0.40                 0.10                           0.48                 0.43
+Enrgy        0.69      0.35         0.25                 0.46                           0.10                 0.43
+HML          0.55      0.13         0.23                 0.39                          -0.02                 0.28
+HiTec        0.64      0.84         0.89                 0.87                           0.85                 0.82
+Hlth         0.17     -0.02         0.06                -0.44                           0.02                -0.04
+Manuf        0.23      0.02         0.05                -0.61                           0.18                 0.11
+Mkt-RF       0.68      0.80         0.82                 0.82                           1.00                 0.50
+Mom          0.18      0.32         0.36                 0.78                           0.41                 0.63
+NoDur       -0.11     -0.72        -0.62                -0.59                          -0.40                -0.71
+Other        0.41      0.21         0.31                 0.17                           0.51                -0.03
+RMW          0.62      0.66         0.53                 0.84                           0.56                 0.63
+SMB         -0.44     -0.62        -0.65                -0.47                          -0.80                -0.20
+Shops        0.29      0.36         0.37                 0.47                           0.51                 0.32
+Telcm       -0.30     -0.46        -0.52                -0.17                          -0.49                -0.58
+Utils        0.38     -0.00        -0.03                 0.14                           0.10                 0.16 
+
+Max drawdown %, 1998-2025
+rule    Unmanaged  MM on RV  MM on GARCH
+series                                  
+CMA         -21.0     -23.6        -23.4
+Durbl       -77.4     -37.1        -41.8
+Enrgy       -66.6     -38.3        -50.4
+HML         -52.5     -42.1        -33.5
+HiTec       -81.5     -36.0        -33.6
+Hlth        -43.6     -26.4        -37.3
+Manuf       -55.0     -34.6        -27.9
+Mkt-RF      -50.3     -33.3        -22.8
+Mom         -57.7      -8.6        -14.6
+NoDur       -34.9     -27.2        -24.6
+Other       -68.8     -28.4        -23.8
+RMW         -37.5     -18.7        -21.2
+SMB         -25.0     -19.6        -25.2
+Shops       -40.5     -24.2        -20.7
+Telcm       -77.2     -29.4        -35.3
+Utils       -39.0      -5.3        -13.7 
+

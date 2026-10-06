@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.idea/
+.ipynb_checkpoints/
+# GARCH forecasts are re-created by the scripts; results/<spec>/ are kept so readers can see the outputs
+results/cache/

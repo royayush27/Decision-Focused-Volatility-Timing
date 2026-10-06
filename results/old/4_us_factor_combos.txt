@@ -1,0 +1,59 @@
+4. US, factor combinations and industry groups
+spec 'old': cost 5 bp per unit of exposure change, cap 2.0, c rule frozen, bootstrap 12-month blocks x 5000
+
+Part A. Equal-weight factor mixes, net Sharpe, and percentile among all 63 subsets
+                                        1998-2025  1998-2015  2016-2025  2021-2025  1998-2025 pctile  1998-2015 pctile  2016-2025 pctile  2021-2025 pctile
+all six (EW)                                 0.71       0.83       0.50       0.75             82.54             93.65             60.32             76.19
+Mkt + RMW + CMA + Mom (hindsight pick)       0.85       0.85       0.86       0.91             98.41             95.24             95.24             85.71
+RMW + CMA + Mom (hindsight pick)             0.40       0.49       0.18       0.45             39.68             41.27             39.68             38.10
+best 3 on 1963-1997 (Mom, HML, CMA)          0.28       0.44      -0.04       0.44             20.63             26.98             17.46             36.51
+top 3, re-chosen yearly (expanding)          0.35       0.40       0.22       0.45             30.16             19.05             44.44             39.68
+top 3, re-chosen yearly (trailing 5y)        0.29       0.11       0.71       0.87             22.22              0.00             84.13             82.54
+market alone                                 0.52       0.35       0.82       0.68             57.14             11.11             92.06             63.49 
+
+  1998-2025: median subset 0.45; best Mkt-RF+RMW+CMA+Mom 0.85; worst HML 0.08
+  1998-2015: median subset 0.53; best Mkt-RF+SMB+RMW+CMA+Mom 0.89; worst HML 0.16
+  2016-2025: median subset 0.38; best Mkt-RF+RMW+Mom 0.95; worst SMB -0.21
+  2021-2025: median subset 0.56; best Mkt-RF+HML+RMW+Mom 1.20; worst SMB -0.44
+  rank correlation of subset Sharpe ratios, 1998-2015 vs 2016-2025: 0.64
+
+Part A2. Gross Sharpe and rank among all 63 equal-weight mixes, before and after 1998
+  (RMW and CMA were published in 2013-2015 with data up to then: before 2016 is not out of sample for them)
+                                              1963-1997                 1963-1980                    1981-1997                1998-2025                    1998-2015            2016-2025                2021-2025
+Mkt-RF+RMW+CMA+Mom                           1.23 (#14)                0.97 (#25)                   1.52 (#14)                0.85 (#1)                    0.85 (#3)            0.86 (#3)                0.91 (#9)
+RMW+CMA+Mom                                  1.24 (#13)                1.05 (#18)                   1.46 (#18)               0.40 (#38)                   0.49 (#37)           0.18 (#38)               0.45 (#39)
+Mkt-RF+SMB+HML+RMW+CMA+Mom                    1.49 (#3)                 1.21 (#7)                    1.93 (#2)               0.71 (#11)                    0.83 (#4)           0.50 (#25)               0.75 (#15)
+Mkt-RF                                       0.42 (#62)                0.23 (#62)                   0.62 (#58)               0.52 (#27)                   0.35 (#56)            0.82 (#5)               0.68 (#23)
+best mix                    Mkt-RF+HML+RMW+CMA+Mom 1.55  SMB+HML+RMW+CMA+Mom 1.41  Mkt-RF+HML+RMW+CMA+Mom 1.96  Mkt-RF+RMW+CMA+Mom 0.85  Mkt-RF+SMB+RMW+CMA+Mom 0.89  Mkt-RF+RMW+Mom 0.95  Mkt-RF+HML+RMW+Mom 1.20 
+
+Part B. Industry groups (equal weights), net Sharpe (gain vs unmanaged [95% CI])
+
+  defensive: NoDur, Hlth, Utils, Telcm
+                                                 1998-2025                    1998-2015                    2016-2025                     2021-2025
+Unmanaged                                             0.36                         0.35                         0.38                          0.04
+MM on RV                       0.33 (-0.03 [-0.28, +0.22])  0.53 (+0.18 [-0.12, +0.46])  0.06 (-0.32 [-0.61, -0.02])  -0.31 (-0.35 [-0.57, -0.14])
+MM on GARCH                    0.36 (-0.00 [-0.20, +0.21])  0.46 (+0.11 [-0.13, +0.35])  0.20 (-0.17 [-0.44, +0.08])  -0.23 (-0.26 [-0.54, -0.03])
+Xu switches (GARCH)            0.51 (+0.15 [-0.17, +0.49])  0.70 (+0.35 [-0.09, +0.80])  0.18 (-0.20 [-0.54, +0.18])  -0.13 (-0.17 [-0.59, +0.31])
+Conditional quintiles (GARCH)  0.29 (-0.07 [-0.27, +0.15])  0.37 (+0.02 [-0.25, +0.30])  0.17 (-0.20 [-0.46, +0.05])  -0.19 (-0.23 [-0.49, -0.03])
+Recovery state (RV)            0.41 (+0.05 [-0.14, +0.25])  0.58 (+0.23 [+0.01, +0.47])  0.12 (-0.26 [-0.48, -0.03])  -0.35 (-0.39 [-0.64, -0.18]) 
+
+
+  cyclical: Durbl, Manuf, Enrgy, HiTec, Shops, Other
+                                                 1998-2025                    1998-2015                    2016-2025                    2021-2025
+Unmanaged                                             0.42                         0.28                         0.66                         0.58
+MM on RV                       0.32 (-0.10 [-0.41, +0.22])  0.23 (-0.05 [-0.35, +0.25])  0.45 (-0.21 [-0.76, +0.37])  0.70 (+0.12 [-0.30, +0.49])
+MM on GARCH                    0.35 (-0.07 [-0.32, +0.19])  0.24 (-0.03 [-0.29, +0.24])  0.51 (-0.15 [-0.59, +0.31])  0.70 (+0.12 [-0.17, +0.40])
+Xu switches (GARCH)            0.40 (-0.02 [-0.36, +0.33])  0.35 (+0.07 [-0.33, +0.51])  0.47 (-0.18 [-0.63, +0.24])  0.27 (-0.31 [-0.92, +0.23])
+Conditional quintiles (GARCH)  0.38 (-0.04 [-0.28, +0.20])  0.26 (-0.01 [-0.29, +0.28])  0.57 (-0.09 [-0.49, +0.31])  0.73 (+0.16 [-0.31, +0.53])
+Recovery state (RV)            0.41 (-0.01 [-0.22, +0.20])  0.27 (-0.00 [-0.24, +0.23])  0.62 (-0.04 [-0.45, +0.36])  0.43 (-0.14 [-0.44, +0.14]) 
+
+
+  all10: NoDur, Durbl, Manuf, Enrgy, HiTec, Telcm, Shops, Hlth, Utils, Other
+                                                 1998-2025                    1998-2015                    2016-2025                    2021-2025
+Unmanaged                                             0.42                         0.31                         0.61                         0.44
+MM on RV                       0.37 (-0.05 [-0.36, +0.26])  0.36 (+0.05 [-0.26, +0.34])  0.39 (-0.21 [-0.71, +0.32])  0.40 (-0.04 [-0.44, +0.31])
+MM on GARCH                    0.39 (-0.03 [-0.28, +0.22])  0.31 (-0.00 [-0.26, +0.27])  0.50 (-0.10 [-0.53, +0.33])  0.49 (+0.04 [-0.23, +0.27])
+Xu switches (GARCH)            0.36 (-0.06 [-0.43, +0.35])  0.55 (+0.24 [-0.19, +0.68])  0.16 (-0.45 [-0.90, +0.11])  0.07 (-0.37 [-1.11, +0.26])
+Conditional quintiles (GARCH)  0.38 (-0.04 [-0.27, +0.20])  0.27 (-0.05 [-0.33, +0.25])  0.56 (-0.05 [-0.40, +0.32])  0.64 (+0.20 [-0.09, +0.52])
+Recovery state (RV)            0.47 (+0.05 [-0.18, +0.28])  0.39 (+0.08 [-0.15, +0.33])  0.59 (-0.02 [-0.43, +0.38])  0.37 (-0.08 [-0.41, +0.22]) 
+

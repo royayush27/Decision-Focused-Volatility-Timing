@@ -1,0 +1,49 @@
+8. Multiple testing across every timing comparison (1998-2025)
+spec 'uncapped': cost 10 bp per unit of exposure change, cap none, c rule rematch, bootstrap 12-month blocks x 5000
+
+296 timing comparisons in the family, 336 months, one joint bootstrap (5000 draws, 12-month blocks)
+
+significant at 5%: raw 53 (about 15 expected by luck alone), Benjamini-Hochberg 3, Holm 2, Romano-Wolf 3
+
+The 25 smallest raw p-values
+                           group                    series                           rule    dSR     se      t  p_raw  p_holm   p_bh  p_romano_wolf
+0                        JKP fra                 Mom alone                    MM on GARCH  0.499  0.128  3.880  0.000   0.031  0.023          0.017
+1                  French Europe                 Mom alone                      Whole mix  0.708  0.187  3.787  0.000   0.045  0.023          0.023
+2                  French Europe           RMW + CMA + Mom            Legs, mkt unmanaged  0.669  0.185  3.611  0.000   0.090  0.030          0.042
+3                JKP world_ex_us                 Mom alone                    MM on GARCH  0.602  0.189  3.190  0.001   0.417  0.092          0.151
+4               French Developed                 Mom alone                      Whole mix  0.521  0.165  3.163  0.002   0.455  0.092          0.161
+5   French Asia_Pacific_ex_Japan                 Mkt + Mom            Legs, mkt unmanaged  0.265  0.089  2.971  0.003   0.864  0.146          0.254
+6         French Developed_ex_US                 Mom alone                      Whole mix  0.555  0.191  2.909  0.004   1.000  0.149          0.290
+7   French Asia_Pacific_ex_Japan           RMW + CMA + Mom                      Whole mix  0.643  0.225  2.861  0.004   1.000  0.149          0.322
+8                        JKP gbr                 Mom alone                    MM on GARCH  0.436  0.154  2.838  0.005   1.000  0.149          0.333
+9           French North_America  Mkt + RMW + CMA (no Mom)            Legs, mkt unmanaged -0.361  0.129 -2.805  0.005   1.000  0.149          0.354
+10                  JKP emerging                 Mom alone                    MM on GARCH  0.408  0.154  2.656  0.008   1.000  0.176          0.470
+11                     US series                       Mom  Conditional quintiles (GARCH)  0.393  0.148  2.655  0.008   1.000  0.176          0.471
+12                     Robin DFL                       Mom                         ZHAO_B  0.368  0.141  2.606  0.009   1.000  0.176          0.517
+13               JKP world_ex_us                 Mkt + Mom                    MM on GARCH  0.268  0.104  2.579  0.010   1.000  0.176          0.539
+14                       JKP fra                 Mkt + Mom                    MM on GARCH  0.236  0.092  2.570  0.010   1.000  0.176          0.546
+15                       JKP fra    Mkt + Prof + Inv + Mom                    MM on GARCH  0.194  0.076  2.565  0.010   1.000  0.176          0.548
+16                       JKP can                 Mom alone                    MM on GARCH  0.300  0.118  2.549  0.011   1.000  0.176          0.563
+17        French Developed_ex_US           RMW + CMA + Mom            Legs, mkt unmanaged  0.471  0.186  2.530  0.011   1.000  0.176          0.578
+18  French Asia_Pacific_ex_Japan           RMW + CMA + Mom            Legs, mkt unmanaged  0.500  0.199  2.507  0.012   1.000  0.176          0.598
+19        French Developed_ex_US           RMW + CMA + Mom                      Whole mix  0.506  0.204  2.480  0.013   1.000  0.176          0.617
+20          French North_America  Mkt + RMW + CMA (no Mom)              Legs, all managed -0.376  0.152 -2.478  0.013   1.000  0.176          0.618
+21                     Robin DFL                       CMA                        GARCH_B -0.289  0.117 -2.466  0.014   1.000  0.176          0.627
+22                 French Europe           RMW + CMA + Mom                      Whole mix  0.497  0.202  2.459  0.014   1.000  0.176          0.631
+23                       JKP fra          Prof + Inv + Mom                    MM on GARCH  0.235  0.096  2.441  0.015   1.000  0.176          0.645
+24                 French Europe  Mkt + RMW + CMA (no Mom)            Legs, mkt unmanaged -0.210  0.086 -2.435  0.015   1.000  0.176          0.646 
+
+Headline comparisons, adjusted within the full family
+                      group                  series         rule    dSR     se      t  p_raw  p_holm   p_bh  p_romano_wolf
+224               US market                  Mkt-RF  MM on GARCH  0.055  0.146  0.378  0.705   1.000  0.927          1.000
+92                   US mix   Mkt + RMW + CMA + Mom  MM on GARCH  0.179  0.124  1.440  0.150   1.000  0.477          0.998
+129                  US mix         RMW + CMA + Mom  MM on GARCH  0.162  0.161  1.006  0.314   1.000  0.711          1.000
+39                US series                     Mom  MM on GARCH  0.328  0.150  2.188  0.029   1.000  0.212          0.816
+128         JKP world_ex_us  Mkt + Prof + Inv + Mom  MM on GARCH  0.102  0.100  1.022  0.307   1.000  0.704          1.000
+3           JKP world_ex_us               Mom alone  MM on GARCH  0.602  0.189  3.190  0.001   0.417  0.092          0.151
+161  French Developed_ex_US   Mkt + RMW + CMA + Mom    Whole mix  0.074  0.095  0.784  0.433   1.000  0.784          1.000
+19   French Developed_ex_US         RMW + CMA + Mom    Whole mix  0.506  0.204  2.480  0.013   1.000  0.176          0.617
+6    French Developed_ex_US               Mom alone    Whole mix  0.555  0.191  2.909  0.004   1.000  0.149          0.290
+170               Robin DFL                     RMW       ZHAO_B  0.116  0.159  0.729  0.466   1.000  0.801          1.000
+12                Robin DFL                     Mom       ZHAO_B  0.368  0.141  2.606  0.009   1.000  0.176          0.517 
+
