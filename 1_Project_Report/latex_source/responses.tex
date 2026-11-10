@@ -1,0 +1,15 @@
+\documentclass[12pt]{article}
+\input{preamble}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\newcommand{\refdesign}{Section~2.2 of the report}
+\newcommand{\refutility}{eq.~(10) of the report}
+\title{\textbf{Responses to Questions}\\[4pt]\large Decision-Focused Volatility Timing}
+\author{Team 6: Ayush Roy, Farres and Robin\\[2pt]\small Introduction to Financial Engineering, Hanyang University}
+\date{November 2026}
+\begin{document}
+\maketitle
+\noindent This document answers the 21 questions raised on our project, grouped by theme. Each question is quoted in italics, followed by our answer. Some answers rely on robustness checks run for these questions (alternative caps, start years, sub-samples and benchmarks) that are not reported in the main sections of the report; where a check has not been run, the answer says so.
+
+\noindent All numbers come from the final version of our analysis. In the revised training run, notebook \texttt{lstm\_training\_revised.ipynb}, GJR-GARCH and the GARCH-LSTM are trained on the same data from 1963 as the other models, with a five-year validation block and the January reset of $c$ inside the decision loss. The portfolio results come from the final notebook, \texttt{vol\_timing\_final\_revised.ipynb} (US market 1998--2025, net of 10 bp costs). Several questions quote numbers from our presentation, which used the earlier training run; where a number changed, the answer gives the final value.
+\input{qa}
+\end{document}

@@ -1,0 +1,261 @@
+\documentclass[12pt]{article}
+\input{preamble}
+
+\begin{document}
+\thispagestyle{plain}
+\begin{center}
+{\LARGE\bfseries Decision-Focused Volatility Timing\par}
+\vspace{0.8em}
+{\large Does a better volatility forecast, or one trained for the trading decision,\\ make a volatility-managed portfolio work out of sample?\par}
+\vspace{1.4em}
+{\normalsize Hanyang University\par}
+\vspace{1.2em}
+{\normalsize Team 6\par}
+\vspace{1.5em}
+{\normalsize November 2026\par}
+\vspace{1.2em}
+{\footnotesize Term project, Introduction to Financial Engineering, Hanyang University.\par}
+\end{center}
+\vspace{0.8em}
+\begin{center}{\bfseries Abstract}\end{center}
+\vspace{-0.6em}
+\begin{singlespace}\small
+\noindent Volatility-managed portfolios hold less of an asset when its variance is expected to be high (Moreira and Muir, 2017). We rebuild the strategy in a pseudo-out-of-sample test on the US equity market from January 1998 to December 2025 (336 months), net of 10 bp trading costs, and study two extensions. First, we run the strategy with a richer variance forecast than backward-looking realised variance: the GARCH-LSTM of Zhao et al.\ (2024), a GJR-GARCH whose daily variance is rescaled by a small LSTM network, compared with GARCH(1,1), GJR-GARCH and two controls (last month's realised variance and \VIX). Second, we train the GARCH-LSTM on the investor's utility of the timed portfolio, with the trading rule, its leverage cap and costs inside the loss, rather than on forecast accuracy (decision-focused learning, Elmachtoub and Grigas, 2022). We find that timing is a risk tool, not a return engine: the four RV/GARCH-based portfolios roughly halve the worst month-end drawdown of the market ($-$50\% to between $-$21\% and $-$29\%) and lower volatility by about 30\%, but the Sharpe gain ($+$0.08 to $+$0.10) is not statistically significant and comes from before 2016. A better forecast does not give a better portfolio: the accuracy ranking of the five forecasts is close to the reverse of their Sharpe ranking. The most accurate forecast, \VIX{} (QLIKE 0.275), gives the lowest Sharpe ratio (0.545) and the least accurate, last month's realised variance (QLIKE 0.454), the highest (0.612), because variance is predictable one month ahead while returns are not, and a sharper variance forecast cuts exposure harder in the high-return recovery months. Decision-focused training does not help either: against the accuracy-trained network it lowers its own out-of-sample objective on average ($-$0.45\% a year) and the Sharpe ratio on 4 of 6 Fama--French factors, makes its forecasts 1.3 to 5.8 times worse, and no difference survives a multiple-testing adjustment.
+\end{singlespace}
+\vspace{0.8em}
+\begin{singlespace}\small
+\noindent\textit{JEL classification:} G11, G12, G17, C22, C45, C53.\\[2pt]
+\noindent\textit{Keywords:} volatility-managed portfolios, volatility timing, GARCH, GARCH-LSTM, decision-focused learning, forecast evaluation, out-of-sample testing.
+\end{singlespace}
+\clearpage
+
+%======================================================================
+\section{Overview}
+\subsection{Motivation}
+Moreira and Muir (2017) show that scaling exposure to the market, or to an equity factor, by the inverse of last month's realised variance raises its Sharpe ratio; Barroso and Santa-Clara (2015) find the same for momentum. Cederburg et al.\ (2020) then show that, once the strategy is built in real time with only the information available at each decision, most of these gains shrink or vanish. Our angle is the forecast that drives the rule. The original strategy uses a naive, backward-looking forecast (last month's realised variance). We examine two possible extensions in this setting:
+\begin{enumerate}[label=(\roman*)]
+\item a better forecasting model, the hybrid GARCH-LSTM of Zhao et al.\ (2024), which is more accurate than classical GARCH models in their tests; and
+\item a forecast trained for the decision it feeds. Volatility models are normally fitted to maximise forecast accuracy (a quasi-likelihood). Decision-focused learning (Elmachtoub and Grigas, 2022) instead trains the forecast on the quality of the decision, here the investor's utility of the timed portfolio after costs.
+\end{enumerate}
+We organise the project around three questions:
+\begin{description}[labelwidth=2em,leftmargin=3em]
+\item[Q1] Does volatility timing beat buy and hold of the market in real time?
+\item[Q2] Does a better (more accurate) volatility forecast give a better portfolio?
+\item[Q3] Does training the forecast for the trading decision, instead of for accuracy, fix it?
+\end{description}
+
+\subsection{Overall design of the investment strategy}
+Figure~\ref{fig:process} summarises the strategy. Each month it (1) collects data dated before the decision, (2) forecasts next month's market variance with one of five forecasts, (3) turns the forecast into a market exposure with a single fixed rule, $w_t=\min(c_t/\hat v_t,\,1.5)$, (4) holds that exposure for one month in a portfolio of the market and cash, paying 10 bp on every unit of exposure traded, and (5) is evaluated against buy and hold with block-bootstrap and HAC tests. The rule, the cap, the costs, the benchmark and the tests are the same for every portfolio; the portfolios differ in the forecast and, for Q3, in the objective the forecast is trained on. The forecasts come from two estimation procedures (Section~\ref{sec:design}), and we check that this difference does not drive the results.
+
+\subsection{Key findings}
+\begin{enumerate}
+\item \textbf{Q1: Timing is a risk tool, not a return engine.} The four RV/GARCH-based portfolios roughly halve the worst month-end drawdown of the market ($-$50.3\% to between $-$21.3\% and $-$29.4\%; $-$32\% to $-$42\% even after rescaling to the market's volatility), lost less than buy and hold in five of six crises, cut volatility from 15.9\% to about 11\% a year, and raise the Sortino ratio and the certainty-equivalent return. The only statistically significant improvement is a steadier portfolio risk (vol of vol at equal volatility, GARCH(1,1), GJR-GARCH and GARCH-LSTM, $p=0.005$ to $0.033$ before adjustment). The Sharpe gain ($+$0.08 to $+$0.10) is not significant and comes from 1998--2015. Because the timed portfolios hold less risk, they end with less wealth than the market: \$1 grows to \$9.5--\$9.9 against \$12.3.
+\item \textbf{Q2: A better forecast does not give a better portfolio.} Ranked from most to least accurate (QLIKE), the forecasts are \VIX{} (0.275), GARCH-LSTM (0.280), GJR-GARCH (0.284), GARCH(1,1) (0.297) and last month's realised variance (0.454); ranked by Sharpe ratio, the order is almost reversed: RV 0.612, GARCH 0.608, GJR and GARCH-LSTM 0.597, \VIX{} 0.545 (rank correlation $-$0.9). Splitting the Sharpe ratio into variance timing and mean timing shows that variance timing works for every forecast (1.21 to 1.29) while mean timing falls from 1.01 to 0.90 as forecasts become more informative.
+
+\textit{Why.} Variance is predictable one month ahead (out-of-sample $R^2$ of 47\% to 57\%), returns are not (every standard predictor does worse than the historical average). The rule therefore times variance with a constant expected return and holds little of the market in the ``recovery'' months, when volatility is high but falling and returns are highest.
+\item \textbf{Q3: Training for the decision does not help.} Against the accuracy-trained GARCH-LSTM, the decision-trained network has a lower realised objective on average ($-$0.45\% a year; higher on only 2 of 6 factors) and a lower Sharpe ratio on 4 of 6 factors (average $-$0.02). Its forecasts are 1.3 to 5.8 times worse in QLIKE, and no difference survives the Romano--Wolf adjustment. On the market it is the weakest timed portfolio (Sharpe 0.537, worst drawdown $-$37.9\%).
+\end{enumerate}
+
+\begin{figure}[p]
+\centering
+\input{process}
+\caption{Process diagram of the investment strategy. Every month the strategy forecasts next month's market variance, turns the forecast into an exposure with one fixed rule, holds it for a month and is evaluated against buy and hold. The rule, the cap, the January reset of $c$, the costs, the benchmark and the tests are held fixed; the forecast (Q1, Q2) and the objective it is trained on (Q3) differ between the portfolios compared. Every input is dated before the month it is used for (expanding window, test period 1998--2025).}
+\label{fig:process}
+\end{figure}
+
+%======================================================================
+\section{Portfolio management framework}
+\subsection{Investment universe and asset selection}
+The strategy is a market-timing strategy, not a stock-picking one: each month it splits capital between a single risky asset, the US equity market, and cash. The selection question is therefore which risky asset to time and which data to forecast it with. Table~\ref{tab:data} lists the series.
+\begin{itemize}
+\item \textbf{Risky asset: the US market.} The CRSP value-weighted index of all US common stocks, in excess of the one-month T-bill (Ken French's Mkt-RF), daily and monthly from July 1963. It moves almost one for one with the S\&P 500, whose constituents make up most of its capitalisation. It is the asset of Moreira and Muir (2017) and Cederburg et al.\ (2020), which makes the results comparable.
+\item \textbf{Five more equity factors} (SMB, HML, RMW, CMA and momentum, from the Ken French library) are used for the decision-training test (Q3) and for Appendix~\ref{app:factors}. They are long--short portfolios, hence already excess returns. All six series, including the market, are used from July 1963, from the same files, for every model.
+\item \textbf{Cash.} The one-month T-bill rate (Ken French). Cash earns it, and leverage is financed at it.
+\item \textbf{VIX} (CBOE, FRED series VIXCLS) is only used for the \VIX{} control forecast. CBOE back-calculated the current VIX before 2003, so those values were not observable at the time.
+\item \textbf{Course CRSP stocks} (2000--2020, 6,972 stocks in February 2000 to 4,268 in December 2020) build an equal-weighted passive benchmark (Section~\ref{sec:otherbench}). \texttt{ADJ\_PRC} is split- and dividend-adjusted, so price changes are total returns; stock-months without a price are dropped (no delisting returns, Shumway, 1997).
+\end{itemize}
+
+\begin{table}[htbp]
+\centering\small
+\caption{Data and pre-processing.}\label{tab:data}
+\begin{tabularx}{\textwidth}{@{}p{3.1cm}p{3.0cm}Xp{3.6cm}@{}}
+\toprule
+Series & Source & Coverage & Role\\
+\midrule
+US market (Mkt-RF) & Ken French, CRSP VW & 1963-07 to 2025-12, daily \& monthly & Risky asset, benchmark (Q1, Q2)\\
+SMB, HML, RMW, CMA, Mom & Ken French & idem & Decision training (Q3), App.~\ref{app:factors}\\
+VIX & FRED (VIXCLS) & 1990 on (back-calculated before 2003) & Control forecast \VIX\\
+Risk-free rate & Ken French, 1-month T-bill & 1963 on & Cash return, financing\\
+Course CRSP stocks & CRSP monthly extract & 2000-02 to 2020-12 & Equal-weighted benchmark\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Realised variance.} The realised variance of month $t$ is the sum of its squared daily excess returns, $RV_t=\sum_{d\in t} r_d^2$, without subtracting the month's mean (Andersen and Bollerslev, 1998). Moreira and Muir (2017, eq.~2) subtract it; doing so moves the timed Sharpe ratio from 0.612 to 0.616, so the choice is immaterial. Forecast accuracy is measured against the same realised variance, rebuilt from the daily file.
+
+\paragraph{Data vintage.} The Ken French files are rebuilt from the current (August 2026) CRSP database, so past returns are today's revised values. Every decision uses only observations dated before it, but from revised history: the backtest is a pseudo-out-of-sample test.
+
+\subsection{Train, validation and test design}\label{sec:design}
+All models are estimated on an expanding window, and every forecast for a year uses only data dated before that year. There is no shuffling and no look-ahead. Two procedures are used.
+\begin{itemize}
+\item \textbf{GARCH(1,1)} has three parameters and is refitted every January by quasi-maximum likelihood on all daily returns from July 1963 up to the previous December (first fit in 1970); it then forecasts the twelve months of the new year, which it has never seen. It needs no validation set.
+\item \textbf{GJR-GARCH and the GARCH-LSTM} come from one training run on the same 1963 files, in the notebook \texttt{lstm\_training\_revised.ipynb}. For a test year $Y$, parameters are fitted on data before January of $Y-5$; the five calendar years $Y-5$ to $Y-1$ form a validation block, used only to choose when to stop training (and, for the decision objective of Section~\ref{sec:dec}, which checkpoint to keep). The selected model then filters all data up to each forecast date and forecasts the twelve months of $Y$. Every model is initialised afresh each year; nothing trained on a later year is reused. Parameters are not refitted on the validation years, so they are up to five years older than those of GARCH(1,1). The first test year of this run is 1975.
+\end{itemize}
+The scale $c$ needs at least 24 months of history, so the first positions date from the 1970s, long before the test sample. The test period is January 1998 to December 2025 (336 months), with three sub-periods (1998--2015, 2016--2025, 2021--2025) and six crisis episodes.
+
+\FloatBarrier
+\subsection{Time-series models for the variance forecast}
+The rule needs $\hat v_t$, a forecast of next month's market variance made at the close of month $t-1$. We compare three models and two controls (Table~\ref{tab:forecasts}). Table~\ref{tab:notation} lists the notation used in the rest of the report: the index $d$ counts trading days and $t$ months.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Notation.}\label{tab:notation}
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}ll@{}}
+\toprule
+Symbol & Meaning\\
+\midrule
+$r_d$ & daily excess return of the market (or factor) on day $d$\\
+$h_d$ & variance of $r_d$ forecast by the model with data up to day $d-1$\\
+$\omega,\alpha,\beta,\delta$ & GARCH parameters ($\delta$: extra reaction to falls in GJR-GARCH)\\
+$f_t$ & excess return of the market (or factor) in month $t$\\
+$r^f_t$ & one-month T-bill rate in month $t$\\
+$RV_t$ & realised variance of month $t$, $\sum_{d\in t} r_d^2$\\
+$\hat v_t$ & forecast of $RV_t$ made at the end of month $t-1$\\
+$w_t$ & exposure to the market in month $t$ (the rest in T-bills)\\
+$c_t$ & scale of the rule (a target variance), reset every January\\
+$z_t$ & net excess return of the portfolio in month $t$, after costs\\
+$\kappa$ & trading cost, 10 bp per unit of exposure traded\\
+$\gamma$ & risk aversion of the investor, $\gamma=5$\\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{table}
+
+\paragraph{GARCH(1,1)} (Bollerslev, 1986). Tomorrow's variance is a weighted sum of a constant, today's squared return and today's variance:
+\begin{equation}
+h_d=\omega+\alpha\, r_{d-1}^2+\beta\, h_{d-1},\qquad \omega>0,\ \alpha,\beta\ge 0,\ \alpha+\beta<1.
+\end{equation}
+The parameters are estimated by quasi-maximum likelihood, i.e.\ by minimising $\frac1D\sum_{d=1}^{D}\bigl(\log h_d+r_d^2/h_d\bigr)$ over the $D$ training days.
+
+\paragraph{GJR-GARCH} (Glosten et al., 1993) adds a leverage term so that variance reacts more to falls than to rises (Black, 1976):
+\begin{equation}
+h_d=\omega+\alpha\, r_{d-1}^2+\delta\, r_{d-1}^2\,\mathbf 1[r_{d-1}<0]+\beta\, h_{d-1},
+\end{equation}
+where $\mathbf 1[r_{d-1}<0]$ equals 1 after a down day and 0 otherwise. Its persistence, how slowly a shock to variance dies out, is $\phi=\alpha+\beta+\delta/2<1$ (for GARCH(1,1), $\delta=0$ and $\phi=\alpha+\beta$). The recursion is linear in the squared shocks once the parameters are fixed, so the whole variance path is computed exactly as one FFT convolution. The conditional mean is set to zero. GJR-GARCH is fitted by L-BFGS on the quasi-likelihood above, on the fitting window of Section~\ref{sec:design}.
+
+\paragraph{Monthly forecast.} Let $T$ be the last trading day of month $t-1$ and $h_{T+1}$ the model's variance forecast for the next day. Further ahead the daily forecast reverts geometrically, at rate $\phi$, to the long-run variance $\bar h=\omega/(1-\phi)$; the monthly forecast adds the next 21 daily forecasts:
+\begin{equation}\label{eq:monthly}
+\hat v_t=\sum_{k=1}^{21}\Bigl[\bar h+\phi^{k-1}\bigl(h_{T+1}-\bar h\bigr)\Bigr].
+\end{equation}
+
+\paragraph{GARCH-LSTM} (Zhao et al., 2024, eq.~7). A GJR-GARCH whose daily variance is rescaled by a small LSTM network (hidden size 8) that reads the last 126 trading days (about half a year) of returns and variances. Each day the GJR formula gives a first value $g_d$, and the LSTM multiplies it by a correction factor:
+\begin{equation}
+h_{d+1}=g_d\times\Bigl(1+\sum_{j=1}^{8} a_j\tanh(s_{d,j})\Bigr),\qquad g_d=\omega+\alpha r_d^2+\delta r_d^2\mathbf 1[r_d<0]+\beta h_d,
+\end{equation}
+where $s_d$ is the LSTM's memory (its cell state, updated from $r_d$ and $h_d$) and $a_1,\dots,a_8$ are weights with $\sum_j|a_j|<1$, so the variance stays positive. The weights $a_j$ start at zero, so the network starts exactly at the GJR fit and only departs from it if the data push it. The one-day-ahead variance is carried 21 days forward with eq.~\eqref{eq:monthly} (an approximation: the network is not run forward over the month). Each year the network is initialised from that year's GJR fit and trained by Adam on random batches of 64 windows of 126 days (up to 400 steps); the validation loss is checked every 10 steps and training stops after 60 steps without improvement, keeping the best checkpoint. This is repeated for five random seeds, and the five monthly variance forecasts are averaged before the exposure is set (an ensemble), so that one lucky seed cannot drive the result.
+
+\paragraph{Controls.} \textit{RV}: last month's realised variance, the naive ``volatility is persistent'' forecast of Moreira and Muir (2017). \textit{\VIX}: the option market's expectation of variance, the squared VIX at the previous month end converted to a monthly variance (VIX$^2$/12, with the VIX in decimals); it contains the variance risk premium.
+
+\begin{table}[htbp]
+\centering\small
+\caption{The five variance forecasts and their accuracy on the US market, 1998--2025. QLIKE is the average over months of $RV_t/\hat v_t-\log(RV_t/\hat v_t)-1$ (Patton, 2011): 0 for a perfect forecast, lower is better.}\label{tab:forecasts}
+\begin{tabularx}{\textwidth}{@{}llXr@{}}
+\toprule
+Forecast & Role & Description & QLIKE\\
+\midrule
+GARCH(1,1) & model & Bollerslev (1986), QML on daily returns, refitted every January & 0.297\\
+GJR-GARCH & model & GARCH plus leverage term (Glosten et al., 1993), revised training run & 0.284\\
+GARCH-LSTM & model & GJR-GARCH rescaled by an LSTM over 126 days (Zhao et al., 2024); ensemble of 5 seeds & 0.280\\
+RV & control & Last month's realised variance (Moreira--Muir forecast) & 0.454\\
+\VIX & control & Option-implied variance, from 1990 & \textbf{0.275}\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Figure~\ref{fig:forecasts} plots each forecast against the realised volatility that followed. All models track the ups and downs of volatility; they differ in how fast they react and how far they overshoot. RV reacts fully to every spike and is the least accurate; GARCH(1,1) smooths it, GJR adds the leverage effect, and the GARCH-LSTM improves on its GJR base only slightly (QLIKE 0.280 against 0.284). \VIX{} lies above realised volatility most of the time because of the variance risk premium, yet it is the most accurate over the full sample, thanks to 2016--2025; GJR and the GARCH-LSTM are the most accurate in 1998--2015 (Appendix~\ref{app:checks}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figs/fig02_forecasts_vs_realised.png}
+\caption{Next-month volatility forecasts (coloured) against the realised volatility of the month forecast (grey), annualised, log scale, 1998--2025. Last panel: all forecasts during 2007--2010.}
+\label{fig:forecasts}
+\end{figure}
+
+\FloatBarrier
+\subsection{Portfolio construction: the timing rule as a portfolio optimisation}
+\paragraph{Theory.} A mean--variance investor with risk aversion $\gamma$ who splits wealth between the market and cash chooses the exposure
+\begin{equation}\label{eq:mv}
+\max_w\ \Bigl(w\,\mu_t-\frac{\gamma}{2}w^2\sigma_t^2\Bigr)\quad\Longrightarrow\quad w_t=\frac{\mu_t}{\gamma\,\sigma_t^2},
+\end{equation}
+where $\mu_t$ and $\sigma_t^2$ are the expected excess return and the variance of the market in month $t$. One could time the expected return, the variance, or both. Volatility timing treats $\mu$ as constant and times only the variance, which is optimal if variance is forecastable and the expected return is not (Section~\ref{sec:why} tests this). With $\mu$ constant, eq.~\eqref{eq:mv} becomes $w_t=c/\sigma_t^2$, where the constant $c=\mu/\gamma$ absorbs the unknown premium and the risk aversion; in practice $\sigma_t^2$ is replaced by its forecast $\hat v_t$.
+
+\paragraph{The rule.} Exposure to the market in month $t$ is
+\begin{equation}\label{eq:rule}
+w_t=\min\Bigl(\frac{c_t}{\hat v_t},\ 1.5\Bigr).
+\end{equation}
+Doubling the expected variance halves the position. The scale $c_t$ is a target variance: the rule holds full exposure ($w_t=1$) when the forecast equals the target, less above it, and up to 1.5 below it. The cap of 1.5 (at most 50\% leverage) follows Moreira and Muir (2017, Table V).
+
+\paragraph{Setting $c$ in real time.} Every January we choose $c_t$ so that the capped timed strategy would have had the same volatility as buy and hold over all past months $s$ before January:
+\begin{equation}\label{eq:c}
+\operatorname{sd}\Bigl[\min\bigl(c_t/\hat v_s,\,1.5\bigr)\,f_s\Bigr]=\operatorname{sd}\bigl[f_s\bigr],\qquad s=\text{all months before January of the current year},
+\end{equation}
+where sd is the standard deviation. This needs at least 24 months of past forecasts; because of the cap, $c$ is found numerically (Brent's method). Only past data enter. Moreira and Muir (2017) instead pick one $c$ on the full sample, which no investor could have done (Appendix~\ref{app:buildup}). Because $c$ is matched to each forecast's own history, a forecast that is too high or too low on average gets a proportionally larger or smaller $c$: only the variation of a forecast matters for the portfolio, which is why the controls can be compared with the models at all.
+
+For RV, GARCH(1,1) and \VIX, the past forecasts in eq.~\eqref{eq:c} are the forecasts that were actually made in each earlier year. For GJR-GARCH and the GARCH-LSTM, the training run solves the same equation each January on the forecast path that the newly fitted model produces when it re-filters all earlier data, and then holds $c$ fixed for the year. Both use only past data. To check that this difference does not matter, we passed the GJR and GARCH-LSTM forecasts through the first procedure as well: $c$ is on average 5\% to 7\% lower, the exposures are almost identical (correlation 0.997 to 0.999) and the Sharpe ratio changes by at most 0.002. For the three models the implied target volatility $\sqrt{12c_t}$ (the annualised volatility that $c_t$ corresponds to) is about 12\% a year in 1998 and about 14\% by 2025 (18--23\% for \VIX).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figs/fig02_timing_rule.png}
+\caption{Left: the threshold volatility $\sqrt{12c_t}$ implied by the scale $c_t$, reset every January on past data. Right: the exposure $w_t=\min(c_t/\hat v_t,1.5)$ as a function of the forecast volatility $\sqrt{12\hat v_t}$, for a typical threshold.}
+\label{fig:rule}
+\end{figure}
+
+\paragraph{Trading, costs and financing.} The portfolio is rebalanced at each month end. Between rebalances the position drifts with the market: an exposure $w_{t-1}$ chosen at the start of month $t-1$ has become, by its end,
+\begin{equation}\label{eq:drift}
+w^{\text{drift}}_{t-1}=w_{t-1}\,\frac{1+r^f_{t-1}+f_{t-1}}{1+r^f_{t-1}+w_{t-1}f_{t-1}},
+\end{equation}
+because the market part grew at the market's return and the whole portfolio at the portfolio's return. Costs are paid on the change from this drifted position, so the monthly net excess return is
+\begin{equation}\label{eq:net}
+z_t=w_t f_t-\kappa\,\bigl|w_t-w^{\text{drift}}_{t-1}\bigr|,\qquad\kappa=0.001\ (10\text{ bp}),
+\end{equation}
+following Moreira and Muir (2017, Table IV). Cash earns the risk-free rate and leverage is financed at the same rate (no spread). The timed rules hold more than full exposure in 41\% to 44\% of months and borrow on average about 0.16 of capital, so a 1\% a year borrowing spread would cost about 0.16\% a year.
+
+\FloatBarrier
+\subsection{Decision-focused training of the forecast (Q3)}\label{sec:dec}
+The same variance model is trained in two ways, with the train and validation blocks of Section~\ref{sec:design}:
+\begin{itemize}
+\item \textbf{Acc} (accuracy, objective A): the quasi-likelihood used for GARCH above, the usual way to fit a variance model: minimise $\frac1D\sum_d(\log h_d+r_d^2/h_d)$ over the training days.
+\item \textbf{Dec} (decision, objective B): the investor's utility of the timed portfolio after costs over the training months,
+\begin{equation}\label{eq:utility}
+\max\ \frac1M\sum_{t=1}^{M} z_t-\frac{\gamma}{2}\,\frac1M\sum_{t=1}^{M} z_t^2,\qquad\gamma=5,
+\end{equation}
+over the $M$ training months, where $z_t$ is the net return of eq.~\eqref{eq:net} with the exposure $w_t=\min(c_t/\hat v_t,1.5)$ of eq.~\eqref{eq:rule}: the trading rule, its cap and its costs are inside the loss. Inside the loss, $c_t$ is recalibrated every January on the model's own earlier path exactly as at deployment (eq.~\eqref{eq:c}), so the network is trained for the rule it trades. Because $c$ is re-matched to the factor's volatility, Dec cannot win by taking more risk; it can only change when exposure is high or low. There is no closed form for $c$ once the cap binds, so it is found numerically; the optimiser still needs to know how $c$ moves when a forecast moves, and this derivative is obtained from the implicit function theorem applied to eq.~\eqref{eq:c}. Dec starts from the selected Acc model, is trained by Adam (up to 300 steps) and keeps the step with the best utility on the validation block; if no step improves on it, Dec stays equal to Acc.
+\end{itemize}
+Two models are trained, chosen on theoretical grounds: GJR-GARCH, with few parameters, as a control (Acc and Dec should give similar portfolios), and the flexible GARCH-LSTM (five seeds, each trained separately, forecasts averaged), where the objective has room to matter. Both are trained on all six factors. A decision-trained forecast is judged by the decision: (1) the realised value of its own objective out of sample and (2) the net Sharpe ratio of the timed factor. QLIKE is only a diagnostic of what decision training costs in accuracy. Note that Dec cannot see the level of a forecast (multiplying all forecasts by a constant multiplies $c$ by the same constant), so it has no reason to stay calibrated. One approximation remains in both objectives: the monthly forecast is the one-day forecast carried 21 days forward with eq.~\eqref{eq:monthly}.
+
+\subsection{Benchmarks and performance metrics}
+\paragraph{Baseline benchmark (S\&P 500).} The course asks for the S\&P 500 as the baseline. Our data do not contain the S\&P 500 index itself, so the baseline is buy and hold of the CRSP value-weighted US market (Ken French Mkt-RF plus the T-bill rate), with exposure always equal to 1 and no trading costs. This index contains every S\&P 500 stock, is dominated by them by market capitalisation, and moves almost one for one with it; it is the standard market proxy in the volatility-timing literature. We refer to it as ``buy and hold'' or ``the market'' throughout. Section~\ref{sec:otherbench} adds two further passive benchmarks: an equal-weighted portfolio of the six factors and an equal-weighted portfolio of the course CRSP stocks.
+
+\paragraph{Metrics.} Monthly returns are annualised as follows (all net of costs):
+\begin{itemize}
+\item \textit{Annualised return}: the compound annual growth rate, CAGR $=W^{12/N}-1$, where $W$ is the final value of \$1 invested (total return, $z_t+r^f_t$) and $N$ the number of months; and the arithmetic mean of monthly excess returns, $12\bar z$, with $\bar z$ the average of $z_t$;
+\item \textit{Annualised standard deviation}: $\sqrt{12}\,\operatorname{sd}(z_t)$;
+\item \textit{Sharpe ratio}: $\sqrt{12}\,\bar z/\operatorname{sd}(z_t)$; \textit{Sortino ratio}: $\sqrt{12}\,\bar z/DD$, where the downside deviation $DD$ is the square root of the average of $\min(z_t,0)^2$, so only losses count as risk;
+\item \textit{Maximum drawdown}: the largest fall of month-end total-return wealth from its previous peak, including the starting value of \$1; also reported ``at equal volatility'', after rescaling the timed series to buy and hold's volatility (a diagnostic, not a traded strategy);
+\item \textit{Calmar ratio} (CAGR/$|$max DD$|$), \textit{certainty-equivalent return} CER $=12\bigl(\bar z-\frac{\gamma}{2}\operatorname{var}(z_t)\bigr)$ with $\gamma=5$, CAPM alpha and beta against the market, and \textit{vol of vol} (the standard deviation of the 12-month rolling volatility).
+\end{itemize}
+
+\paragraph{Decomposing the Sharpe ratio.} Let $x_t=w_t/\bar w$ be the exposure divided by its average, so that $x_t$ averages 1. Before costs the timed return $w_tf_t$ is proportional to $x_tf_t$, which has the same Sharpe ratio, and the ratio of the two Sharpe ratios splits exactly into two factors:
+\begin{equation}\label{eq:mtvt}
+\frac{\text{Sharpe}_{\text{timed}}}{\text{Sharpe}_{\text{buy and hold}}}=\underbrace{\frac{\operatorname{mean}(x_tf_t)}{\operatorname{mean}(f_t)}}_{MT\ \text{(mean timing)}}\times\underbrace{\frac{\operatorname{sd}(f_t)}{\operatorname{sd}(x_tf_t)}}_{VT\ \text{(variance timing)}}.
+\end{equation}
+VT asks whether the exposure cut risk; MT whether it was high in the months that paid well. Above 1 is good for both.
+
+\paragraph{Statistical inference.} Differences against buy and hold are tested with a \textbf{paired circular block bootstrap} (Künsch, 1989; Politis and Romano, 1992): 12-month blocks, 5,000 resamples, the same blocks for both strategies so their correlation is kept; the 95\% interval is the estimate $\pm$ the 95th percentile of the absolute bootstrap error. Sharpe differences are also tested with the \textbf{Ledoit and Wolf (2008) delta-method HAC test} (Bartlett weights, Newey and West, 1987, 5 lags), and families of comparisons with the \textbf{Romano and Wolf (2005) stepdown adjustment}.
+
+\input{results}
+\input{conclusion}
+
+\input{references}
+\startappendices
+\input{appendix}
+\end{document}

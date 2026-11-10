@@ -1,0 +1,254 @@
+%======================================================================
+\subsection{Questions on the risk reduction}
+
+\subsubsection*{Question 1: Separating lower risk from timing skill}
+\begin{question}
+The timing strategy had volatility of approximately 11\%, compared with 15.9\% for buy-and-hold, and its drawdown advantage also diminished when ex-post leverage was used to equalize risk. Would the stabilization of risk and reduction in drawdown persist against a simple stock--cash allocation rule that uses only past information, without looking ahead?
+\end{question}
+We built two simple stock--cash rules that use only past information, with no leverage and the same 10 bp costs. Rule A holds the market but goes to cash when last month's variance is in the top 20\% (or 30\%) of its own history up to that month. Rule B goes to cash after a negative past-12-month return, which is simple time-series momentum. Over 1998--2025:
+\begin{center}\small
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & Sharpe & Volatility, \% & Max drawdown, \% & Vol of vol, \%\\
+\midrule
+Buy and hold & 0.516 & 15.9 & $-$50.3 & 5.76\\
+Timed RV & 0.612 & 11.0 & $-$21.3 & 3.15\\
+Cash if RV in top 20\% & 0.621 & 9.0 & $-$15.5 & 3.20\\
+Cash if RV in top 30\% & 0.583 & 7.9 & $-$13.3 & 3.74\\
+Cash after negative 12-month return & 0.633 & 12.4 & $-$20.7 & 5.43\\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{center}
+Against buy and hold, the answer is yes: every rule that cuts exposure when risk is high lowers volatility and drawdown. But our rule is not better than a simple one: none of these rules differs significantly from buy and hold ($p$ 0.42 to 0.72) or from timed RV ($p$ 0.77 to 0.91). The momentum rule protects against crashes but does not steady the portfolio's risk (vol of vol 5.4). The 80th-percentile threshold was fixed before looking at the test results, not tuned on them.
+
+One caution: these numbers are as traded, and the rules run at different volatilities (7.9\% to 12.4\%). Part of the smaller drawdown of the cash rules simply reflects their lower risk, and vol of vol rises with the level of volatility. The fair comparison is at equal volatility, as in Question 8, which we have not run for these rules. So the safe claim is that simple rules protect about as well, not that they do better.
+
+\subsubsection*{Question 8: Same average stock exposure}
+\begin{question}
+Does the risk reduction remain when compared with a fixed-allocation strategy with the same average stock exposure? This would help distinguish the effect of holding fewer stocks overall from the effect of reducing exposure at risky times.
+\end{question}
+Yes. For each forecast we held its average exposure over 1998--2025 constant (0.86 to 0.92 in the market and the rest in cash), with the same costs. A constant mix has the same Sharpe ratio as buy and hold (0.515, since a constant mix cannot change the Sharpe ratio), and these mixes have volatility of 13.7\% to 14.6\%, a worst drawdown of $-$45\% to $-$47\% and vol of vol of 5.0\% to 5.3\%. The timed portfolios have 11.0\% to 11.4\%, $-$21\% to $-$29\% and 2.6\% to 3.2\%. So holding fewer stocks explains only part of the risk reduction.
+
+We also scaled the fixed mix to each timed portfolio's own volatility (0.69 to 0.72 in the market), so both carry the same risk. That mix has a worst drawdown of $-$37\% to $-$38\% and vol of vol of 4.0\% to 4.1\%, against $-$21\% to $-$29\% and 2.6\% to 3.2\% for the timed portfolios, all measured at about 11\% volatility. The timed drawdown is 9 to 16 points smaller, so cutting exposure at risky times adds to the effect of holding less.
+
+The Sharpe difference between timed and fixed is not significant ($p$ 0.44 to 0.50), and we did not test the drawdown gap separately; against buy and hold at equal volatility it was $p$ 0.10 to 0.35. The average exposure uses the whole sample, which is acceptable for a benchmark.
+
+\subsubsection*{Question 5: No leverage (cap = 1.0)}
+\begin{question}
+Exposure is above 1 in 41--45\% of months, and borrowing is assumed at the riskfree rate with no spread. If leverage were not allowed (cap = 1.0), how would the drawdown reduction and the Sharpe results change?
+\end{question}
+The results do not depend on leverage. We ran two no-leverage versions. (i) Keep $c$ from the cap-1.5 rule and cut exposure at 1.0: average exposure drops to 0.69 to 0.75, volatility is 9.2\% to 9.7\%, the Sharpe ratio is 0.61 to 0.62 (gain over buy and hold $+$0.09 to $+$0.11, $p$ 0.29 to 0.37) and the worst drawdown is $-$21\% to $-$28\%. (ii) Reset $c$ each January so that the no-leverage strategy targets 0.69 times buy and hold's past volatility, the same ratio as our timed rule: Sharpe 0.60 to 0.62, worst drawdown $-$14\% to $-$17\%.
+
+Borrowing is also small: the rule borrows 0.16 of capital on average, so a 1\% spread would cost about 0.16\% a year.
+
+One technical point. If we kept our usual definition of $c$, which matches buy and hold's volatility, and simply set the cap to 1.0, the strategy would collapse to buy and hold (average exposure 0.999 to 1.000, Sharpe 0.51 to 0.52). Without leverage, the only way to reach the market's volatility is to be fully invested all the time. That is a limitation of how $c$ is defined, not evidence that the cap drives the effect.
+
+\subsubsection*{Question 11: Sensitivity to the cap and target volatility}
+\begin{question}
+There is no sensitivity analysis on the 1.5x exposure cap or the target volatility value itself -- how would conclusions change if these numbers were different?
+\end{question}
+The conclusions do not change. (a) We reran with caps of 1.25, 1.5, 2.0 and no cap for four forecasts, with $c$ re-matched each time (cap 1.0 is Question 5). With caps from 1.25 to 2.0, the Sharpe ratio is 0.55 to 0.64, the worst drawdown $-$21\% to $-$31\%, and the gains over buy and hold $+$0.04 to $+$0.12, none significant ($p\ge 0.27$). A cap of 1.25 is slightly better than 1.5 (Sharpe 0.62 to 0.64), so 1.5 was not chosen because it gave the best result, and we do not claim it is optimal. Removing the cap hurts RV timing (Sharpe 0.48, below buy and hold; drawdown $-$33\%), because 1 divided by a tiny RV after a calm month gives extreme leverage, but it barely changes the GARCH family (0.55 to 0.57).
+
+(b) At a cap of 1.5 we scaled $c$ by 0.75, 1.0 and 1.25, which moves the target volatility to about 9\%, 11\% and 12.5\%. The RV Sharpe ratio stays between 0.59 and 0.62, while the drawdown moves from $-$16\% to $-$27\%. This is expected: the Sharpe ratio does not depend on scale, the drawdown does.
+
+\subsubsection*{Question 17: Which investor values steadier risk?}
+\begin{question}
+The drop in volatility fluctuations was significant for the GARCH models, but the gain in certainty-equivalent return wasn't. Steadier risk is worth more to some investors than others. What kind of investor, or what risk limits or goals, would make this stability a useful improvement in practice?
+\end{question}
+The certainty-equivalent return ($\gamma=5$) only prices average variance. It does not price drawdowns or how much risk moves over time, which is what vol of vol and drawdown measure. Steadier risk matters to investors who are constrained on risk rather than judged on return: funds with a volatility budget or a drawdown limit, such as pension and endowment funds with funding rules; leveraged investors who face margin calls in crashes; and retirees drawing down capital, who are hurt most by an early deep loss. For them, a worst drawdown of $-$21\% to $-$29\% against $-$50\%, and vol of vol of 3.7\% to 4.6\% against 5.8\% (at buy and hold's volatility), are real gains. For a pure mean--variance investor, the $+$1.7 to $+$1.8\% a year of CER is not significant.
+
+Two limits: we did not quantify investor welfare beyond the CER, and simple rules also steady risk (the cash-if-high-variance rule has vol of vol of 3.2\% as traded). The benefit comes from reducing exposure when variance is high, not from our specific forecast.
+
+\subsubsection*{Question 19: Is lower risk enough without a significant Sharpe gain?}
+\begin{question}
+Risk Reduction and Portfolio Performance: As you see from the results, volatility timing reduced the maximum drawdown from around $-$50.3\% with the buy-and-hold strategy to between $-$21.3\% and $-$26.7\% for the timed portfolio strategies. The improvement in the Sharpe ratio, however, was not statistically significant. If doing so doesn't significantly improve risk-adjusted investment returns, do you believe it is enough to render this strategy appealing to those looking to invest?
+\end{question}
+It is appealing for investors with risk limits, not for return-seekers, which is why we call timing a risk tool, not a return engine. (In the final version of our analysis the range is $-$21.3\% to $-$29.4\%.) What it gives: the worst drawdown is roughly halved, volatility falls by about 30\%, and the timed portfolios lost less in 5 of 6 crises. What it costs: 1.4 to 1.6 points of excess return a year, and it misses rebounds (exposure of 0.02 to 0.34 the month after each crisis). What is uncertain: the drawdown gain at equal volatility has $p$ 0.10 to 0.35, it shrinks to $+$3 to $+$6 points since 2016 ($p$ 0.32 to 0.54), and simple rules protect about as well.
+
+Not significant does not mean no effect. Our test has low power: the standard error of the Sharpe difference over 28 years is about 0.12 to 0.14, so a gain of 0.10 is below one standard error.
+
+%======================================================================
+\subsection{Questions on our design choices}
+
+\subsubsection*{Question 3: Validation independent of design exploration}
+\begin{question}
+Validation Independent of Design Exploration: The 1998 start date, weight caps, and comparison rules were determined during exploration of the same dataset, and the multiple-testing correction did not cover the entire search. If the design were fixed before evaluation on a separate period or market, would the finding that ``risk becomes more stable but Sharpe-ratio gains are not significant'' still hold?
+\end{question}
+Partly. We ran the same rule on 1975--1997, which we had not used to design anything; every parameter comes from earlier data (GARCH refitted each January from 1970, GJR and GARCH-LSTM from the training run, which starts in 1975, and $c$ reset each January on past months). We also ran 1975--2025 and swept the start year from 1975 to 2010 (Question 10).
+
+Over 1975--1997, the risk benefits keep their direction but are not significant: the drawdown at equal volatility is 11 to 12 points smaller ($p$ 0.28 to 0.29) and vol of vol 0.8 to 1.2 points lower ($p$ 0.07 to 0.27). The Sharpe ratio, however, is worse than buy and hold: 0.50 to 0.53 against 0.665, a gap of $-$0.14 to $-$0.16 ($p$ 0.05 to 0.16). No Sharpe gain is significant in any window, and before 1998 one forecast (GJR-GARCH) is even significantly worse at the 5\% level before correction. Over 1975--2025, the Sharpe gain is $-$0.02 to $-$0.04 and the drawdown gain $+$16 to $+$24 points ($p$ 0.09 to 0.13).
+
+So the finding holds in a weaker form: risk is lower in every window, but not always significantly, and the Sharpe gain is never significant. This is not a clean holdout: it is the same country, the rule comes from Moreira and Muir, whose sample includes these years, and we built the pipeline after seeing 1998--2025. A truly separate test would use another market, for example the developed-market factors of the French library.
+
+\subsubsection*{Question 10: Why start in 1998?}
+\begin{question}
+The source data goes back to 1963 -- why specifically start the test window in 1998? Curious whether this was to lock in a window that happened to show at least some significant results.
+\end{question}
+The fair answer is that the window was chosen after exploring the same data, and we say so on our caveats slide; it was not pre-registered. We fixed 1998--2025 so that every parameter comes from pre-1998 data (GARCH from 1970, $c$ from 1970--1997, the VIX rules from 1990--1997, VIX only starting in 1990), leaving 28 test years. But 1998 did not buy us significance. Sharpe gain over buy and hold by start year, to 2025:
+\begin{center}\small
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lcccc@{}}
+\toprule
+Start & RV & GARCH & GJR & GARCH-LSTM\\
+\midrule
+1975 & $-$0.02 & $-$0.03 & $-$0.04 & $-$0.04\\
+1985 & $+$0.08 & $+$0.07 & $+$0.04 & $+$0.05\\
+1995 & $+$0.12 & $+$0.12 & $+$0.11 & $+$0.11\\
+1998 & $+$0.10 & $+$0.09 & $+$0.08 & $+$0.08\\
+2000 & $+$0.13 & $+$0.12 & $+$0.10 & $+$0.09\\
+2010 & $-$0.02 & $+$0.01 & $-$0.02 & $-$0.01\\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{center}
+1998 is not the best start date: starting in 1995 or 2000 gives larger gains. No Sharpe gain is significant in our window ($p$ 0.44 to 0.51), and earlier starts weaken the case for timing rather than strengthen it. The one significant result, vol of vol, is sensitive to the start date: $p$ 0.005 to 0.033 from 1998, 0.002 to 0.039 from 1985, 0.04 to 0.65 from 1975, and 0.09 to 0.13 over 2016--2025. Its direction always favours timing, so we read it as supportive, not conclusive.
+
+\subsubsection*{Question 4: Why French data rather than the course CRSP file, and is 2000--2020 significant?}
+\begin{question}
+Why did you run the main test on the Ken French data (1963--2025) rather than the course CRSP file (2000--2020)? Over 2000--2020 alone, the timed portfolios have a Sharpe of 0.53--0.57 against 0.435 for the market. Is that difference significant?
+\end{question}
+The reason is data. The course file is a monthly stock file, so it has no daily returns: we cannot compute realised variance (a sum of squared daily returns) or fit a daily GARCH on it. The French file gives daily returns of the CRSP value-weighted market from 1963, which is the same CRSP index, so we get 336 test months instead of 251 and a long training history.
+
+Over February 2000--December 2020, the difference is not significant. In the final version of our analysis the timed Sharpe ratio is 0.558 to 0.562 (RV 0.558, GARCH 0.560, GJR 0.562, GARCH-LSTM 0.560; \VIX{} 0.522) against 0.435, gains of $+$0.09 to $+$0.13, with bootstrap $p$ 0.38 to 0.48 and Ledoit--Wolf $p$ 0.41 to 0.48. A $p$ of 0.4 means that, if there were no true difference, a gap this large would appear about 40\% of the time by chance. With only 21 years the test has little power, so we say not significant, not no effect.
+
+\subsubsection*{Question 9: Missing prices in the equal-weighted stock benchmark}
+\begin{question}
+For the equal-weighted stock benchmark, how were stocks with missing prices handled each month? Did you check how sensitive the results were to that treatment?
+\end{question}
+Each month the benchmark averages the return of every stock that has a price at the end of last month and this month. The return is the change in the adjusted price (\texttt{ADJ\_PRC}), which includes dividends and splits (checked: Microsoft in November 2004 shows $+$6.9\%, matching its total return with the special dividend). A stock without a price this month drops out for that month (about 0.7\% of last month's holdings on average), and we have no delisting returns.
+
+We checked a few treatments over February 2000--December 2020. Requiring a price two months back changes the Sharpe ratio only from 0.497 to 0.474. Two other diagnostics show that the equal-weighted average is driven by a few extreme returns: winsorising each month at 1\% and 99\% gives 0.367, and the median stock earned almost nothing. These are diagnostics, not alternative benchmarks: the median stock is not a portfolio, and dropping returns beyond $\pm$100\% would remove only large gains, since a return cannot fall below $-$100\%, so it lowers the Sharpe ratio by construction.
+
+The standard check for missing prices, assigning a delisting return such as $-$30\% (Shumway, 1997), is not done yet. Since delisted stocks often fall before they disappear, the benchmark probably overstates what an equal-weighted investor earned. It only matters for the other-benchmarks comparison, where a lower CRSP Sharpe ratio would favour timing, not hurt it.
+
+\subsubsection*{Question 12: Why time each factor separately instead of using cross-factor covariance?}
+\begin{question}
+You timed each of the six factors separately. My understanding is real portfolio management typically allocates risk budgets using the full covariance structure across factors. You didn't use cross-factor covariance, treating each factor as an independent single asset -- is there a reason for not using this covariance-based design?
+\end{question}
+The six factors were used to repeat the Q3 test six times, not to build a portfolio. Our question is about the volatility forecast, and the GARCH-LSTM we test is univariate, so we followed Moreira and Muir and Barroso and Santa-Clara, who time each factor on its own.
+
+To see whether the design matters, we compared four portfolios over 1998--2025: the untimed equal-weighted mix (Sharpe 0.714); inverse-volatility risk parity with 36-month trailing volatility (0.672); one timing rule applied to the whole mix using the mix's own realised variance (0.580); and the equal-weighted average of the six separately timed factors (0.847, volatility 3.1\%, worst drawdown $-$5.9\%). That last gain over the untimed mix ($+$0.13) is not significant ($p$ 0.40) and comes mostly from momentum, where timing adds $+$0.35 of Sharpe; the other factors range from $-$0.19 to $+$0.09.
+
+The factors are almost uncorrelated on average (average pairwise correlation $-$0.006). But an average correlation near zero can hide correlations that rise in crises, which is when a covariance-based allocation would matter most; our exposure chart shows the models cutting every factor together in crises. A forecast covariance matrix (for example DCC-GARCH) with risk budgets across factors is the natural extension, and we have not done it.
+
+%======================================================================
+\subsection{Questions on accuracy and the recovery months}
+
+\subsubsection*{Question 13: How similar are the accuracy ranking and the Sharpe ranking?}
+\begin{question}
+Regarding Q2: How similar is the ranking by forecast accuracy to the ranking by Sharpe ratio? Did you calculate it?
+\end{question}
+Yes, with the Spearman rank correlation: $+1$ if the two rankings are in the same order, $-1$ if they are exactly opposite, 0 if unrelated.
+\begin{center}\small
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}cll@{}}
+\toprule
+Rank & By accuracy (QLIKE, lower is better) & By Sharpe ratio\\
+\midrule
+1 & \VIX{} 0.275 & RV 0.612\\
+2 & GARCH-LSTM 0.280 & GARCH 0.608\\
+3 & GJR 0.284 & GARCH-LSTM 0.5972\\
+4 & GARCH 0.297 & GJR 0.5965\\
+5 & RV 0.454 & \VIX{} 0.545\\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{center}
+The rankings are almost reversed: the rank correlation is $-$0.9 across the five forecasts. By luck alone, a reversal this strong among five items happens about 4\% of the time (one-sided), and the forecasts are not independent draws. The pattern is driven by the two controls, which sit at opposite ends. Across the three models (GARCH, GJR, GARCH-LSTM) the rank correlation is only $-$0.5: GARCH, the least accurate model, has the highest Sharpe ratio, but GJR and the GARCH-LSTM are tied on both measures. So it is a clear pattern across the five forecasts, not proof that accuracy causes a lower Sharpe ratio, and among the models the differences are too small to rank.
+
+\subsubsection*{Question 20: Why didn't the more accurate forecast give a higher Sharpe?}
+\begin{question}
+Forecast Accuracy: In your presentation, you identified that the GARCH-LSTM model was the most accurate forecaster of the three GARCH models, but its performance in the portfolio was not as strong as the other two models. What do you think is the reason why a more accurate volatility prediction did not result in a higher Sharpe ratio?
+\end{question}
+In the final version of our analysis, in which every model is trained on the same data from 1963, the GARCH-LSTM is only slightly more accurate than GJR-GARCH (QLIKE 0.280 against 0.284) and has the same Sharpe ratio (0.597), both below GARCH(1,1) (0.608). The clearest case is now \VIX: the most accurate forecast gives the lowest Sharpe ratio (0.545), and the least accurate, last month's RV, the highest (0.612).
+
+The reason is that the rule only uses information about variance, and the Sharpe ratio also depends on returns. We split the timed Sharpe ratio into variance timing (VT) and mean timing (MT). VT is 1.21 to 1.29 for every forecast, so the risk side always works. But MT falls from 1.006 for RV to 0.97 for GARCH, 0.95 for GJR and the GARCH-LSTM, and 0.90 for \VIX.
+
+The mechanism: the rule treats the expected return as constant, so a sharper variance forecast makes exposure react more strongly to variance and cuts more in high-variance months. Returns are not predictable (every return predictor we tried does worse than the historical average), and the high-variance months include the best-paying recovery months. \VIX{} carries the most variance information (out-of-sample $R^2$ of 57\% against 53\% to 54\% for the models and 47\% for RV), which is exactly why it cuts exposure most.
+
+This is not a problem with the accuracy measure. Question 16 shows that even when accuracy is measured in positions, the ranking is still almost the reverse of the Sharpe ranking. Even a perfect variance forecast would only reproduce a variance-only target, and that target misses the recovery months. The limit is the rule's information, not the loss function. With five forecasts this is an association, not proof.
+
+\subsubsection*{Question 16: Does the cap change the accuracy ranking?}
+\begin{question}
+Exposure is set based on the inverse of the forecast variance, with a cap of 1.5. Because of the cap, two different forecasts can end up giving the same position. Apart from overall forecast error, does the accuracy ranking of the forecasts (RV, GARCH, GJR-GARCH, GARCH-LSTM and VIX2) stay the same if you only look at months where forecast errors materially change the position?
+\end{question}
+Mostly yes. We ran two checks over 1998--2025. (1) We kept only the 171 of 336 months where none of the five forecasts is at the cap and recomputed QLIKE: GARCH-LSTM 0.281, GJR 0.283, \VIX{} 0.290, GARCH 0.319, RV 0.395. The order is the same as on the full sample except that \VIX{} drops from first to third, and the rank correlation with the Sharpe ratio is still $-$0.6.
+
+(2) We measured accuracy directly in positions: for each forecast, the average squared gap between the exposure it chose and the exposure the rule would have chosen knowing that month's realised variance, capped the same way. \VIX{} 0.131, GARCH-LSTM 0.145, GJR 0.152, GARCH 0.159, RV 0.189: almost the reverse of the Sharpe order (rank correlation $-$0.9). The cap binds in 65 months for GARCH, 83 for GJR, 85 for RV, 86 for the GARCH-LSTM and 160 for \VIX, almost half the sample.
+
+So the ranking survives, and the paradox is not a cap effect: the forecasts whose positions are closest to the variance-optimal position earn the lowest Sharpe ratio. The realised-variance position is a yardstick that uses that month's variance, not a strategy anyone could trade.
+
+\subsubsection*{Question 6: Recovery months return 1.59\%, but holding full exposure lowers the Sharpe}
+\begin{question}
+You showed that recovery months return 1.59\% a month while the rule holds only 0.35 of the market. Yet holding at least full exposure in those months lowers the Sharpe from 0.61 to 0.59. How do you reconcile these two results?
+\end{question}
+States use data known at the start of each month. Normal: last month's variance at or below its own 80th percentile. Panic: above it, with the 5-day variance still above the 63-day variance. Recovery: above it, with the 5-day variance below the 63-day variance.
+\begin{center}\small
+\begin{adjustbox}{max width=\linewidth}\begin{tabular}{@{}lccccc@{}}
+\toprule
+State, 1975--2025 & Months & Market return, \%/month & Std dev, \%/month & Return per risk, annualised & Avg exposure\\
+\midrule
+Normal & 434 & 0.64 & 3.8 & 0.58 & 1.20\\
+Panic & 81 & 0.37 & 5.8 & 0.22 & 0.34\\
+Recovery & 97 & 1.59 & 5.8 & 0.95 & 0.35\\
+\bottomrule
+\end{tabular}\end{adjustbox}
+\end{center}
+The two numbers come from different samples. The 1.59\% is the average over 1975--2025. The Sharpe test runs on 1998--2025, where the 74 recovery months average only 1.08\% with a standard deviation of 6.1\%, a return per unit of risk of about 0.61, barely above normal months (0.58) and far below the 0.95 of the full sample.
+
+In our test window, then, raising exposure from 0.35 to at least 1 in recovery months adds risk without adding return per unit of risk. It adds 1.8 points of return a year (6.7\% to 8.6\%) but 3.5 points of volatility (11.0\% to 14.5\%) and doubles the worst drawdown ($-$21\% to $-$43\%), because some recovery months keep falling. The Sharpe ratio moves from 0.612 to 0.590, a difference that is not significant ($p$ 0.83).
+
+The 1.59\% is also imprecise: with 97 months and a standard deviation of 5.8\%, its 95\% interval is about $\pm$1.2 points, and the gap to normal months is only about 1.5 standard errors. Both facts are true: recovery months paid well over the long sample, but not reliably enough to justify the extra risk in ours. The fix was chosen after seeing the pattern, so it is a diagnostic, not a strategy we recommend.
+
+\subsubsection*{Question 21: Daily or weekly signals}
+\begin{question}
+Improving the Timing Strategy: The volatility timings strategy was better in all the financial crises periods but worse in the periods of sudden market declines and fast recovery periods. Would you think that if you used more frequent trading signals like daily or weekly signals, as opposed to monthly signals, the strategy would be better, and what other potential risks and trading costs would be involved?
+\end{question}
+We have not tested it. Faster signals would react sooner to sudden falls such as Q4 2018 and Covid, and could re-enter earlier in rebounds, which is where the monthly rule loses most. The cost is turnover: we trade 3.3 to 3.8 units of exposure a year at 10 bp, about 0.35\% a year. As an illustration, if turnover rose tenfold, costs would reach about 3.5\% a year, more than the 1.7 to 1.8\% CER gain. Other risks: noisier signals and whipsaw, wider spreads in exactly the turbulent days we would trade, and one more setting, the frequency, tuned on the same data. Our first step would be to rerun weekly with the same 10 bp costs and report turnover next to the Sharpe ratio, with a no-trade band to limit costs.
+
+%======================================================================
+\subsection{Questions on training, significance and overfitting}
+
+\subsubsection*{Question 2: Consistency between training and trading rules}
+\begin{question}
+Consistency Between Training and Trading Rules: Dec increased the Sharpe ratio for four of six factors, but improved its own utility objective for only two. Your team explained that c is selected once per fit during training but reset annually during evaluation, and that monthly forecasts are derived by extending daily predictions. If these differences were removed and training and trading rules aligned, would the conclusion that Dec has only limited incremental value still hold?
+\end{question}
+Yes, and more strongly. We retrained both models with the rules aligned: inside the decision loss, $c$ is now reset every January on the model's own earlier path, exactly as when the forecast is traded, so Dec is trained for the rule it trades. The revised run also uses a five-year validation block before each test year, a fresh initialisation every year and the same 1963 data for every factor (\refdesign).
+
+With aligned training, the decision-trained GARCH-LSTM improves its own out-of-sample objective on 2 of 6 factors (average $-$0.45\% a year) and the Sharpe ratio also on only 2 of 6 (average $-$0.02, against $+$0.03 on 4 of 6 before), and nothing survives the Romano--Wolf adjustment. So Dec's limited value was not an artefact of the $c$ mismatch.
+
+Two caveats. The second mismatch remains: the network is trained on a one-day-ahead forecast that we carry over 21 trading days, but this affects Acc and Dec alike. And several things changed at once between the two runs, so we cannot attribute the change in Dec's results to the alignment of $c$ alone.
+
+\subsubsection*{Question 14: Could the $c$ difference matter, and which $p$-value is before correction?}
+\begin{question}
+Regarding Q3: The way c was chosen differs between training and evaluation. Could that difference have affected the results? Which of p = 0.39 and p = 0.048 is the value before the correction?
+\end{question}
+In the earlier run, $p=0.048$ was the raw bootstrap $p$-value for the best case, RMW with the GARCH-LSTM (Dec against Acc, $+$0.15 of Sharpe), and $p=0.39$ the same test after the Romano--Wolf correction across 12 comparisons, which accounts for picking the best of many.
+
+The $c$ difference could matter, so we removed it (Question 2). In the aligned run RMW is still Dec's best case, but smaller: $+$0.11 of Sharpe, raw $p=0.25$, Romano--Wolf $p=0.83$. The smallest corrected $p$-value among the 12 comparisons is now 0.11, for GJR on SMB, where Dec is worse. The average Dec effect ($-$0.02 of Sharpe for the GARCH-LSTM) is far inside the noise of a 28-year test.
+
+\subsubsection*{Question 7: Why did optimising investor utility fail?}
+\begin{question}
+Why did directly optimizing investment utility fail to produce consistent out-of-sample improvements? Which explanation do you consider most likely: overfitting, training instability, or changing market conditions?
+\end{question}
+Most likely overfitting, made worse by training instability; changing market conditions cannot be ruled out.
+
+\textit{Overfitting:} Dec improved its own out-of-sample objective on only 2 of 6 series, and is worse on average. A model that had truly learned a better decision rule should win on the objective it was trained for. Its utility depends on realised returns, which are close to unpredictable, so training largely fits the noise of the training years.
+
+\textit{Instability:} Dec is much less stable than Acc. For the GARCH-LSTM, the spread across seeds in the log forecast is 0.27 to 0.67 for Dec against 0.02 to 0.07 for Acc, and the spread in per-seed Sharpe ratios is 0.016 to 0.068 against 0.002 to 0.021. That is why we average five seeds.
+
+\textit{Changing conditions:} when we split the sample into 1998--2015 and 2016--2025, Dec minus Acc in the Sharpe ratio is negative in both halves for the market ($-$0.02, then $-$0.10), SMB and HML. Where Dec helps, it helps in one half only: RMW ($+$0.22, then $-$0.16), CMA ($-$0.03, then $+$0.17) and momentum ($-$0.04, then $+$0.01). Gains that do not persist fit noise in training, but they are also what changing conditions would produce, so we cannot separate the two.
+
+Overfitting is an inference from these symptoms. The direct test, the gap between in-sample and out-of-sample objective for Dec against Acc, has not been run.
+
+\subsubsection*{Question 18: Sharpe or own objective, and how was $\gamma$ chosen?}
+\begin{question}
+The GARCH-LSTM trained on investor utility improved the Sharpe ratio for four of the six factors, but its own utility objective for only two. Since these are different measures, which one do you use to judge whether the model worked? Also, was the risk-aversion coefficient chosen in advance for a target investor, or picked by comparing values on a separate validation period?
+\end{question}
+We judge Dec first on its own objective, the average of $z_t$ minus $\frac{\gamma}{2}$ times the average of $z_t^2$, with $\gamma=5$ (\refutility), out of sample, because that is what Dec was built to maximise. The Sharpe ratio is secondary. In the final, aligned run, Dec beats Acc on its own objective on 2 of 6 series and on the Sharpe ratio also on 2 of 6 (average $-$0.02); nothing survives the multiple-testing correction. So on either measure the answer is the same: it did not work.
+
+$\gamma=5$ was fixed in advance, before any results (the proposal says ``fixed a priori''), as a conventional value for a moderately risk-averse investor. It was not picked on a validation period. The validation block, the five calendar years before each test year, is used only to choose when to stop training and which checkpoint to keep, and never comes from the test period. We did not test sensitivity to $\gamma$, and a different $\gamma$ would give a different Dec model.
+
+\subsubsection*{Question 15: Would a GARCH-LSTM trained from 1963 give the same results?}
+\begin{question}
+Data conditions: If GARCH-LSTM were also trained on data starting from 1963, would the results be the same?
+\end{question}
+We reran it. In the earlier run the GARCH-LSTM was trained on daily data from 1926 for the market, while GARCH and GJR were fitted from July 1963, so the comparison in Q2 was not on equal data. The final run trains GJR and the GARCH-LSTM on the same files from July 1963 for all six factors.
+
+On the same data, the GARCH-LSTM's accuracy advantage mostly disappears (QLIKE 0.280 against 0.251 before, and 0.284 for GJR), and its Sharpe ratio rises to 0.597 (from 0.564), level with GJR and still below GARCH(1,1) and RV. The Q2 conclusion holds across the five forecasts, but among the three models the extra accuracy of the network is now too small to test. For Q3, Dec minus Acc turns from $+$0.03 to $-$0.02 of Sharpe on average. The validation scheme, the initialisation and the treatment of $c$ in training changed at the same time, so these differences cannot be attributed to the shorter history alone.

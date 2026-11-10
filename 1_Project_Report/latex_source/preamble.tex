@@ -1,0 +1,90 @@
+% ---------- fonts: Times text and math, Helvetica sans, Courier mono ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{courier}
+\usepackage{textcomp}
+\usepackage[expansion=false]{microtype}
+
+% ---------- page layout ----------
+\usepackage[a4paper,margin=1in,headheight=14pt]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1.5em}
+\setlength{\emergencystretch}{2em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\itshape Decision-Focused Volatility Timing}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% ---------- headings ----------
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\itshape}{}{0em}{}
+\titleformat{\paragraph}[runin]{\normalfont\normalsize\itshape}{}{0em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus 1ex minus .2ex}{0.8ex plus .2ex}
+\titlespacing*{\subsubsection}{0pt}{1.5ex plus .5ex minus .2ex}{0.5ex}
+\titlespacing*{\paragraph}{0pt}{1.0ex plus .5ex minus .2ex}{0.6em}
+
+% ---------- maths, tables, figures ----------
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,multirow,array}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{caption}
+\captionsetup{font={small,singlespacing}, labelfont=bf, labelsep=period, justification=justified, singlelinecheck=true}
+\captionsetup[table]{position=top, skip=6pt}
+\captionsetup[figure]{skip=6pt}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[section]{placeins}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\abovecaptionskip}{6pt}
+\setlength{\textfloatsep}{14pt plus 2pt minus 4pt}
+
+% ---------- lists, colour, diagrams, links ----------
+\usepackage{enumitem}
+\setlist{itemsep=1pt, topsep=3pt, parsep=0pt}
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{1F3A80}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,shapes.misc,arrows.meta,positioning,calc}
+\usepackage[colorlinks=true, linkcolor=linkblue, citecolor=linkblue, urlcolor=linkblue]{hyperref}
+\urlstyle{same}
+
+% ---------- unicode in the source ----------
+\usepackage{newunicodechar}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{²}{\textsuperscript{2}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{√}{\ensuremath{\surd}}
+
+% ---------- project macros ----------
+\newcommand{\VIX}{VIX\textsuperscript{2}}
+% questions: left-aligned, "Question." then the examiner's text, then "Answer." runs into our reply
+\newenvironment{question}{\par\smallskip\noindent\textbf{Question.}\ \itshape}{\par\smallskip\noindent\upshape\textbf{Answer.}\ \ignorespacesafterend}
+\newcommand{\tablenote}[1]{\par\smallskip\parbox{\linewidth}{\footnotesize\singlespacing #1}}
+
+% appendices: "Appendix A. Title", on their own pages
+\newcommand{\startappendices}{%
+  \clearpage
+  \appendix
+  \titleformat{\section}{\normalfont\large\bfseries}{Appendix \thesection.}{0.6em}{}
+  \begin{center}\normalfont\Large\bfseries Appendices\end{center}
+  \addcontentsline{toc}{section}{Appendices}
+  \vspace{1ex}}

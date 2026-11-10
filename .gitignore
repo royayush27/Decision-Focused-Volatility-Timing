@@ -1,6 +1,10 @@
 __pycache__/
-*.pyc
-.idea/
 .ipynb_checkpoints/
-# GARCH forecasts are re-created by the scripts; results/<spec>/ are kept so readers can see the outputs
-results/cache/
+*.aux
+*.log
+*.out
+2_Code_and_Data/DFVT_code_and_data/figures/
+2_Code_and_Data/DFVT_code_and_data/figures_paper/
+2_Code_and_Data/DFVT_code_and_data/results/
+2_Code_and_Data/DFVT_code_and_data/*output.txt
+2_Code_and_Data/DFVT_code_and_data/data/IFE_term_stock_data.csv*

@@ -1,0 +1,47 @@
+\definecolor{qnavy}{HTML}{1F3A5F}
+\definecolor{qteal}{HTML}{3E6D96}
+\definecolor{qred}{HTML}{EEF1F5}
+\definecolor{qblue}{HTML}{DCE6F2}
+\definecolor{qolive}{HTML}{4A4A4A}
+\definecolor{qorange}{HTML}{555555}
+\begin{tikzpicture}[font=\footnotesize, node distance=6mm,
+  term/.style={rounded rectangle, fill=qolive, text=white, align=center, minimum width=3.2cm, inner sep=4pt},
+  dia/.style={diamond, aspect=2.1, fill=qnavy, text=white, align=center, inner sep=1pt, text width=2.9cm},
+  dteal/.style={dia, fill=qteal},
+  box/.style={rectangle, fill=qred, draw=qnavy!45, text=black, align=center, text width=4.0cm, inner sep=3pt, font=\scriptsize},
+  para/.style={trapezium, trapezium left angle=75, trapezium right angle=105, fill=qblue, draw=qnavy!45, text=black, align=center, text width=3.4cm, inner sep=2pt, font=\scriptsize},
+  arr/.style={-{Latex[length=2mm]}, qorange, thick},
+  lab/.style={text=qorange, font=\scriptsize\itshape, align=left}]
+\node[term] (q) {QUESTION\\ \scriptsize Does volatility timing\\ \scriptsize work in real time?};
+\node[dia, below=6mm of q] (collect) {Collect data\\ \scriptsize dated before the decision};
+\node[dia, below=7mm of collect] (fc) {Forecast next-month\\ market variance $\hat v_t$};
+\node[dteal, below=7mm of fc] (train) {How is the\\ forecast trained?\\ (Q3)};
+\node[dia, below=9mm of train] (set) {Set exposure\\ $w_t=\min(c_t/\hat v_t,\,1.5)$};
+\node[dia, below=7mm of set] (hold) {Hold for one month\\ \scriptsize market + T-bills};
+\node[dia, below=7mm of hold] (eval) {Evaluate against\\ buy and hold\\ \scriptsize (S\&P 500 proxy)};
+\node[term, below=6mm of eval] (ans) {ANSWER\\ \scriptsize A risk tool, not a return engine};
+\foreach \a/\b in {q/collect, collect/fc, fc/train, train/set, set/hold, hold/eval, eval/ans} \draw[arr] (\a) -- (\b);
+% right-hand boxes
+\node[box, right=8mm of collect] (b1) {Daily \& monthly returns, 1963--2025: US market (CRSP VW) and 5 Fama--French factors; VIX; 1-month T-bill};
+\node[box, right=8mm of fc, yshift=5mm] (b2) {Models: GARCH(1,1); GJR-GARCH and GARCH-LSTM (5-seed ensemble), one training run};
+\node[box, below=1mm of b2] (b3) {Controls: last month's RV, \VIX};
+\node[para, right=8mm of train, yshift=5mm] (acc) {\textbf{Acc}: quasi-likelihood of daily returns};
+\node[para, below=1.5mm of acc] (dec) {\textbf{Dec}: investor utility of the timed portfolio, with the rule inside the loss};
+\node[box, right=8mm of set] (b4) {$c_t$ reset every January: capped strategy matches buy-and-hold volatility on past data};
+\node[box, right=8mm of hold] (b5) {10\,bp per unit of exposure traded; leverage $\le 0.5$ at the risk-free rate};
+\node[box, right=8mm of eval, yshift=5mm] (b6) {Return, volatility, Sharpe, Sortino, max drawdown, CER; sub-periods and 6 crises};
+\node[box, below=1mm of b6] (b7) {Block bootstrap, Ledoit--Wolf and Romano--Wolf tests};
+\draw[arr] (collect.east) -- (b1.west);
+\draw[arr] (fc.east) -- ++(3mm,0) |- (b2.west);
+\draw[arr] (fc.east) -- ++(3mm,0) |- (b3.west);
+\draw[arr] (train.east) -- ++(3mm,0) |- (acc.west);
+\draw[arr] (train.east) -- ++(3mm,0) |- (dec.west);
+\draw[arr] (set.east) -- (b4.west);
+\draw[arr] (hold.east) -- (b5.west);
+\draw[arr] (eval.east) -- ++(3mm,0) |- (b6.west);
+\draw[arr] (eval.east) -- ++(3mm,0) |- (b7.west);
+\draw[arr, dashed] (dec.south) -- ++(0,-3mm) -| ($(train.south)!0.55!(set.north)$) node[lab, pos=0.25, below] {Dec: same rule, cap, costs and January $c$};
+% feedback loops on the left
+\draw[arr] (hold.west) -- ++(-12mm,0) |- (fc.west) node[lab, pos=0.25, right] {next month:\\ new forecast};
+\draw[arr] (eval.west) -- ++(-24mm,0) |- (collect.west) node[lab, pos=0.25, left] {every January:\\ refit models\\ on past data};
+\end{tikzpicture}
